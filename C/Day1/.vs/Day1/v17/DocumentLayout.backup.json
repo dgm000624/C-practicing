@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Work\\C\\Day1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A9E173D4-5852-4E1B-8802-0C6A6150658F}|Day1\\Day1.vcxproj|D:\\Work\\C\\Day1\\Day1\\val4.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A9E173D4-5852-4E1B-8802-0C6A6150658F}|Day1\\Day1.vcxproj|solutionrelative:Day1\\val4.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9E173D4-5852-4E1B-8802-0C6A6150658F}|Day1\\Day1.vcxproj|D:\\Work\\C\\Day1\\Day1\\val3.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A9E173D4-5852-4E1B-8802-0C6A6150658F}|Day1\\Day1.vcxproj|solutionrelative:Day1\\val3.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9E173D4-5852-4E1B-8802-0C6A6150658F}|Day1\\Day1.vcxproj|D:\\Work\\C\\Day1\\Day1\\val2.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A9E173D4-5852-4E1B-8802-0C6A6150658F}|Day1\\Day1.vcxproj|solutionrelative:Day1\\val2.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9E173D4-5852-4E1B-8802-0C6A6150658F}|Day1\\Day1.vcxproj|D:\\Work\\C\\Day1\\Day1\\Hello.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A9E173D4-5852-4E1B-8802-0C6A6150658F}|Day1\\Day1.vcxproj|solutionrelative:Day1\\Hello.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "val4.c",
+              "DocumentMoniker": "D:\\Work\\C\\Day1\\Day1\\val4.c",
+              "RelativeDocumentMoniker": "Day1\\val4.c",
+              "ToolTip": "D:\\Work\\C\\Day1\\Day1\\val4.c",
+              "RelativeToolTip": "Day1\\val4.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-08-05T07:12:45.302Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "val3.c",
+              "DocumentMoniker": "D:\\Work\\C\\Day1\\Day1\\val3.c",
+              "RelativeDocumentMoniker": "Day1\\val3.c",
+              "ToolTip": "D:\\Work\\C\\Day1\\Day1\\val3.c",
+              "RelativeToolTip": "Day1\\val3.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-08-05T07:03:15.416Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "val2.cpp",
+              "DocumentMoniker": "D:\\Work\\C\\Day1\\Day1\\val2.cpp",
+              "RelativeDocumentMoniker": "Day1\\val2.cpp",
+              "ToolTip": "D:\\Work\\C\\Day1\\Day1\\val2.cpp",
+              "RelativeToolTip": "Day1\\val2.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-08-05T06:07:52.264Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Hello.c",
+              "DocumentMoniker": "D:\\Work\\C\\Day1\\Day1\\Hello.c",
+              "RelativeDocumentMoniker": "Day1\\Hello.c",
+              "ToolTip": "D:\\Work\\C\\Day1\\Day1\\Hello.c",
+              "RelativeToolTip": "Day1\\Hello.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-08-05T04:46:22.144Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
