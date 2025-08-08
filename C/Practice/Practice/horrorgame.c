@@ -9,6 +9,7 @@ int issurvive(int selec, const int conti);
 int horrorscene(const int size);
 void intro(const int size);
 void story1();
+void story2();
 void termspeak(const char* speak);
 void voidget(const int repeat);
 int hidden(int timer, const char input);
@@ -17,8 +18,8 @@ void change_color(const char color[]);
 void back_text(const int num);
 void location(const int n, const int t);
 
-int main()					
-{							
+int main()
+{
 	int continu;
 
 	continu = maze2(1, "함정의 저택에 남겨졌다.", "구조대를 기다린다", "저택을 탐험한다", "구조대의 발소리가 들린다", "수면가스에 맞아버렸다", 1);
@@ -62,7 +63,14 @@ int maze2(int survive, const char intro[], const char sec1[], const char sec2[],
 		scanf_s("%d", &select);
 		printf("\n");
 
-		change_color("yellow");
+		if (select == conti)
+		{
+			change_color("yellow");
+		}
+		else
+		{
+			change_color("red");
+		}
 
 		if (select == 1)
 		{
@@ -109,94 +117,14 @@ int issurvive(int select, const int conti)
 	return survive;
 }
 
-// horror
+// 칼 줍기 이후 코드
 int horrorscene(const int size)
 {
 	intro(size);
 
-	change_color("red");
-	for (int i = 0; i < 200; i++)
-	{
-		for (int k = 0; k < 40; k++)
-		{
-			printf("드디어");
-		}
-	}
+	story1();
 
-	Sleep(5000);
-
-	system("cls");
-	location(13, 7);
-	printf(" 찾았다.");
-	location(10, 0);
-
-	Sleep(1000);
-	while (_kbhit()) _getch();
-	voidget(1);
-
-	printf("\n당신은 사망했습니다..\n");
-
-	const char regression[] = "\n사망 시점으로 되돌아갑니다.";
-
-	printf("%s", regression);
-	Sleep(1500);
-	for (int i = 0; i < strlen(regression); i++)
-	{
-		back_text(1);
-		Sleep(70);
-	}
-
-	Sleep(300);
-	location(1, 6);
-
-	const char str[] = "어딜도망가는거야?\n\n";
-	while (_kbhit()) _getch();
-	termspeak(str);
-
-	int timer = 10;
-	int cnt = 0;
-	const char help[] = "help";
-	while (1)
-	{
-		if (timer <= 0)
-		{
-			change_color("yellow");
-			location(0, 13);
-			printf("help를 눌러");
-			change_color("red");
-		}
-		
-		
-		while (_kbhit()) _getch();
-		_flushall();
-		int input = getch();
-		cnt = roop(help, input, cnt);
-
-		if (cnt == 4)
-		{
-			system("cls");
-			location(13, 5);
-			printf("... 눈 앞에");
-			change_color("yellow");
-			printf("칼");
-			change_color("red");
-			printf("이 떨어져있다...");
-			location(10, 0);
-			while (1)
-			{
-				voidget(5);
-			}
-			break;
-		}
-
-		back_text(20);
-		location(1, 5);
-		printf("%c를 눌러도 소용없어\n", input);
-		timer--;
-		
-	}
-
-
+	story2();
 
 }
 
@@ -279,7 +207,7 @@ void back_text(const int num)
 	}
 }
 
-//maze이후 칼을 들기까지의 코드
+//maze2 이후 칼 드는 부분 코드
 void intro(const int size)
 {
 	printf("당신은 ");
@@ -305,7 +233,7 @@ void intro(const int size)
 	voidget(3);
 }
 
-//일단 horrorscene 분해 용으로 만들었는데 분리가 애매해서 만들기만 한 코드
+//붉은 글씨 등장 이후 무한 반복 부분 이전 코드
 void story1()
 {
 	change_color("red");
@@ -346,6 +274,52 @@ void story1()
 	const char str[] = "어딜도망가는거야?\n\n";
 	while (_kbhit()) _getch();
 	termspeak(str);
+}
+
+//콘솔에 help를 치지 않으면 루프에 갖히게함. 단 헬프를 입력해도 칼 드는 코드 이후는 루프
+void story2() {
+	int timer = 10;
+	int cnt = 0;
+	const char help[] = "help";
+	while (1)
+	{
+		if (timer <= 0)
+		{
+			change_color("yellow");
+			location(0, 13);
+			printf("help를 눌러");
+			change_color("red");
+		}
+
+
+		while (_kbhit()) _getch();
+		_flushall();
+		int input = getch();
+		cnt = roop(help, input, cnt);
+
+		if (cnt == 4)
+		{
+			system("cls");
+			location(13, 5);
+			printf("... 눈 앞에");
+			change_color("yellow");
+			printf("칼");
+			change_color("red");
+			printf("이 떨어져있다...");
+			location(10, 0);
+			while (1)
+			{
+				voidget(5);
+			}
+			break;
+		}
+
+		back_text(20);
+		location(1, 5);
+		printf("%c를 눌러도 소용없어\n", input);
+		timer--;
+
+	}
 }
 
 //n만큼 \n, t만큼 \t를 함

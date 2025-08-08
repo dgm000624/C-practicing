@@ -19,8 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="file system.c" />
     <ClCompile Include="find mine.cpp" />
     <ClCompile Include="horrorgame.c" />
+    <ClCompile Include="practice.c" />
     <ClCompile Include="practice2.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

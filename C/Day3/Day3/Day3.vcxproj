@@ -125,9 +125,19 @@
   <ItemGroup>
     <ClCompile Include="arr2.c" />
     <ClCompile Include="ary.c" />
+    <ClCompile Include="ary3.c" />
+    <ClCompile Include="malloc.c" />
     <ClCompile Include="multifly.cpp" />
     <ClCompile Include="pointer.c" />
+    <ClCompile Include="pointer2.c" />
+    <ClCompile Include="pointer3.c" />
     <ClCompile Include="sdf.c" />
+    <ClCompile Include="strcmp.c" />
+    <ClCompile Include="strcpy.c" />
+    <ClCompile Include="strdup.c" />
+    <ClCompile Include="string.c" />
+    <ClCompile Include="strlen.c" />
+    <ClCompile Include="swap.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
