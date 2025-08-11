@@ -3,8 +3,9 @@
 #include <conio.h>
 #include <string.h>
 
-void maze();
-int maze2(int survive, const char intro[], const char sec1[], const char sec2[], const char re1[], const char re2[], const int conti);
+#define BACK(a)		do{for(int i=0; i<a;i++) printf("\b \b");}while(0)
+
+int maze(int survive, const char intro[], const char sec1[], const char sec2[], const char re1[], const char re2[], const int conti);
 int issurvive(int selec, const int conti);
 int horrorscene(const int size);
 void intro(const int size);
@@ -15,16 +16,15 @@ void voidget(const int repeat);
 int hidden(int timer, const char input);
 int roop(const char help[], const char input, int cnt);
 void change_color(const char color[]);
-void back_text(const int num);
 void location(const int n, const int t);
 
 int main()
 {
 	int continu;
 
-	continu = maze2(1, "함정의 저택에 남겨졌다.", "구조대를 기다린다", "저택을 탐험한다", "구조대의 발소리가 들린다", "수면가스에 맞아버렸다", 1);
-	int continu2 = maze2(continu, "구조대를 만났다. 하지만 뭔가 이상하다.", "구조대와 합류한다", "도망친다", "어느순간 몸이 점점 굳어간다", "구조대 형태의 인형들이 쫓아온다", 2);
-	int continu3 = maze2(continu2, "쫓아오는 인형을 어떻게 할까.", "최대한 도망친다", "싸울 무기를 찾는다", "체력이 떨어졌다", "눈 앞에 나이프가 보인다", 2);
+	continu = maze(1, "함정의 저택에 남겨졌다.", "구조대를 기다린다", "저택을 탐험한다", "구조대의 발소리가 들린다", "수면가스에 맞아버렸다", 1);
+	int continu2 = maze(continu, "구조대를 만났다. 하지만 뭔가 이상하다.", "구조대와 합류한다", "도망친다", "어느순간 몸이 점점 굳어간다", "구조대 형태의 인형들이 쫓아온다", 2);
+	int continu3 = maze(continu2, "쫓아오는 인형을 어떻게 할까.", "최대한 도망친다", "싸울 무기를 찾는다", "체력이 떨어졌다", "눈 앞에 나이프가 보인다", 2);
 	int a = horrorscene(10);
 	return 0;
 }
@@ -49,7 +49,7 @@ int main()
 //}
 
 //survive : 생존여부, intro : 첫 상황 설명글, sec1,2 : 선택지 , re1,2 : 선택지에 대한 결과 conti: 계속 진행해도 될지
-int maze2(int survive, const char intro[], const char sec1[], const char sec2[], const char re1[], const char re2[], const int conti)
+int maze(int survive, const char intro[], const char sec1[], const char sec2[], const char re1[], const char re2[], const int conti)
 {
 	int select = 0;
 	survive = 0;
@@ -135,7 +135,7 @@ void termspeak(const char* speak)
 	while (speak[i] != '\0')
 	{
 		printf("%c", speak[i]);
-		Sleep(300);
+		Sleep(200);
 		i++;
 	}
 }
@@ -149,10 +149,10 @@ void voidget(const int repeat)
 	}
 }
 
-//"help"출력 타이밍 조절 및 그 이전까지의 텍스트 출력용. *: back_text는 이전 "help"를 콘솔에서 지우는 용도
+//"help"출력 타이밍 조절 및 그 이전까지의 텍스트 출력용. *: BACK는 이전 "help"를 콘솔에서 지우는 용도
 int hidden(int timer, const char input)
 {
-	back_text(20);
+	BACK(20);
 	location(1, 5);
 	if ((input >= 'a' && input <= 'z') || (input >= 'A' && input <= 'Z') || (input >= '0' && input <= '9')) {
 		printf("%c를 눌러도 소용없어\n", input);
@@ -184,30 +184,22 @@ int roop(const char help[], const char input, int cnt)
 void change_color(const char color[])
 {
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	if (color == "yellow")
+	if (strcmp(color, "yellow") == 0)
 	{
 		SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	}
-	else if (color == "red")
+	else if (strcmp(color, "red") == 0)
 	{
 		SetConsoleTextAttribute(hConsole, FOREGROUND_RED);
 	}
-	else if (color == "white")
+	else if (strcmp(color, "white") == 0)
 	{
 		SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
 	}
 }
 
-// num만큼 글자 지우기
-void back_text(const int num)
-{
-	for (int i = 0; i < num; i++)
-	{
-		printf("\b \b");
-	}
-}
 
-//maze2 이후 칼 드는 부분 코드
+//maze 이후 칼 드는 부분 코드
 void intro(const int size)
 {
 	printf("당신은 ");
@@ -216,15 +208,15 @@ void intro(const int size)
 	change_color("white");
 	printf("을 집어ㄷ");
 	voidget(4);
-	back_text(1);
+	BACK(1);
 	Sleep(1000);
-	back_text(1);
+	BACK(1);
 	Sleep(2000);
-	back_text(1);
+	BACK(1);
 	Sleep(1500);
-	back_text(1);
+	BACK(1);
 	Sleep(3000);
-	back_text((size - 4));
+	BACK((size - 4));
 	Sleep(1500);
 	system("cls");
 
@@ -264,7 +256,7 @@ void story1()
 	Sleep(1500);
 	for (int i = 0; i < strlen(regression); i++)
 	{
-		back_text(1);
+		BACK(1);
 		Sleep(70);
 	}
 
@@ -293,8 +285,7 @@ void story2() {
 
 
 		while (_kbhit()) _getch();
-		_flushall();
-		int input = getch();
+		int input = _getch();
 		cnt = roop(help, input, cnt);
 
 		if (cnt == 4)
@@ -314,7 +305,7 @@ void story2() {
 			break;
 		}
 
-		back_text(20);
+		BACK(20);
 		location(1, 5);
 		printf("%c를 눌러도 소용없어\n", input);
 		timer--;

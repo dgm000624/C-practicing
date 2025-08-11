@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "D:\\Work\\C\\Day4\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{595821EE-4EB7-433E-AB89-9A3F817B0599}|Day4\\Day4.vcxproj|D:\\Work\\C\\Day4\\Day4\\macro.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{595821EE-4EB7-433E-AB89-9A3F817B0599}|Day4\\Day4.vcxproj|solutionrelative:Day4\\macro.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{595821EE-4EB7-433E-AB89-9A3F817B0599}|Day4\\Day4.vcxproj|D:\\Work\\C\\Day4\\Day4\\macro2.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{595821EE-4EB7-433E-AB89-9A3F817B0599}|Day4\\Day4.vcxproj|solutionrelative:Day4\\macro2.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{595821EE-4EB7-433E-AB89-9A3F817B0599}|Day4\\Day4.vcxproj|D:\\Work\\C\\Day4\\Day4\\macro1.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{595821EE-4EB7-433E-AB89-9A3F817B0599}|Day4\\Day4.vcxproj|solutionrelative:Day4\\macro1.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{595821EE-4EB7-433E-AB89-9A3F817B0599}|Day4\\Day4.vcxproj|D:\\Work\\C\\Day4\\Day4\\macro.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{595821EE-4EB7-433E-AB89-9A3F817B0599}|Day4\\Day4.vcxproj|solutionrelative:Day4\\macro.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{595821EE-4EB7-433E-AB89-9A3F817B0599}|Day4\\Day4.vcxproj|D:\\Work\\C\\Day4\\Day4\\student.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -74,43 +74,43 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "macro2.c",
               "DocumentMoniker": "D:\\Work\\C\\Day4\\Day4\\macro2.c",
               "RelativeDocumentMoniker": "Day4\\macro2.c",
               "ToolTip": "D:\\Work\\C\\Day4\\Day4\\macro2.c",
               "RelativeToolTip": "Day4\\macro2.c",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAALAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2025-08-08T07:23:44.422Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "macro1.c",
               "DocumentMoniker": "D:\\Work\\C\\Day4\\Day4\\macro1.c",
               "RelativeDocumentMoniker": "Day4\\macro1.c",
               "ToolTip": "D:\\Work\\C\\Day4\\Day4\\macro1.c",
               "RelativeToolTip": "Day4\\macro1.c",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2025-08-08T07:13:39.608Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "macro.c",
               "DocumentMoniker": "D:\\Work\\C\\Day4\\Day4\\macro.c",
               "RelativeDocumentMoniker": "Day4\\macro.c",
               "ToolTip": "D:\\Work\\C\\Day4\\Day4\\macro.c",
               "RelativeToolTip": "Day4\\macro.c",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2025-08-08T07:05:13.794Z",
               "EditorCaption": ""
@@ -125,8 +125,7 @@
               "RelativeToolTip": "Day4\\student_main.c",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-08-08T06:36:03.234Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-08T06:36:03.234Z"
             },
             {
               "$type": "Document",
@@ -138,8 +137,7 @@
               "RelativeToolTip": "Day4\\student.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-08-08T06:34:01.488Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-08T06:34:01.488Z"
             },
             {
               "$type": "Document",
@@ -151,8 +149,7 @@
               "RelativeToolTip": "Day4\\enum.c",
               "ViewState": "AgIAAAkAAAAAAAAAAAAowBIAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-08-08T06:16:20.854Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-08T06:16:20.854Z"
             },
             {
               "$type": "Document",
@@ -164,8 +161,7 @@
               "RelativeToolTip": "Day4\\union.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-08-08T06:06:32.036Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-08T06:06:32.036Z"
             },
             {
               "$type": "Document",
@@ -177,8 +173,7 @@
               "RelativeToolTip": "Day4\\struct6.c",
               "ViewState": "AgIAAAcAAAAAAAAAAAAowCEAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-08-08T05:28:34.966Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-08T05:28:34.966Z"
             },
             {
               "$type": "Document",
@@ -190,8 +185,7 @@
               "RelativeToolTip": "Day4\\struct5.c",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-08-08T04:44:25.706Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-08T04:44:25.706Z"
             },
             {
               "$type": "Document",
@@ -203,8 +197,7 @@
               "RelativeToolTip": "Day4\\struct4.c",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-08-08T04:36:43.1Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-08T04:36:43.1Z"
             },
             {
               "$type": "Document",

@@ -1,5 +1,4 @@
 ﻿  horrorgame.c
 D:\Work\C\Practice\Practice\horrorgame.c(129,1): warning C4716: 'horrorscene': 값을 반환해야 합니다.
 D:\Work\C\Practice\Practice\horrorgame.c(165,1): warning C4716: 'hidden': 값을 반환해야 합니다.
-  find mine.cpp
   Practice.vcxproj -> D:\Work\C\Practice\x64\Debug\Practice.exe

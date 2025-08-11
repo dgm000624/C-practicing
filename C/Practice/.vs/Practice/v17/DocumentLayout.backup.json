@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\Work\\C\\Practice\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{D31514D6-AB6A-4B8F-B5C9-C2F516E5E4F3}|Practice\\Practice.vcxproj|D:\\Work\\C\\Practice\\Practice\\file system.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D31514D6-AB6A-4B8F-B5C9-C2F516E5E4F3}|Practice\\Practice.vcxproj|solutionrelative:Practice\\file system.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D31514D6-AB6A-4B8F-B5C9-C2F516E5E4F3}|Practice\\Practice.vcxproj|D:\\Work\\C\\Practice\\Practice\\horrorgame.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{D31514D6-AB6A-4B8F-B5C9-C2F516E5E4F3}|Practice\\Practice.vcxproj|solutionrelative:Practice\\horrorgame.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -13,10 +17,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{D31514D6-AB6A-4B8F-B5C9-C2F516E5E4F3}|Practice\\Practice.vcxproj|D:\\Work\\C\\Practice\\Practice\\practice.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{D31514D6-AB6A-4B8F-B5C9-C2F516E5E4F3}|Practice\\Practice.vcxproj|solutionrelative:Practice\\practice.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D31514D6-AB6A-4B8F-B5C9-C2F516E5E4F3}|Practice\\Practice.vcxproj|D:\\Work\\C\\Practice\\Practice\\file system.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{D31514D6-AB6A-4B8F-B5C9-C2F516E5E4F3}|Practice\\Practice.vcxproj|solutionrelative:Practice\\file system.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D31514D6-AB6A-4B8F-B5C9-C2F516E5E4F3}|Practice\\Practice.vcxproj|D:\\Work\\C\\Practice\\Practice\\find mine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -30,11 +30,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "practice.c",
               "DocumentMoniker": "D:\\Work\\C\\Practice\\Practice\\practice.c",
               "RelativeDocumentMoniker": "Practice\\practice.c",
@@ -42,12 +42,11 @@
               "RelativeToolTip": "Practice\\practice.c",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-08-08T01:44:58.106Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-08T01:44:58.106Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "file system.c",
               "DocumentMoniker": "D:\\Work\\C\\Practice\\Practice\\file system.c",
               "RelativeDocumentMoniker": "Practice\\file system.c",
@@ -64,16 +63,15 @@
               "Title": "find mine.cpp",
               "DocumentMoniker": "D:\\Work\\C\\Practice\\Practice\\find mine.cpp",
               "RelativeDocumentMoniker": "Practice\\find mine.cpp",
-              "ToolTip": "D:\\Work\\C\\Practice\\Practice\\find mine.cpp*",
-              "RelativeToolTip": "Practice\\find mine.cpp*",
+              "ToolTip": "D:\\Work\\C\\Practice\\Practice\\find mine.cpp",
+              "RelativeToolTip": "Practice\\find mine.cpp",
               "ViewState": "AgIAAOMAAAAAAAAAAAAowPMAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-08-06T23:56:23.307Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-06T23:56:23.307Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "practice2.c",
               "DocumentMoniker": "D:\\Work\\C\\Practice\\Practice\\practice2.c",
               "RelativeDocumentMoniker": "Practice\\practice2.c",
@@ -81,18 +79,17 @@
               "RelativeToolTip": "Practice\\practice2.c",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-08-06T07:29:07.604Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-06T07:29:07.604Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "horrorgame.c",
               "DocumentMoniker": "D:\\Work\\C\\Practice\\Practice\\horrorgame.c",
               "RelativeDocumentMoniker": "Practice\\horrorgame.c",
-              "ToolTip": "D:\\Work\\C\\Practice\\Practice\\horrorgame.c*",
-              "RelativeToolTip": "Practice\\horrorgame.c*",
-              "ViewState": "AgIAADUBAAAAAAAAAAAowE8BAAABAAAAAAAAAA==",
+              "ToolTip": "D:\\Work\\C\\Practice\\Practice\\horrorgame.c",
+              "RelativeToolTip": "Practice\\horrorgame.c",
+              "ViewState": "AgIAAAwBAAAAAAAAAAAYwBoBAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2025-08-06T03:26:22.236Z",
               "EditorCaption": ""
