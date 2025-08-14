@@ -27,7 +27,7 @@ void usart0_init()
 
 void USART0_char(char data)
 {
-	while(!(UCSR0A&0x20))
+	while(!(UCSR0A&0x20));
 	UDR0 = data;
 }
 
