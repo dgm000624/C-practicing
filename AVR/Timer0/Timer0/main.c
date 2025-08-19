@@ -20,7 +20,9 @@ ISR(TIMER0_OVF_vect)
 	cnt++;
 	if(cnt >=1000){
 		cnt = 0;
+		if (LED_Data == 0xff) LED_Data = 0x00;
 		LED_Data++;
+		
 	}
 	sei();
 }
