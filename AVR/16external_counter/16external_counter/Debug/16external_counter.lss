@@ -1,0 +1,345 @@
+
+16external_counter.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000012  00800100  000001c2  00000236  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         000001c2  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .comment      00000030  00000000  00000000  00000248  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000278  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000028  00000000  00000000  000002b8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00000a01  00000000  00000000  000002e0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 0000086b  00000000  00000000  00000ce1  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000371  00000000  00000000  0000154c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000048  00000000  00000000  000018c0  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    00000435  00000000  00000000  00001908  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    000002a8  00000000  00000000  00001d3d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000018  00000000  00000000  00001fe5  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	45 c0       	rjmp	.+138    	; 0x8c <__ctors_end>
+   2:	00 00       	nop
+   4:	58 c0       	rjmp	.+176    	; 0xb6 <__bad_interrupt>
+   6:	00 00       	nop
+   8:	56 c0       	rjmp	.+172    	; 0xb6 <__bad_interrupt>
+   a:	00 00       	nop
+   c:	54 c0       	rjmp	.+168    	; 0xb6 <__bad_interrupt>
+   e:	00 00       	nop
+  10:	52 c0       	rjmp	.+164    	; 0xb6 <__bad_interrupt>
+  12:	00 00       	nop
+  14:	50 c0       	rjmp	.+160    	; 0xb6 <__bad_interrupt>
+  16:	00 00       	nop
+  18:	4e c0       	rjmp	.+156    	; 0xb6 <__bad_interrupt>
+  1a:	00 00       	nop
+  1c:	4c c0       	rjmp	.+152    	; 0xb6 <__bad_interrupt>
+  1e:	00 00       	nop
+  20:	4a c0       	rjmp	.+148    	; 0xb6 <__bad_interrupt>
+  22:	00 00       	nop
+  24:	48 c0       	rjmp	.+144    	; 0xb6 <__bad_interrupt>
+  26:	00 00       	nop
+  28:	46 c0       	rjmp	.+140    	; 0xb6 <__bad_interrupt>
+  2a:	00 00       	nop
+  2c:	44 c0       	rjmp	.+136    	; 0xb6 <__bad_interrupt>
+  2e:	00 00       	nop
+  30:	42 c0       	rjmp	.+132    	; 0xb6 <__bad_interrupt>
+  32:	00 00       	nop
+  34:	40 c0       	rjmp	.+128    	; 0xb6 <__bad_interrupt>
+  36:	00 00       	nop
+  38:	3e c0       	rjmp	.+124    	; 0xb6 <__bad_interrupt>
+  3a:	00 00       	nop
+  3c:	3c c0       	rjmp	.+120    	; 0xb6 <__bad_interrupt>
+  3e:	00 00       	nop
+  40:	3a c0       	rjmp	.+116    	; 0xb6 <__bad_interrupt>
+  42:	00 00       	nop
+  44:	38 c0       	rjmp	.+112    	; 0xb6 <__bad_interrupt>
+  46:	00 00       	nop
+  48:	36 c0       	rjmp	.+108    	; 0xb6 <__bad_interrupt>
+  4a:	00 00       	nop
+  4c:	34 c0       	rjmp	.+104    	; 0xb6 <__bad_interrupt>
+  4e:	00 00       	nop
+  50:	32 c0       	rjmp	.+100    	; 0xb6 <__bad_interrupt>
+  52:	00 00       	nop
+  54:	30 c0       	rjmp	.+96     	; 0xb6 <__bad_interrupt>
+  56:	00 00       	nop
+  58:	2e c0       	rjmp	.+92     	; 0xb6 <__bad_interrupt>
+  5a:	00 00       	nop
+  5c:	2c c0       	rjmp	.+88     	; 0xb6 <__bad_interrupt>
+  5e:	00 00       	nop
+  60:	2a c0       	rjmp	.+84     	; 0xb6 <__bad_interrupt>
+  62:	00 00       	nop
+  64:	28 c0       	rjmp	.+80     	; 0xb6 <__bad_interrupt>
+  66:	00 00       	nop
+  68:	26 c0       	rjmp	.+76     	; 0xb6 <__bad_interrupt>
+  6a:	00 00       	nop
+  6c:	24 c0       	rjmp	.+72     	; 0xb6 <__bad_interrupt>
+  6e:	00 00       	nop
+  70:	22 c0       	rjmp	.+68     	; 0xb6 <__bad_interrupt>
+  72:	00 00       	nop
+  74:	20 c0       	rjmp	.+64     	; 0xb6 <__bad_interrupt>
+  76:	00 00       	nop
+  78:	1e c0       	rjmp	.+60     	; 0xb6 <__bad_interrupt>
+  7a:	00 00       	nop
+  7c:	1c c0       	rjmp	.+56     	; 0xb6 <__bad_interrupt>
+  7e:	00 00       	nop
+  80:	1a c0       	rjmp	.+52     	; 0xb6 <__bad_interrupt>
+  82:	00 00       	nop
+  84:	18 c0       	rjmp	.+48     	; 0xb6 <__bad_interrupt>
+  86:	00 00       	nop
+  88:	16 c0       	rjmp	.+44     	; 0xb6 <__bad_interrupt>
+	...
+
+0000008c <__ctors_end>:
+  8c:	11 24       	eor	r1, r1
+  8e:	1f be       	out	0x3f, r1	; 63
+  90:	cf ef       	ldi	r28, 0xFF	; 255
+  92:	d0 e1       	ldi	r29, 0x10	; 16
+  94:	de bf       	out	0x3e, r29	; 62
+  96:	cd bf       	out	0x3d, r28	; 61
+
+00000098 <__do_copy_data>:
+  98:	11 e0       	ldi	r17, 0x01	; 1
+  9a:	a0 e0       	ldi	r26, 0x00	; 0
+  9c:	b1 e0       	ldi	r27, 0x01	; 1
+  9e:	e2 ec       	ldi	r30, 0xC2	; 194
+  a0:	f1 e0       	ldi	r31, 0x01	; 1
+  a2:	00 e0       	ldi	r16, 0x00	; 0
+  a4:	0b bf       	out	0x3b, r16	; 59
+  a6:	02 c0       	rjmp	.+4      	; 0xac <__do_copy_data+0x14>
+  a8:	07 90       	elpm	r0, Z+
+  aa:	0d 92       	st	X+, r0
+  ac:	a2 31       	cpi	r26, 0x12	; 18
+  ae:	b1 07       	cpc	r27, r17
+  b0:	d9 f7       	brne	.-10     	; 0xa8 <__do_copy_data+0x10>
+  b2:	52 d0       	rcall	.+164    	; 0x158 <main>
+  b4:	84 c0       	rjmp	.+264    	; 0x1be <_exit>
+
+000000b6 <__bad_interrupt>:
+  b6:	a4 cf       	rjmp	.-184    	; 0x0 <__vectors>
+
+000000b8 <Segment>:
+0X08, 0X80};
+
+void Segment(int);
+
+void Segment(int N)
+{
+  b8:	0f 93       	push	r16
+  ba:	1f 93       	push	r17
+  bc:	cf 93       	push	r28
+  be:	df 93       	push	r29
+	int i;
+	unsigned char N1000, N100, N10, N1;
+	int Buff;
+	N1000 = N /1000; // 세그먼트에서 사용하는 천의 자리를 추출
+  c0:	68 ee       	ldi	r22, 0xE8	; 232
+  c2:	73 e0       	ldi	r23, 0x03	; 3
+  c4:	55 d0       	rcall	.+170    	; 0x170 <__divmodhi4>
+  c6:	8b 01       	movw	r16, r22
+	Buff = N % 1000;
+	N100 = Buff / 100; // 세그먼트에서 사용하는 백의자리 추출
+  c8:	64 e6       	ldi	r22, 0x64	; 100
+  ca:	70 e0       	ldi	r23, 0x00	; 0
+  cc:	51 d0       	rcall	.+162    	; 0x170 <__divmodhi4>
+  ce:	eb 01       	movw	r28, r22
+	Buff = Buff % 100;
+	N10 = Buff /10; // 세그먼트에서 사용하는 십의 자리 추출
+	N1 = Buff % 10; // 세그먼트에서 사용하는 일의 자리 추출
+  d0:	6a e0       	ldi	r22, 0x0A	; 10
+  d2:	70 e0       	ldi	r23, 0x00	; 0
+  d4:	4d d0       	rcall	.+154    	; 0x170 <__divmodhi4>
+	
+	for( i = 0; i < 30; i++ ) {
+  d6:	20 e0       	ldi	r18, 0x00	; 0
+  d8:	30 e0       	ldi	r19, 0x00	; 0
+  da:	36 c0       	rjmp	.+108    	; 0x148 <Segment+0x90>
+		PORTC = 0x0e; // 왼쪽 첫 번째 세그먼트 ON
+  dc:	4e e0       	ldi	r20, 0x0E	; 14
+  de:	45 bb       	out	0x15, r20	; 21
+		PORTA = Font[N1000]; // 천의 자리 숫자를 출력해 준다
+  e0:	f8 01       	movw	r30, r16
+  e2:	ff 27       	eor	r31, r31
+  e4:	e0 50       	subi	r30, 0x00	; 0
+  e6:	ff 4f       	sbci	r31, 0xFF	; 255
+  e8:	40 81       	ld	r20, Z
+  ea:	4b bb       	out	0x1b, r20	; 27
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  ec:	e6 e6       	ldi	r30, 0x66	; 102
+  ee:	fe e0       	ldi	r31, 0x0E	; 14
+  f0:	31 97       	sbiw	r30, 0x01	; 1
+  f2:	f1 f7       	brne	.-4      	; 0xf0 <Segment+0x38>
+  f4:	00 00       	nop
+		_delay_ms(1);
+		PORTC = 0x0d; // 왼쪽 두 번째 세그먼트 ON
+  f6:	4d e0       	ldi	r20, 0x0D	; 13
+  f8:	45 bb       	out	0x15, r20	; 21
+		PORTA = Font[N100]; // 백의 자리 숫자를 출력해 준다
+  fa:	fe 01       	movw	r30, r28
+  fc:	ff 27       	eor	r31, r31
+  fe:	e0 50       	subi	r30, 0x00	; 0
+ 100:	ff 4f       	sbci	r31, 0xFF	; 255
+ 102:	40 81       	ld	r20, Z
+ 104:	4b bb       	out	0x1b, r20	; 27
+ 106:	e6 e6       	ldi	r30, 0x66	; 102
+ 108:	fe e0       	ldi	r31, 0x0E	; 14
+ 10a:	31 97       	sbiw	r30, 0x01	; 1
+ 10c:	f1 f7       	brne	.-4      	; 0x10a <Segment+0x52>
+ 10e:	00 00       	nop
+		_delay_ms(1);
+		PORTC = 0x0b; // 왼쪽 세 번째 세그먼트 ON
+ 110:	4b e0       	ldi	r20, 0x0B	; 11
+ 112:	45 bb       	out	0x15, r20	; 21
+		PORTA = Font[N10]; // 십의 자리 숫자를 출력해 준다
+ 114:	fb 01       	movw	r30, r22
+ 116:	ff 27       	eor	r31, r31
+ 118:	e0 50       	subi	r30, 0x00	; 0
+ 11a:	ff 4f       	sbci	r31, 0xFF	; 255
+ 11c:	40 81       	ld	r20, Z
+ 11e:	4b bb       	out	0x1b, r20	; 27
+ 120:	e6 e6       	ldi	r30, 0x66	; 102
+ 122:	fe e0       	ldi	r31, 0x0E	; 14
+ 124:	31 97       	sbiw	r30, 0x01	; 1
+ 126:	f1 f7       	brne	.-4      	; 0x124 <Segment+0x6c>
+ 128:	00 00       	nop
+		_delay_ms(1);
+		PORTC = 0x07; // 왼쪽 네 번째 세그먼트 ON
+ 12a:	47 e0       	ldi	r20, 0x07	; 7
+ 12c:	45 bb       	out	0x15, r20	; 21
+		PORTA = Font[N1]; // 일의 자리 숫자를 출력해 준다
+ 12e:	fc 01       	movw	r30, r24
+ 130:	ff 27       	eor	r31, r31
+ 132:	e0 50       	subi	r30, 0x00	; 0
+ 134:	ff 4f       	sbci	r31, 0xFF	; 255
+ 136:	40 81       	ld	r20, Z
+ 138:	4b bb       	out	0x1b, r20	; 27
+ 13a:	e6 e6       	ldi	r30, 0x66	; 102
+ 13c:	fe e0       	ldi	r31, 0x0E	; 14
+ 13e:	31 97       	sbiw	r30, 0x01	; 1
+ 140:	f1 f7       	brne	.-4      	; 0x13e <Segment+0x86>
+ 142:	00 00       	nop
+	N100 = Buff / 100; // 세그먼트에서 사용하는 백의자리 추출
+	Buff = Buff % 100;
+	N10 = Buff /10; // 세그먼트에서 사용하는 십의 자리 추출
+	N1 = Buff % 10; // 세그먼트에서 사용하는 일의 자리 추출
+	
+	for( i = 0; i < 30; i++ ) {
+ 144:	2f 5f       	subi	r18, 0xFF	; 255
+ 146:	3f 4f       	sbci	r19, 0xFF	; 255
+ 148:	2e 31       	cpi	r18, 0x1E	; 30
+ 14a:	31 05       	cpc	r19, r1
+ 14c:	3c f2       	brlt	.-114    	; 0xdc <Segment+0x24>
+		_delay_ms(1);
+		PORTC = 0x07; // 왼쪽 네 번째 세그먼트 ON
+		PORTA = Font[N1]; // 일의 자리 숫자를 출력해 준다
+		_delay_ms(1);
+	}
+}
+ 14e:	df 91       	pop	r29
+ 150:	cf 91       	pop	r28
+ 152:	1f 91       	pop	r17
+ 154:	0f 91       	pop	r16
+ 156:	08 95       	ret
+
+00000158 <main>:
+
+int main(void)
+{
+    unsigned int m_cnt = 0;
+	DDRA = 0xff;
+ 158:	9f ef       	ldi	r25, 0xFF	; 255
+ 15a:	9a bb       	out	0x1a, r25	; 26
+	DDRC = 0x0f;
+ 15c:	8f e0       	ldi	r24, 0x0F	; 15
+ 15e:	84 bb       	out	0x14, r24	; 20
+	PORTA = 0xff;
+ 160:	9b bb       	out	0x1b, r25	; 27
+	PORTC = 0x0f;
+ 162:	85 bb       	out	0x15, r24	; 21
+	TCCR1B = 0x07;
+ 164:	87 e0       	ldi	r24, 0x07	; 7
+ 166:	8e bd       	out	0x2e, r24	; 46
+    while (1) 
+    {
+		m_cnt = TCNT1;
+ 168:	8c b5       	in	r24, 0x2c	; 44
+ 16a:	9d b5       	in	r25, 0x2d	; 45
+		Segment(m_cnt);
+ 16c:	a5 df       	rcall	.-182    	; 0xb8 <Segment>
+ 16e:	fc cf       	rjmp	.-8      	; 0x168 <main+0x10>
+
+00000170 <__divmodhi4>:
+ 170:	97 fb       	bst	r25, 7
+ 172:	07 2e       	mov	r0, r23
+ 174:	16 f4       	brtc	.+4      	; 0x17a <__divmodhi4+0xa>
+ 176:	00 94       	com	r0
+ 178:	06 d0       	rcall	.+12     	; 0x186 <__divmodhi4_neg1>
+ 17a:	77 fd       	sbrc	r23, 7
+ 17c:	08 d0       	rcall	.+16     	; 0x18e <__divmodhi4_neg2>
+ 17e:	0b d0       	rcall	.+22     	; 0x196 <__udivmodhi4>
+ 180:	07 fc       	sbrc	r0, 7
+ 182:	05 d0       	rcall	.+10     	; 0x18e <__divmodhi4_neg2>
+ 184:	3e f4       	brtc	.+14     	; 0x194 <__divmodhi4_exit>
+
+00000186 <__divmodhi4_neg1>:
+ 186:	90 95       	com	r25
+ 188:	81 95       	neg	r24
+ 18a:	9f 4f       	sbci	r25, 0xFF	; 255
+ 18c:	08 95       	ret
+
+0000018e <__divmodhi4_neg2>:
+ 18e:	70 95       	com	r23
+ 190:	61 95       	neg	r22
+ 192:	7f 4f       	sbci	r23, 0xFF	; 255
+
+00000194 <__divmodhi4_exit>:
+ 194:	08 95       	ret
+
+00000196 <__udivmodhi4>:
+ 196:	aa 1b       	sub	r26, r26
+ 198:	bb 1b       	sub	r27, r27
+ 19a:	51 e1       	ldi	r21, 0x11	; 17
+ 19c:	07 c0       	rjmp	.+14     	; 0x1ac <__udivmodhi4_ep>
+
+0000019e <__udivmodhi4_loop>:
+ 19e:	aa 1f       	adc	r26, r26
+ 1a0:	bb 1f       	adc	r27, r27
+ 1a2:	a6 17       	cp	r26, r22
+ 1a4:	b7 07       	cpc	r27, r23
+ 1a6:	10 f0       	brcs	.+4      	; 0x1ac <__udivmodhi4_ep>
+ 1a8:	a6 1b       	sub	r26, r22
+ 1aa:	b7 0b       	sbc	r27, r23
+
+000001ac <__udivmodhi4_ep>:
+ 1ac:	88 1f       	adc	r24, r24
+ 1ae:	99 1f       	adc	r25, r25
+ 1b0:	5a 95       	dec	r21
+ 1b2:	a9 f7       	brne	.-22     	; 0x19e <__udivmodhi4_loop>
+ 1b4:	80 95       	com	r24
+ 1b6:	90 95       	com	r25
+ 1b8:	bc 01       	movw	r22, r24
+ 1ba:	cd 01       	movw	r24, r26
+ 1bc:	08 95       	ret
+
+000001be <_exit>:
+ 1be:	f8 94       	cli
+
+000001c0 <__stop_program>:
+ 1c0:	ff cf       	rjmp	.-2      	; 0x1c0 <__stop_program>

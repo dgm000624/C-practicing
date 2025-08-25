@@ -10,73 +10,73 @@
 #include <avr/interrupt.h>
 #include <util/delay.h>
 
-static unsigned int Font[16] = {0xC0, 0xF9, 0xA4, 0xB0, 0x99, 0x92, 0x82, 0xF8, 0x80, 0x90, 0x88, 0x83, 0xC6, 0xA1, 0x86};
-	
-void RSegment(int);
-void LSegment(int);
-
-int tr_cnt = 0, mr_cnt = 0;
-int tl_cnt = 0, ml_cnt = 0;
-
-void RSegment(int N)
-{
-	int i = 0;
-	unsigned char N10, N1;
-
-	N10 = N /10;
-	N1 = N % 10;
-	
-	for(i = 0; i<5;i++){
-		
-		PORTC = 0x0b;
-		PORTA = ~Font[N10];
-		_delay_ms(1);
-		
-		PORTC = 0x07;
-		PORTA = ~Font[N1];
-		_delay_ms(1);
-	}
-}
-
-void LSegment(int N)
-{
-	int i = 0;
-	unsigned char N10, N1;
-	
-	N10 = N /10;
-	N1 = N % 10;
-	
-	for(i = 0; i<5;i++){
-		
-		PORTC = 0x0e;
-		PORTA = ~Font[N10];
-		_delay_ms(1);
-		
-		PORTC = 0x0d;
-		PORTA = ~Font[N1];
-		_delay_ms(1);
-	}
-}
-
-ISR(TIMER0_OVF_vect)
-{
-	tr_cnt++;
-	if(tr_cnt>=56){
-		tr_cnt = 0;
-		mr_cnt++;
-		if(mr_cnt > 99) mr_cnt = 0;
-	}
-}
-
-ISR(TIMER0_COMP_vect)
-{
-	tl_cnt++;
-	if(tl_cnt>=28){
-		tl_cnt = 0;
-		ml_cnt++;
-		if(ml_cnt > 99) ml_cnt = 0;
-	}
-}
+// static unsigned int Font[16] = {0xC0, 0xF9, 0xA4, 0xB0, 0x99, 0x92, 0x82, 0xF8, 0x80, 0x90, 0x88, 0x83, 0xC6, 0xA1, 0x86};
+// 	
+// void RSegment(int);
+// void LSegment(int);
+// 
+// int tr_cnt = 0, mr_cnt = 0;
+// int tl_cnt = 0, ml_cnt = 0;
+// 
+// void RSegment(int N)
+// {
+// 	int i = 0;
+// 	unsigned char N10, N1;
+// 
+// 	N10 = N /10;
+// 	N1 = N % 10;
+// 	
+// 	for(i = 0; i<5;i++){
+// 		
+// 		PORTC = 0x0b;
+// 		PORTA = ~Font[N10];
+// 		_delay_ms(1);
+// 		
+// 		PORTC = 0x07;
+// 		PORTA = ~Font[N1];
+// 		_delay_ms(1);
+// 	}
+// }
+// 
+// void LSegment(int N)
+// {
+// 	int i = 0;
+// 	unsigned char N10, N1;
+// 	
+// 	N10 = N /10;
+// 	N1 = N % 10;
+// 	
+// 	for(i = 0; i<5;i++){
+// 		
+// 		PORTC = 0x0e;
+// 		PORTA = ~Font[N10];
+// 		_delay_ms(1);
+// 		
+// 		PORTC = 0x0d;
+// 		PORTA = ~Font[N1];
+// 		_delay_ms(1);
+// 	}
+// }
+// 
+// ISR(TIMER0_OVF_vect)
+// {
+// 	tr_cnt++;
+// 	if(tr_cnt>=56){
+// 		tr_cnt = 0;
+// 		mr_cnt++;
+// 		if(mr_cnt > 99) mr_cnt = 0;
+// 	}
+// }
+// 
+// ISR(TIMER0_COMP_vect)
+// {
+// 	tl_cnt++;
+// 	if(tl_cnt>=28){
+// 		tl_cnt = 0;
+// 		ml_cnt++;
+// 		if(ml_cnt > 99) ml_cnt = 0;
+// 	}
+// }
 
 int main(void)
 {

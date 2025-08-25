@@ -19,9 +19,22 @@ unsigned RGB_Table[5][3] = {
 
 int main(void)
 {
+	unsigned char i = 0;
+	DDRB = 0xe0;
+	ASSR = 0;
+	
+	TCCR1A = 0xa9;
+	TCCR1B = 0x02;
+	TCCR1C = 0x00;
    
     while (1) 
     {
+		for(i = 0; i < 5; i++){
+			OCR1AL = RGB_Table[i][0];
+			OCR1BL = RGB_Table[i][1];
+			OCR1CL = RGB_Table[i][2];
+			_delay_ms(1000);
+		}
     }
 }
 
