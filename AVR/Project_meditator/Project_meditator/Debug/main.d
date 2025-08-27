@@ -1,4 +1,4 @@
-main.d main.o: .././main.c \
+main.d main.o: .././main.c .././system/system.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -16,8 +16,13 @@ main.d main.o: .././main.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
- .././modules/keypad.h .././UART/UART.h .././LCD/LCD.h \
- .././color_led/color.h .././interrupt/int.h .././Timer/Timer.h
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
+ .././system/../modules/keypad.h .././system/../UART/UART.h \
+ .././system/../LCD/LCD.h .././system/../color_led/color.h \
+ .././system/../interrupt/int.h .././system/../Timer/Timer.h \
+ .././system/../Cds/Cds.h .././system/../In_out/In_out.h
+
+.././system/system.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -53,14 +58,20 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h:
 
-.././modules/keypad.h:
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h:
 
-.././UART/UART.h:
+.././system/../modules/keypad.h:
 
-.././LCD/LCD.h:
+.././system/../UART/UART.h:
 
-.././color_led/color.h:
+.././system/../LCD/LCD.h:
 
-.././interrupt/int.h:
+.././system/../color_led/color.h:
 
-.././Timer/Timer.h:
+.././system/../interrupt/int.h:
+
+.././system/../Timer/Timer.h:
+
+.././system/../Cds/Cds.h:
+
+.././system/../In_out/In_out.h:

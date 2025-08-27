@@ -7,11 +7,14 @@
 
 #include "UART.h"
 
-int locked = 0;
+char temp_name[20]; 
+char backmenu;
 
-void Init_USART(void)
+int locked = 1;
+
+void Init_USART(void)		//USART 초기 세팅
 {
-	DDRE = 0x70;
+	DDRE = 0x00;
 	UCSR0A = 0x00;
 	UCSR0B = 0x98;
 	UCSR0C = 0x06;
@@ -19,7 +22,7 @@ void Init_USART(void)
 	UBRR0L = 0x07;
 }
 
-void Serial_Send(unsigned char t)
+void Serial_Send(unsigned char t)	// 문자 1개 보내기(char)
 {
 
 	while (1) { if ((UCSR0A & 0x20) != 0) break; }
@@ -27,29 +30,22 @@ void Serial_Send(unsigned char t)
 	UCSR0A = UCSR0A | 0x20;
 }
 
-ISR(USART0_RX_vect)
+ISR(USART0_RX_vect)	//수신 인터럽트 발생시 실행.
 {
 	data = UDR0;
 	UCSR0A |= 0x80;
-
-	if (data == 127)
-	{
-		USART0_str("\033[2J\033[H");
-		Rflag = 0;
-		return;
-	}
 
 	Rflag = 1;
 	_delay_ms(5);
 }
 
-void USART0_str(char* str)
+void USART0_str(char* str)	//문자열 보내기
 {
 	while (*str) { Serial_Send(*str++); }
 
 }
 
-unsigned char Serial_Rece(void)
+unsigned char Serial_Rece(void)	//문자 받기
 {
 	unsigned char data;
 	while (1) {
@@ -60,10 +56,10 @@ unsigned char Serial_Rece(void)
 	return data;
 }
 
-void check_pass()
+void check_pass()		//비밀번호 세팅용 함수.
 {
-	USART0_str("\033[2J\033[H");
-	USART0_str("Enter your pass\r\n");
+	clear_terminal();
+	USART0_str("\r\n\r\nEnter your pass\r\n");
 	for (int i = 0; i < 4; i++)
 	{
 		while (1) {
@@ -78,4 +74,45 @@ void check_pass()
 	USART0_str(pass);
 	USART0_str("\r\n");
 
+}
+
+void Init_buff()
+{
+	while (UCSR0A & (1 << RXC0)) {
+    (void)UDR0;  // 수신 데이터 무시하고 읽기
+	}
+	return;
+}
+
+void receive_text()
+{
+	int i = 0;
+	while (1) {
+		
+		if(i>=19){USART0_str("it's too long!!!\r\n"); return;}
+		
+		if (Rflag == 0) continue;
+		char command = data;
+		Rflag = 0;
+		if (command == '\r') {temp_name[i] = '\0'; break;}
+		
+		temp_name[i]=command;
+		i++;
+	}
+}
+
+void reset_text()
+{
+	for(int i = 0; i < 20; i++)
+	{
+		temp_name[i] = '\0';
+	}
+}
+
+void clear_terminal() {
+	Serial_Send(0x1B);    // ESC 문자 전송
+	USART0_str("[2J");    // 화면 클리어
+	Serial_Send(0x1B);    // ESC 문자 전송
+	USART0_str("[H");     // 커서를 0,0으로
+	USART0_str("\r\n");
 }

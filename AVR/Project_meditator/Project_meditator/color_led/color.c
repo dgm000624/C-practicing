@@ -14,7 +14,7 @@ unsigned RGB_Table[3][3] = {
 	{255, 0, 0}			//Red
 };
 
-void Init_color(void)
+void Init_color(void)	//color 최초 설정용 함수 
 {
 	DDRB |= 0xe0;
 	ASSR = 0;
@@ -24,7 +24,7 @@ void Init_color(void)
 	TCCR1C = 0x00;
 }
 
-void change_color(char color)
+void change_color(char color)	// 색 바꾸기
 {
 	int temp = color - '1';
 

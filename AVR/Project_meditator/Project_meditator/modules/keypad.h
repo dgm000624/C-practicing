@@ -22,11 +22,11 @@ extern int temp;
 extern int rows;
 extern int cols;
 
-void keypad_Init();
-int find_ROWS(int temp);
-void reset();
-char findnumber();
-int cp_pass(char str[]);
+void keypad_Init();			// 키패드 사용 초기 세팅
+int find_ROWS(int temp);	// 누른 키의 행 찾기용
+void reset();				// rows, cols를 -1로 초기화
+char findnumber();			// 누른 키의 숫자를 찾는 함수
+int cp_pass(char str[]);	// UART 폴더의 check_pass에서 만든 pass[]와 비교하는 함수
 
 
 

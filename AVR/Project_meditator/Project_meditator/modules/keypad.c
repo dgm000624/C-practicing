@@ -7,6 +7,7 @@
 
 #include "keypad.h"
 #include "../UART/UART.h"
+#include "../LCD/LCD.h"
 
 const unsigned char pads[ROWS][COLS] = { {'1', '2', '3'}, {'4', '5', '6'}, {'7', '8' , '9'}, {'*', '0', '#'} };
 
@@ -34,7 +35,7 @@ void reset()
 	cols = -1;
 }
 
-char findnumber()
+char findnumber()		// 입력된 문자의 행/렬 찾기용
 {
 	for (int i = 0; i < 3; i++)
 	{
@@ -59,7 +60,7 @@ char findnumber()
 
 
 
-int cp_pass(char str[])
+int cp_pass(char str[])		//UART의 check_pass()로 인해 생성된 pass배열을 이 함수를 통해 비교
 {
 	char arr[4];
 	for (int k = 0; k < 4; k++)
@@ -73,6 +74,7 @@ int cp_pass(char str[])
 		}
 
 		arr[k] = key;
+		LCD_charout(0,k,arr[k]);
 		reset();
 		_delay_ms(100);
 	}
@@ -87,10 +89,13 @@ int cp_pass(char str[])
 			{
 				arr[i] = '\0';
 			}
-
+			LCD_strout(0,0,"     ");
 			return 0;
-		};
+		}
 	}
+	
+	LCD_strout(0,0,"     ");
+	
 	return 1;
 }
 

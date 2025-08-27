@@ -1,4 +1,4 @@
-interrupt/int.d interrupt/int.o: ../interrupt/int.c ../interrupt/int.h \
+system/system.d system/system.o: ../system/system.c ../system/system.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -14,12 +14,15 @@ interrupt/int.d interrupt/int.o: ../interrupt/int.c ../interrupt/int.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
- ../interrupt/../LCD/LCD.h ../interrupt/../UART/UART.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
- ../interrupt/../Timer/Timer.h ../interrupt/../In_out/In_out.h
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
+ ../system/../modules/keypad.h ../system/../UART/UART.h \
+ ../system/../LCD/LCD.h ../system/../color_led/color.h \
+ ../system/../interrupt/int.h ../system/../Timer/Timer.h \
+ ../system/../Cds/Cds.h ../system/../In_out/In_out.h
 
-../interrupt/int.h:
+../system/system.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -51,14 +54,24 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
 
-../interrupt/../LCD/LCD.h:
-
-../interrupt/../UART/UART.h:
-
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h:
 
-../interrupt/../Timer/Timer.h:
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h:
 
-../interrupt/../In_out/In_out.h:
+../system/../modules/keypad.h:
+
+../system/../UART/UART.h:
+
+../system/../LCD/LCD.h:
+
+../system/../color_led/color.h:
+
+../system/../interrupt/int.h:
+
+../system/../Timer/Timer.h:
+
+../system/../Cds/Cds.h:
+
+../system/../In_out/In_out.h:

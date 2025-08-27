@@ -14,7 +14,7 @@ int second = 0;
 int timer = 0;
 int wait_cnt = 0;
 
-ISR(TIMER3_COMPA_vect)
+ISR(TIMER3_COMPA_vect)			//3번 타이머 CTC모드 인터럽트 발생시 실행
 {
 	if(locked == 1) return;
 	timer_cnt++;
@@ -25,13 +25,14 @@ ISR(TIMER3_COMPA_vect)
 		second++;
 		wait_cnt++;
 	}
-	if(second == 15)
+	if(second == 35)
 	{
-		LCD_Init();
+		LCD_strout(1,0, "                   ");
 		LCD_strout(1,0,"Check Please");
 	}
-	if(second == 20)
-	{	USART0_str("\r\nrepeater no response\r\n");
+	if(second == 60)
+	{
+		USART0_str("\r\nrepeater no response\r\n");
 		second = 0;
 	}
 
@@ -39,7 +40,7 @@ ISR(TIMER3_COMPA_vect)
 	
 }
 
-void Init_time()
+void Init_time()		//타이머의 값들을 처음으로 되돌리는 함수
 {
 	TCNT3H = 0x00;
 	TCNT3L = 0x00;
@@ -47,7 +48,7 @@ void Init_time()
 	second = 0;
 }
 
-void Init_timer()
+void Init_timer()		// 타이머 초기 세팅 함수
 {
 	ASSR = 0;
 	ETIMSK |= 0x10;
@@ -60,7 +61,7 @@ void Init_timer()
 	sei();
 }
 
-void wait(int num)
+void wait(int num)		// 일단 delay_ms 대용으로 구현했으나 크게 필요하진 않음
 {
 	wait_cnt = 0;
 	while(1){

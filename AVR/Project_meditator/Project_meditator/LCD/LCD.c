@@ -10,10 +10,10 @@
 #include "LCD.h"
 #include <string.h>
 
-void PortInit(void)
+void PortInit(void)		//LCD용 포트 초기 세팅
 {
-	DDRC = 0xFF;	//DDRC로
-	DDRB = 0x07;	//DDRB로		RS RW 는 PORTD에
+	DDRC = 0xFF;	//DDRC로		화면 출력용
+	DDRB = 0x07;	//DDRB로		RS RW E 세팅
 
 }
 
@@ -84,6 +84,9 @@ void LCD_Init(void)
 
 void LCD_strout(int line, int location, char* message)
 {
+	char blank[] = "           ";
+	LCD_pos(line, location);
+	LCD_STR((Byte*)blank);
 	LCD_pos(line, location);
 	LCD_STR((Byte*)message);
 }

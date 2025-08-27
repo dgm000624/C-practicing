@@ -13,8 +13,8 @@
 #include <util/delay.h>
 #include <avr/interrupt.h>
 
-void Init_time();
-void Init_timer();
+void Init_time();	// 타이머 초기화용
+void Init_timer();	// 타이머 초기세팅용
 int timer_cnt;
 int second;
 int timer;

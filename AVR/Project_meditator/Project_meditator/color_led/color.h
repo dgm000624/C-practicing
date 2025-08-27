@@ -14,8 +14,8 @@
 #include <util/delay.h>
 
 unsigned RGB_Table[3][3];
-void Init_color(void);
-void change_color(char color);
+void Init_color(void);			//color LED 사용 초기 세팅
+void change_color(char color);	// color LED 색 설정용. 지금은 3가지만 설정되어있음
 
 
 
