@@ -121,3 +121,28 @@ char back()
 	choiced = select(2);
 	return choiced;
 }
+
+char select(int max_sel)	// max_sel만큼의 선택지중 하나를 반환
+{
+	char input;
+	
+	while (1)
+	{
+		while (Rflag == 0);
+		input = data;
+		
+		if (input < '1' || input > '0'+max_sel)
+		{
+			USART0_str("Wrong choice!\r\n");
+			Rflag = 0;
+			
+			continue;
+		}
+		else
+		{
+			Rflag = 0;
+			return input;
+		}
+	}
+
+}

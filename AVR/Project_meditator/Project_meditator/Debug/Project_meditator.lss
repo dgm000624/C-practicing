@@ -3,31 +3,31 @@ Project_meditator.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         0000046a  00800100  0000138c  00001420  2**0
+  0 .data         00000460  00800100  0000138c  00001420  2**0
                   CONTENTS, ALLOC, LOAD, DATA
   1 .text         0000138c  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          0000002f  0080056a  0080056a  0000188a  2**0
+  2 .bss          0000002f  00800560  00800560  00001880  2**0
                   ALLOC
-  3 .comment      00000030  00000000  00000000  0000188a  2**0
+  3 .comment      00000030  00000000  00000000  00001880  2**0
                   CONTENTS, READONLY
-  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  000018bc  2**2
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  000018b0  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 000002c8  00000000  00000000  000018fc  2**0
+  5 .debug_aranges 000002c8  00000000  00000000  000018f0  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00003771  00000000  00000000  00001bc4  2**0
+  6 .debug_info   00003764  00000000  00000000  00001bb8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 0000155d  00000000  00000000  00005335  2**0
+  7 .debug_abbrev 0000155d  00000000  00000000  0000531c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00001d02  00000000  00000000  00006892  2**0
+  8 .debug_line   00001d02  00000000  00000000  00006879  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00000884  00000000  00000000  00008594  2**2
+  9 .debug_frame  00000884  00000000  00000000  0000857c  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00000809  00000000  00000000  00008e18  2**0
+ 10 .debug_str    00000809  00000000  00000000  00008e00  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00001c5b  00000000  00000000  00009621  2**0
+ 11 .debug_loc    00001c5b  00000000  00000000  00009609  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000240  00000000  00000000  0000b27c  2**0
+ 12 .debug_ranges 00000240  00000000  00000000  0000b264  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -103,13 +103,13 @@ Disassembly of section .text:
       86:	00 00       	nop
       88:	26 c0       	rjmp	.+76     	; 0xd6 <__bad_interrupt>
       8a:	00 00       	nop
-      8c:	51 05       	cpc	r21, r1
-      8e:	53 05       	cpc	r21, r3
-      90:	55 05       	cpc	r21, r5
-      92:	57 05       	cpc	r21, r7
-      94:	59 05       	cpc	r21, r9
-      96:	5f 05       	cpc	r21, r15
-      98:	61 05       	cpc	r22, r1
+      8c:	33 05       	cpc	r19, r3
+      8e:	35 05       	cpc	r19, r5
+      90:	37 05       	cpc	r19, r7
+      92:	39 05       	cpc	r19, r9
+      94:	3b 05       	cpc	r19, r11
+      96:	41 05       	cpc	r20, r1
+      98:	43 05       	cpc	r20, r3
 
 0000009a <__ctors_end>:
       9a:	11 24       	eor	r1, r1
@@ -130,13 +130,13 @@ Disassembly of section .text:
       b4:	02 c0       	rjmp	.+4      	; 0xba <__do_copy_data+0x14>
       b6:	07 90       	elpm	r0, Z+
       b8:	0d 92       	st	X+, r0
-      ba:	aa 36       	cpi	r26, 0x6A	; 106
+      ba:	a0 36       	cpi	r26, 0x60	; 96
       bc:	b1 07       	cpc	r27, r17
       be:	d9 f7       	brne	.-10     	; 0xb6 <__do_copy_data+0x10>
 
 000000c0 <__do_clear_bss>:
       c0:	25 e0       	ldi	r18, 0x05	; 5
-      c2:	aa e6       	ldi	r26, 0x6A	; 106
+      c2:	a0 e6       	ldi	r26, 0x60	; 96
       c4:	b5 e0       	ldi	r27, 0x05	; 5
       c6:	01 c0       	rjmp	.+2      	; 0xca <.do_clear_bss_start>
 
@@ -144,10 +144,10 @@ Disassembly of section .text:
       c8:	1d 92       	st	X+, r1
 
 000000ca <.do_clear_bss_start>:
-      ca:	a9 39       	cpi	r26, 0x99	; 153
+      ca:	af 38       	cpi	r26, 0x8F	; 143
       cc:	b2 07       	cpc	r27, r18
       ce:	e1 f7       	brne	.-8      	; 0xc8 <.do_clear_bss_loop>
-      d0:	bc d4       	rcall	.+2424   	; 0xa4a <main>
+      d0:	9e d4       	rcall	.+2364   	; 0xa0e <main>
       d2:	0c 94 c4 09 	jmp	0x1388	; 0x1388 <_exit>
 
 000000d6 <__bad_interrupt>:
@@ -182,16 +182,16 @@ ISR(ADC_vect)
 	adc_data = ADCW;
       fe:	84 b1       	in	r24, 0x04	; 4
      100:	95 b1       	in	r25, 0x05	; 5
-     102:	90 93 6b 05 	sts	0x056B, r25	; 0x80056b <__data_end+0x1>
-     106:	80 93 6a 05 	sts	0x056A, r24	; 0x80056a <__data_end>
+     102:	90 93 61 05 	sts	0x0561, r25	; 0x800561 <__data_end+0x1>
+     106:	80 93 60 05 	sts	0x0560, r24	; 0x800560 <__data_end>
 	ADCSRA = ADCSRA | 0x40;
      10a:	86 b1       	in	r24, 0x06	; 6
      10c:	80 64       	ori	r24, 0x40	; 64
      10e:	86 b9       	out	0x06, r24	; 6
 	
 	if(adc_data <200 && day == 1)
-     110:	80 91 6a 05 	lds	r24, 0x056A	; 0x80056a <__data_end>
-     114:	90 91 6b 05 	lds	r25, 0x056B	; 0x80056b <__data_end+0x1>
+     110:	80 91 60 05 	lds	r24, 0x0560	; 0x800560 <__data_end>
+     114:	90 91 61 05 	lds	r25, 0x0561	; 0x800561 <__data_end+0x1>
      118:	88 3c       	cpi	r24, 0xC8	; 200
      11a:	91 05       	cpc	r25, r1
      11c:	78 f4       	brcc	.+30     	; 0x13c <__vector_21+0x64>
@@ -376,7 +376,7 @@ ISR(INT0_vect)
      226:	ef 93       	push	r30
      228:	ff 93       	push	r31
 	LCD_Init();
-     22a:	ad d3       	rcall	.+1882   	; 0x986 <LCD_Init>
+     22a:	8f d3       	rcall	.+1822   	; 0x94a <LCD_Init>
 }
      22c:	ff 91       	pop	r31
      22e:	ef 91       	pop	r30
@@ -439,7 +439,7 @@ ISR(INT1_vect)
      292:	70 e0       	ldi	r23, 0x00	; 0
      294:	81 e0       	ldi	r24, 0x01	; 1
      296:	90 e0       	ldi	r25, 0x00	; 0
-     298:	a0 d3       	rcall	.+1856   	; 0x9da <LCD_strout>
+     298:	82 d3       	rcall	.+1796   	; 0x99e <LCD_strout>
      29a:	2f ef       	ldi	r18, 0xFF	; 255
      29c:	8f e3       	ldi	r24, 0x3F	; 63
      29e:	92 e0       	ldi	r25, 0x02	; 2
@@ -512,7 +512,7 @@ ISR(INT2_vect)
      312:	70 e0       	ldi	r23, 0x00	; 0
      314:	81 e0       	ldi	r24, 0x01	; 1
      316:	90 e0       	ldi	r25, 0x00	; 0
-     318:	60 d3       	rcall	.+1728   	; 0x9da <LCD_strout>
+     318:	42 d3       	rcall	.+1668   	; 0x99e <LCD_strout>
      31a:	2f ef       	ldi	r18, 0xFF	; 255
      31c:	8f e3       	ldi	r24, 0x3F	; 63
      31e:	92 e0       	ldi	r25, 0x02	; 2
@@ -585,7 +585,7 @@ ISR(INT3_vect)
      392:	70 e0       	ldi	r23, 0x00	; 0
      394:	81 e0       	ldi	r24, 0x01	; 1
      396:	90 e0       	ldi	r25, 0x00	; 0
-     398:	20 d3       	rcall	.+1600   	; 0x9da <LCD_strout>
+     398:	02 d3       	rcall	.+1540   	; 0x99e <LCD_strout>
      39a:	2f ef       	ldi	r18, 0xFF	; 255
      39c:	8f e3       	ldi	r24, 0x3F	; 63
      39e:	92 e0       	ldi	r25, 0x02	; 2
@@ -661,7 +661,7 @@ ISR(INT4_vect)
      414:	70 e0       	ldi	r23, 0x00	; 0
      416:	81 e0       	ldi	r24, 0x01	; 1
      418:	90 e0       	ldi	r25, 0x00	; 0
-     41a:	df d2       	rcall	.+1470   	; 0x9da <LCD_strout>
+     41a:	c1 d2       	rcall	.+1410   	; 0x99e <LCD_strout>
      41c:	26 e6       	ldi	r18, 0x66	; 102
      41e:	86 ee       	ldi	r24, 0xE6	; 230
      420:	90 e0       	ldi	r25, 0x00	; 0
@@ -715,20 +715,20 @@ ISR(INT5_vect)
      472:	ef 93       	push	r30
      474:	ff 93       	push	r31
 	if(inout_index>0) inout_index--; 
-     476:	80 91 6e 05 	lds	r24, 0x056E	; 0x80056e <inout_index>
-     47a:	90 91 6f 05 	lds	r25, 0x056F	; 0x80056f <inout_index+0x1>
+     476:	80 91 64 05 	lds	r24, 0x0564	; 0x800564 <inout_index>
+     47a:	90 91 65 05 	lds	r25, 0x0565	; 0x800565 <inout_index+0x1>
      47e:	18 16       	cp	r1, r24
      480:	19 06       	cpc	r1, r25
      482:	2c f4       	brge	.+10     	; 0x48e <__vector_6+0x3e>
      484:	01 97       	sbiw	r24, 0x01	; 1
-     486:	90 93 6f 05 	sts	0x056F, r25	; 0x80056f <inout_index+0x1>
-     48a:	80 93 6e 05 	sts	0x056E, r24	; 0x80056e <inout_index>
+     486:	90 93 65 05 	sts	0x0565, r25	; 0x800565 <inout_index+0x1>
+     48a:	80 93 64 05 	sts	0x0564, r24	; 0x800564 <inout_index>
 	person_LCD(inout_index, root);
-     48e:	60 91 70 05 	lds	r22, 0x0570	; 0x800570 <root>
-     492:	70 91 71 05 	lds	r23, 0x0571	; 0x800571 <root+0x1>
-     496:	80 91 6e 05 	lds	r24, 0x056E	; 0x80056e <inout_index>
-     49a:	90 91 6f 05 	lds	r25, 0x056F	; 0x80056f <inout_index+0x1>
-     49e:	b0 d1       	rcall	.+864    	; 0x800 <person_LCD>
+     48e:	60 91 66 05 	lds	r22, 0x0566	; 0x800566 <root>
+     492:	70 91 67 05 	lds	r23, 0x0567	; 0x800567 <root+0x1>
+     496:	80 91 64 05 	lds	r24, 0x0564	; 0x800564 <inout_index>
+     49a:	90 91 65 05 	lds	r25, 0x0565	; 0x800565 <inout_index+0x1>
+     49e:	92 d1       	rcall	.+804    	; 0x7c4 <person_LCD>
 }
      4a0:	ff 91       	pop	r31
      4a2:	ef 91       	pop	r30
@@ -774,23 +774,23 @@ ISR(INT6_vect)
      4e8:	ef 93       	push	r30
      4ea:	ff 93       	push	r31
 	if(admit ==0) inout_index++;
-     4ec:	80 91 6c 05 	lds	r24, 0x056C	; 0x80056c <admit>
-     4f0:	90 91 6d 05 	lds	r25, 0x056D	; 0x80056d <admit+0x1>
+     4ec:	80 91 62 05 	lds	r24, 0x0562	; 0x800562 <admit>
+     4f0:	90 91 63 05 	lds	r25, 0x0563	; 0x800563 <admit+0x1>
      4f4:	89 2b       	or	r24, r25
      4f6:	49 f4       	brne	.+18     	; 0x50a <__vector_7+0x44>
-     4f8:	80 91 6e 05 	lds	r24, 0x056E	; 0x80056e <inout_index>
-     4fc:	90 91 6f 05 	lds	r25, 0x056F	; 0x80056f <inout_index+0x1>
+     4f8:	80 91 64 05 	lds	r24, 0x0564	; 0x800564 <inout_index>
+     4fc:	90 91 65 05 	lds	r25, 0x0565	; 0x800565 <inout_index+0x1>
      500:	01 96       	adiw	r24, 0x01	; 1
-     502:	90 93 6f 05 	sts	0x056F, r25	; 0x80056f <inout_index+0x1>
-     506:	80 93 6e 05 	sts	0x056E, r24	; 0x80056e <inout_index>
+     502:	90 93 65 05 	sts	0x0565, r25	; 0x800565 <inout_index+0x1>
+     506:	80 93 64 05 	sts	0x0564, r24	; 0x800564 <inout_index>
 	admit = person_LCD(inout_index, root);
-     50a:	60 91 70 05 	lds	r22, 0x0570	; 0x800570 <root>
-     50e:	70 91 71 05 	lds	r23, 0x0571	; 0x800571 <root+0x1>
-     512:	80 91 6e 05 	lds	r24, 0x056E	; 0x80056e <inout_index>
-     516:	90 91 6f 05 	lds	r25, 0x056F	; 0x80056f <inout_index+0x1>
-     51a:	72 d1       	rcall	.+740    	; 0x800 <person_LCD>
-     51c:	90 93 6d 05 	sts	0x056D, r25	; 0x80056d <admit+0x1>
-     520:	80 93 6c 05 	sts	0x056C, r24	; 0x80056c <admit>
+     50a:	60 91 66 05 	lds	r22, 0x0566	; 0x800566 <root>
+     50e:	70 91 67 05 	lds	r23, 0x0567	; 0x800567 <root+0x1>
+     512:	80 91 64 05 	lds	r24, 0x0564	; 0x800564 <inout_index>
+     516:	90 91 65 05 	lds	r25, 0x0565	; 0x800565 <inout_index+0x1>
+     51a:	54 d1       	rcall	.+680    	; 0x7c4 <person_LCD>
+     51c:	90 93 63 05 	sts	0x0563, r25	; 0x800563 <admit+0x1>
+     520:	80 93 62 05 	sts	0x0562, r24	; 0x800562 <admit>
 }
      524:	ff 91       	pop	r31
      526:	ef 91       	pop	r30
@@ -836,8 +836,8 @@ ISR(INT7_vect)
      56c:	ef 93       	push	r30
      56e:	ff 93       	push	r31
 	person* curr = root->next;
-     570:	60 91 70 05 	lds	r22, 0x0570	; 0x800570 <root>
-     574:	70 91 71 05 	lds	r23, 0x0571	; 0x800571 <root+0x1>
+     570:	60 91 66 05 	lds	r22, 0x0566	; 0x800566 <root>
+     574:	70 91 67 05 	lds	r23, 0x0567	; 0x800567 <root+0x1>
      578:	db 01       	movw	r26, r22
      57a:	56 96       	adiw	r26, 0x16	; 22
      57c:	ed 91       	ld	r30, X+
@@ -860,8 +860,8 @@ ISR(INT7_vect)
 	int i;
 	for (i = 0; i < inout_index && curr != NULL; i++)
      58e:	01 96       	adiw	r24, 0x01	; 1
-     590:	20 91 6e 05 	lds	r18, 0x056E	; 0x80056e <inout_index>
-     594:	30 91 6f 05 	lds	r19, 0x056F	; 0x80056f <inout_index+0x1>
+     590:	20 91 64 05 	lds	r18, 0x0564	; 0x800564 <inout_index>
+     594:	30 91 65 05 	lds	r19, 0x0565	; 0x800565 <inout_index+0x1>
      598:	82 17       	cp	r24, r18
      59a:	93 07       	cpc	r25, r19
      59c:	14 f4       	brge	.+4      	; 0x5a2 <__vector_8+0x58>
@@ -871,7 +871,7 @@ ISR(INT7_vect)
 	
 	Toggle(curr->name, root);
      5a2:	cf 01       	movw	r24, r30
-     5a4:	c1 d0       	rcall	.+386    	; 0x728 <Toggle>
+     5a4:	a3 d0       	rcall	.+326    	; 0x6ec <Toggle>
      5a6:	bf ef       	ldi	r27, 0xFF	; 255
      5a8:	2f e3       	ldi	r18, 0x3F	; 63
      5aa:	82 e0       	ldi	r24, 0x02	; 2
@@ -930,1850 +930,1855 @@ void Lock_int()		//push button 비활성화
      5ee:	19 be       	out	0x39, r1	; 57
      5f0:	08 95       	ret
 
-000005f2 <select>:
-}
-
-char select(int max_sel)	// max_sel만큼의 선택지중 하나를 반환
-{
-     5f2:	cf 93       	push	r28
-     5f4:	df 93       	push	r29
-     5f6:	ec 01       	movw	r28, r24
-	char input;
-	
-	while (1)
-	{
-		while (Rflag == 0);
-     5f8:	80 91 7f 05 	lds	r24, 0x057F	; 0x80057f <Rflag>
-     5fc:	88 23       	and	r24, r24
-     5fe:	e1 f3       	breq	.-8      	; 0x5f8 <select+0x6>
-		input = data;
-     600:	80 91 80 05 	lds	r24, 0x0580	; 0x800580 <data>
-		
-		if (input < '1' || input > '0'+max_sel)
-     604:	81 33       	cpi	r24, 0x31	; 49
-     606:	40 f0       	brcs	.+16     	; 0x618 <select+0x26>
-     608:	28 2f       	mov	r18, r24
-     60a:	30 e0       	ldi	r19, 0x00	; 0
-     60c:	ae 01       	movw	r20, r28
-     60e:	40 5d       	subi	r20, 0xD0	; 208
-     610:	5f 4f       	sbci	r21, 0xFF	; 255
-     612:	42 17       	cp	r20, r18
-     614:	53 07       	cpc	r21, r19
-     616:	34 f4       	brge	.+12     	; 0x624 <select+0x32>
-		{
-			USART0_str("Wrong choice!\r\n");
-     618:	8a eb       	ldi	r24, 0xBA	; 186
-     61a:	91 e0       	ldi	r25, 0x01	; 1
-     61c:	00 d5       	rcall	.+2560   	; 0x101e <USART0_str>
-			Rflag = 0;
-     61e:	10 92 7f 05 	sts	0x057F, r1	; 0x80057f <Rflag>
-{
-	char input;
-	
-	while (1)
-	{
-		while (Rflag == 0);
-     622:	ea cf       	rjmp	.-44     	; 0x5f8 <select+0x6>
-			
-			continue;
-		}
-		else
-		{
-			Rflag = 0;
-     624:	10 92 7f 05 	sts	0x057F, r1	; 0x80057f <Rflag>
-			return input;
-		}
-	}
-
-}
-     628:	df 91       	pop	r29
-     62a:	cf 91       	pop	r28
-     62c:	08 95       	ret
-
-0000062e <Clear_curr>:
+000005f2 <Clear_curr>:
 #include <util/delay.h>
 
 person* root = NULL;
 
 void Clear_curr(person* curr)
 {
-     62e:	fc 01       	movw	r30, r24
+     5f2:	fc 01       	movw	r30, r24
 	
 	if(curr->prev != NULL) curr->prev->next = curr->next;
-     630:	a0 8d       	ldd	r26, Z+24	; 0x18
-     632:	b1 8d       	ldd	r27, Z+25	; 0x19
-     634:	10 97       	sbiw	r26, 0x00	; 0
-     636:	31 f0       	breq	.+12     	; 0x644 <Clear_curr+0x16>
-     638:	86 89       	ldd	r24, Z+22	; 0x16
-     63a:	97 89       	ldd	r25, Z+23	; 0x17
-     63c:	57 96       	adiw	r26, 0x17	; 23
-     63e:	9c 93       	st	X, r25
-     640:	8e 93       	st	-X, r24
-     642:	56 97       	sbiw	r26, 0x16	; 22
+     5f4:	a0 8d       	ldd	r26, Z+24	; 0x18
+     5f6:	b1 8d       	ldd	r27, Z+25	; 0x19
+     5f8:	10 97       	sbiw	r26, 0x00	; 0
+     5fa:	31 f0       	breq	.+12     	; 0x608 <Clear_curr+0x16>
+     5fc:	86 89       	ldd	r24, Z+22	; 0x16
+     5fe:	97 89       	ldd	r25, Z+23	; 0x17
+     600:	57 96       	adiw	r26, 0x17	; 23
+     602:	9c 93       	st	X, r25
+     604:	8e 93       	st	-X, r24
+     606:	56 97       	sbiw	r26, 0x16	; 22
 	if(curr->next != NULL) curr->next->prev = curr->prev;
-     644:	a6 89       	ldd	r26, Z+22	; 0x16
-     646:	b7 89       	ldd	r27, Z+23	; 0x17
-     648:	10 97       	sbiw	r26, 0x00	; 0
-     64a:	31 f0       	breq	.+12     	; 0x658 <Clear_curr+0x2a>
-     64c:	80 8d       	ldd	r24, Z+24	; 0x18
-     64e:	91 8d       	ldd	r25, Z+25	; 0x19
-     650:	59 96       	adiw	r26, 0x19	; 25
-     652:	9c 93       	st	X, r25
-     654:	8e 93       	st	-X, r24
-     656:	58 97       	sbiw	r26, 0x18	; 24
+     608:	a6 89       	ldd	r26, Z+22	; 0x16
+     60a:	b7 89       	ldd	r27, Z+23	; 0x17
+     60c:	10 97       	sbiw	r26, 0x00	; 0
+     60e:	31 f0       	breq	.+12     	; 0x61c <Clear_curr+0x2a>
+     610:	80 8d       	ldd	r24, Z+24	; 0x18
+     612:	91 8d       	ldd	r25, Z+25	; 0x19
+     614:	59 96       	adiw	r26, 0x19	; 25
+     616:	9c 93       	st	X, r25
+     618:	8e 93       	st	-X, r24
+     61a:	58 97       	sbiw	r26, 0x18	; 24
 	
 	curr->next = NULL;
-     658:	17 8a       	std	Z+23, r1	; 0x17
-     65a:	16 8a       	std	Z+22, r1	; 0x16
+     61c:	17 8a       	std	Z+23, r1	; 0x17
+     61e:	16 8a       	std	Z+22, r1	; 0x16
 	curr->prev = NULL;
-     65c:	11 8e       	std	Z+25, r1	; 0x19
-     65e:	10 8e       	std	Z+24, r1	; 0x18
-     660:	08 95       	ret
+     620:	11 8e       	std	Z+25, r1	; 0x19
+     622:	10 8e       	std	Z+24, r1	; 0x18
+     624:	08 95       	ret
 
-00000662 <Enroll>:
+00000626 <Enroll>:
 }
 
 void Enroll(char name[], int state, person* head)
 {
-     662:	cf 92       	push	r12
-     664:	df 92       	push	r13
-     666:	ef 92       	push	r14
-     668:	ff 92       	push	r15
-     66a:	0f 93       	push	r16
-     66c:	1f 93       	push	r17
-     66e:	cf 93       	push	r28
-     670:	df 93       	push	r29
-     672:	6c 01       	movw	r12, r24
-     674:	7b 01       	movw	r14, r22
-     676:	ea 01       	movw	r28, r20
+     626:	cf 92       	push	r12
+     628:	df 92       	push	r13
+     62a:	ef 92       	push	r14
+     62c:	ff 92       	push	r15
+     62e:	0f 93       	push	r16
+     630:	1f 93       	push	r17
+     632:	cf 93       	push	r28
+     634:	df 93       	push	r29
+     636:	6c 01       	movw	r12, r24
+     638:	7b 01       	movw	r14, r22
+     63a:	ea 01       	movw	r28, r20
 	person* enroll = (person*)malloc(sizeof(person));
-     678:	8a e1       	ldi	r24, 0x1A	; 26
-     67a:	90 e0       	ldi	r25, 0x00	; 0
-     67c:	54 d5       	rcall	.+2728   	; 0x1126 <malloc>
-     67e:	8c 01       	movw	r16, r24
+     63c:	8a e1       	ldi	r24, 0x1A	; 26
+     63e:	90 e0       	ldi	r25, 0x00	; 0
+     640:	72 d5       	rcall	.+2788   	; 0x1126 <malloc>
+     642:	8c 01       	movw	r16, r24
 	
 	if (enroll != NULL) {
-     680:	00 97       	sbiw	r24, 0x00	; 0
-     682:	59 f0       	breq	.+22     	; 0x69a <Enroll+0x38>
+     644:	00 97       	sbiw	r24, 0x00	; 0
+     646:	59 f0       	breq	.+22     	; 0x65e <Enroll+0x38>
 		strcpy(enroll->name, name);
-     684:	b6 01       	movw	r22, r12
-     686:	79 d6       	rcall	.+3314   	; 0x137a <strcpy>
+     648:	b6 01       	movw	r22, r12
+     64a:	97 d6       	rcall	.+3374   	; 0x137a <strcpy>
 		enroll->state = state;
-     688:	f8 01       	movw	r30, r16
-     68a:	f5 8a       	std	Z+21, r15	; 0x15
-     68c:	e4 8a       	std	Z+20, r14	; 0x14
+     64c:	f8 01       	movw	r30, r16
+     64e:	f5 8a       	std	Z+21, r15	; 0x15
+     650:	e4 8a       	std	Z+20, r14	; 0x14
 		enroll->next = NULL;
-     68e:	17 8a       	std	Z+23, r1	; 0x17
-     690:	16 8a       	std	Z+22, r1	; 0x16
+     652:	17 8a       	std	Z+23, r1	; 0x17
+     654:	16 8a       	std	Z+22, r1	; 0x16
 		enroll->prev = NULL;
-     692:	11 8e       	std	Z+25, r1	; 0x19
-     694:	10 8e       	std	Z+24, r1	; 0x18
+     656:	11 8e       	std	Z+25, r1	; 0x19
+     658:	10 8e       	std	Z+24, r1	; 0x18
 	}
 	
 	person* curr;
 	curr = head;
 	
 	while(curr->next != NULL)
-     696:	01 c0       	rjmp	.+2      	; 0x69a <Enroll+0x38>
+     65a:	01 c0       	rjmp	.+2      	; 0x65e <Enroll+0x38>
 	{
 		curr = curr->next;
-     698:	ec 01       	movw	r28, r24
+     65c:	ec 01       	movw	r28, r24
 	}
 	
 	person* curr;
 	curr = head;
 	
 	while(curr->next != NULL)
-     69a:	8e 89       	ldd	r24, Y+22	; 0x16
-     69c:	9f 89       	ldd	r25, Y+23	; 0x17
-     69e:	00 97       	sbiw	r24, 0x00	; 0
-     6a0:	d9 f7       	brne	.-10     	; 0x698 <Enroll+0x36>
+     65e:	8e 89       	ldd	r24, Y+22	; 0x16
+     660:	9f 89       	ldd	r25, Y+23	; 0x17
+     662:	00 97       	sbiw	r24, 0x00	; 0
+     664:	d9 f7       	brne	.-10     	; 0x65c <Enroll+0x36>
 	{
 		curr = curr->next;
 	}
 	
 	curr -> next = enroll;
-     6a2:	1f 8b       	std	Y+23, r17	; 0x17
-     6a4:	0e 8b       	std	Y+22, r16	; 0x16
+     666:	1f 8b       	std	Y+23, r17	; 0x17
+     668:	0e 8b       	std	Y+22, r16	; 0x16
 	enroll -> prev = curr;
-     6a6:	f8 01       	movw	r30, r16
-     6a8:	d1 8f       	std	Z+25, r29	; 0x19
-     6aa:	c0 8f       	std	Z+24, r28	; 0x18
+     66a:	f8 01       	movw	r30, r16
+     66c:	d1 8f       	std	Z+25, r29	; 0x19
+     66e:	c0 8f       	std	Z+24, r28	; 0x18
 }
-     6ac:	df 91       	pop	r29
-     6ae:	cf 91       	pop	r28
-     6b0:	1f 91       	pop	r17
-     6b2:	0f 91       	pop	r16
-     6b4:	ff 90       	pop	r15
-     6b6:	ef 90       	pop	r14
-     6b8:	df 90       	pop	r13
-     6ba:	cf 90       	pop	r12
-     6bc:	08 95       	ret
+     670:	df 91       	pop	r29
+     672:	cf 91       	pop	r28
+     674:	1f 91       	pop	r17
+     676:	0f 91       	pop	r16
+     678:	ff 90       	pop	r15
+     67a:	ef 90       	pop	r14
+     67c:	df 90       	pop	r13
+     67e:	cf 90       	pop	r12
+     680:	08 95       	ret
 
-000006be <Delete>:
+00000682 <Delete>:
 
 void Delete(char* name, person* head)
 {
-     6be:	0f 93       	push	r16
-     6c0:	1f 93       	push	r17
-     6c2:	cf 93       	push	r28
-     6c4:	df 93       	push	r29
-     6c6:	8c 01       	movw	r16, r24
-     6c8:	eb 01       	movw	r28, r22
+     682:	0f 93       	push	r16
+     684:	1f 93       	push	r17
+     686:	cf 93       	push	r28
+     688:	df 93       	push	r29
+     68a:	8c 01       	movw	r16, r24
+     68c:	eb 01       	movw	r28, r22
 	person* curr;
 	curr = head;
 	
 	if (head->next == NULL) {USART0_str("There is nobody in list\r\n"); return;}
-     6ca:	8e 89       	ldd	r24, Y+22	; 0x16
-     6cc:	9f 89       	ldd	r25, Y+23	; 0x17
-     6ce:	89 2b       	or	r24, r25
-     6d0:	61 f4       	brne	.+24     	; 0x6ea <Delete+0x2c>
-     6d2:	8a ec       	ldi	r24, 0xCA	; 202
-     6d4:	91 e0       	ldi	r25, 0x01	; 1
-     6d6:	a3 d4       	rcall	.+2374   	; 0x101e <USART0_str>
-     6d8:	22 c0       	rjmp	.+68     	; 0x71e <Delete+0x60>
+     68e:	8e 89       	ldd	r24, Y+22	; 0x16
+     690:	9f 89       	ldd	r25, Y+23	; 0x17
+     692:	89 2b       	or	r24, r25
+     694:	61 f4       	brne	.+24     	; 0x6ae <Delete+0x2c>
+     696:	8a eb       	ldi	r24, 0xBA	; 186
+     698:	91 e0       	ldi	r25, 0x01	; 1
+     69a:	c1 d4       	rcall	.+2434   	; 0x101e <USART0_str>
+     69c:	22 c0       	rjmp	.+68     	; 0x6e2 <Delete+0x60>
 	
 	while (curr != NULL)	// curr이 마지막 객체까지 name과 같은 이름을 가진 객체가 있나 비교하며 이동
 	{
 		if (strcmp((char*)curr->name, (char*)name) == 0) break;
-     6da:	b8 01       	movw	r22, r16
-     6dc:	ce 01       	movw	r24, r28
-     6de:	44 d6       	rcall	.+3208   	; 0x1368 <strcmp>
-     6e0:	89 2b       	or	r24, r25
-     6e2:	29 f0       	breq	.+10     	; 0x6ee <Delete+0x30>
+     69e:	b8 01       	movw	r22, r16
+     6a0:	ce 01       	movw	r24, r28
+     6a2:	62 d6       	rcall	.+3268   	; 0x1368 <strcmp>
+     6a4:	89 2b       	or	r24, r25
+     6a6:	29 f0       	breq	.+10     	; 0x6b2 <Delete+0x30>
 		curr = curr->next;
-     6e4:	0e 88       	ldd	r0, Y+22	; 0x16
-     6e6:	df 89       	ldd	r29, Y+23	; 0x17
-     6e8:	c0 2d       	mov	r28, r0
+     6a8:	0e 88       	ldd	r0, Y+22	; 0x16
+     6aa:	df 89       	ldd	r29, Y+23	; 0x17
+     6ac:	c0 2d       	mov	r28, r0
 	person* curr;
 	curr = head;
 	
 	if (head->next == NULL) {USART0_str("There is nobody in list\r\n"); return;}
 	
 	while (curr != NULL)	// curr이 마지막 객체까지 name과 같은 이름을 가진 객체가 있나 비교하며 이동
-     6ea:	20 97       	sbiw	r28, 0x00	; 0
-     6ec:	b1 f7       	brne	.-20     	; 0x6da <Delete+0x1c>
+     6ae:	20 97       	sbiw	r28, 0x00	; 0
+     6b0:	b1 f7       	brne	.-20     	; 0x69e <Delete+0x1c>
 	{
 		if (strcmp((char*)curr->name, (char*)name) == 0) break;
 		curr = curr->next;
 	}
 	
 	if(curr == NULL)
-     6ee:	20 97       	sbiw	r28, 0x00	; 0
-     6f0:	49 f4       	brne	.+18     	; 0x704 <Delete+0x46>
+     6b2:	20 97       	sbiw	r28, 0x00	; 0
+     6b4:	49 f4       	brne	.+18     	; 0x6c8 <Delete+0x46>
 	{	USART0_str(" ");
-     6f2:	84 ef       	ldi	r24, 0xF4	; 244
-     6f4:	94 e0       	ldi	r25, 0x04	; 4
+     6b6:	8a ee       	ldi	r24, 0xEA	; 234
+     6b8:	94 e0       	ldi	r25, 0x04	; 4
 		USART0_str(name);
-     6f6:	93 d4       	rcall	.+2342   	; 0x101e <USART0_str>
-     6f8:	c8 01       	movw	r24, r16
+     6ba:	b1 d4       	rcall	.+2402   	; 0x101e <USART0_str>
+     6bc:	c8 01       	movw	r24, r16
 		USART0_str(" is not existed\r\n");
-     6fa:	91 d4       	rcall	.+2338   	; 0x101e <USART0_str>
-     6fc:	84 ee       	ldi	r24, 0xE4	; 228
-     6fe:	91 e0       	ldi	r25, 0x01	; 1
+     6be:	af d4       	rcall	.+2398   	; 0x101e <USART0_str>
+     6c0:	84 ed       	ldi	r24, 0xD4	; 212
+     6c2:	91 e0       	ldi	r25, 0x01	; 1
 		return;
-     700:	8e d4       	rcall	.+2332   	; 0x101e <USART0_str>
+     6c4:	ac d4       	rcall	.+2392   	; 0x101e <USART0_str>
 	}
 	
 	if(strcmp(curr->name, name)==0)
-     702:	0d c0       	rjmp	.+26     	; 0x71e <Delete+0x60>
-     704:	b8 01       	movw	r22, r16
-     706:	ce 01       	movw	r24, r28
-     708:	2f d6       	rcall	.+3166   	; 0x1368 <strcmp>
+     6c6:	0d c0       	rjmp	.+26     	; 0x6e2 <Delete+0x60>
+     6c8:	b8 01       	movw	r22, r16
+     6ca:	ce 01       	movw	r24, r28
+     6cc:	4d d6       	rcall	.+3226   	; 0x1368 <strcmp>
 	{
 		Clear_curr(curr);
-     70a:	89 2b       	or	r24, r25
-     70c:	29 f4       	brne	.+10     	; 0x718 <Delete+0x5a>
+     6ce:	89 2b       	or	r24, r25
+     6d0:	29 f4       	brne	.+10     	; 0x6dc <Delete+0x5a>
 		free(curr);	
-     70e:	ce 01       	movw	r24, r28
-     710:	8e df       	rcall	.-228    	; 0x62e <Clear_curr>
-     712:	ce 01       	movw	r24, r28
+     6d2:	ce 01       	movw	r24, r28
+     6d4:	8e df       	rcall	.-228    	; 0x5f2 <Clear_curr>
+     6d6:	ce 01       	movw	r24, r28
 		return;
-     714:	a0 d5       	rcall	.+2880   	; 0x1256 <free>
+     6d8:	be d5       	rcall	.+2940   	; 0x1256 <free>
 	}
 	
 	USART0_str("Error\r\n");
-     716:	03 c0       	rjmp	.+6      	; 0x71e <Delete+0x60>
-     718:	86 ef       	ldi	r24, 0xF6	; 246
-     71a:	91 e0       	ldi	r25, 0x01	; 1
-     71c:	80 d4       	rcall	.+2304   	; 0x101e <USART0_str>
+     6da:	03 c0       	rjmp	.+6      	; 0x6e2 <Delete+0x60>
+     6dc:	86 ee       	ldi	r24, 0xE6	; 230
+     6de:	91 e0       	ldi	r25, 0x01	; 1
+     6e0:	9e d4       	rcall	.+2364   	; 0x101e <USART0_str>
 	return;
 }
-     71e:	df 91       	pop	r29
-     720:	cf 91       	pop	r28
-     722:	1f 91       	pop	r17
-     724:	0f 91       	pop	r16
-     726:	08 95       	ret
+     6e2:	df 91       	pop	r29
+     6e4:	cf 91       	pop	r28
+     6e6:	1f 91       	pop	r17
+     6e8:	0f 91       	pop	r16
+     6ea:	08 95       	ret
 
-00000728 <Toggle>:
+000006ec <Toggle>:
 
 void Toggle(char* name, person* head)
 {
-     728:	0f 93       	push	r16
-     72a:	1f 93       	push	r17
-     72c:	cf 93       	push	r28
-     72e:	df 93       	push	r29
-     730:	8c 01       	movw	r16, r24
-     732:	eb 01       	movw	r28, r22
+     6ec:	0f 93       	push	r16
+     6ee:	1f 93       	push	r17
+     6f0:	cf 93       	push	r28
+     6f2:	df 93       	push	r29
+     6f4:	8c 01       	movw	r16, r24
+     6f6:	eb 01       	movw	r28, r22
 	person* curr;
 	curr = head;
 	
 	if (head->next == NULL) {USART0_str("There is nobody in list\r\n"); return;}
-     734:	8e 89       	ldd	r24, Y+22	; 0x16
-     736:	9f 89       	ldd	r25, Y+23	; 0x17
-     738:	89 2b       	or	r24, r25
-     73a:	61 f4       	brne	.+24     	; 0x754 <Toggle+0x2c>
-     73c:	8a ec       	ldi	r24, 0xCA	; 202
-     73e:	91 e0       	ldi	r25, 0x01	; 1
-     740:	6e d4       	rcall	.+2268   	; 0x101e <USART0_str>
-     742:	2c c0       	rjmp	.+88     	; 0x79c <Toggle+0x74>
+     6f8:	8e 89       	ldd	r24, Y+22	; 0x16
+     6fa:	9f 89       	ldd	r25, Y+23	; 0x17
+     6fc:	89 2b       	or	r24, r25
+     6fe:	61 f4       	brne	.+24     	; 0x718 <Toggle+0x2c>
+     700:	8a eb       	ldi	r24, 0xBA	; 186
+     702:	91 e0       	ldi	r25, 0x01	; 1
+     704:	8c d4       	rcall	.+2328   	; 0x101e <USART0_str>
+     706:	2c c0       	rjmp	.+88     	; 0x760 <Toggle+0x74>
 	
 	while (curr != NULL)	// curr이 마지막 객체까지 name과 같은 이름을 가진 객체가 있나 비교하며 이동
 	{
 		if (strcmp(curr->name, name) == 0) break;
-     744:	b8 01       	movw	r22, r16
-     746:	ce 01       	movw	r24, r28
-     748:	0f d6       	rcall	.+3102   	; 0x1368 <strcmp>
-     74a:	89 2b       	or	r24, r25
-     74c:	29 f0       	breq	.+10     	; 0x758 <Toggle+0x30>
+     708:	b8 01       	movw	r22, r16
+     70a:	ce 01       	movw	r24, r28
+     70c:	2d d6       	rcall	.+3162   	; 0x1368 <strcmp>
+     70e:	89 2b       	or	r24, r25
+     710:	29 f0       	breq	.+10     	; 0x71c <Toggle+0x30>
 		curr = curr->next;
-     74e:	0e 88       	ldd	r0, Y+22	; 0x16
-     750:	df 89       	ldd	r29, Y+23	; 0x17
-     752:	c0 2d       	mov	r28, r0
+     712:	0e 88       	ldd	r0, Y+22	; 0x16
+     714:	df 89       	ldd	r29, Y+23	; 0x17
+     716:	c0 2d       	mov	r28, r0
 	person* curr;
 	curr = head;
 	
 	if (head->next == NULL) {USART0_str("There is nobody in list\r\n"); return;}
 	
 	while (curr != NULL)	// curr이 마지막 객체까지 name과 같은 이름을 가진 객체가 있나 비교하며 이동
-     754:	20 97       	sbiw	r28, 0x00	; 0
-     756:	b1 f7       	brne	.-20     	; 0x744 <Toggle+0x1c>
+     718:	20 97       	sbiw	r28, 0x00	; 0
+     71a:	b1 f7       	brne	.-20     	; 0x708 <Toggle+0x1c>
 	{
 		if (strcmp(curr->name, name) == 0) break;
 		curr = curr->next;
 	}
 	
 	if(curr == NULL)
-     758:	20 97       	sbiw	r28, 0x00	; 0
-     75a:	49 f4       	brne	.+18     	; 0x76e <Toggle+0x46>
+     71c:	20 97       	sbiw	r28, 0x00	; 0
+     71e:	49 f4       	brne	.+18     	; 0x732 <Toggle+0x46>
 	{	USART0_str(" ");
-     75c:	84 ef       	ldi	r24, 0xF4	; 244
-     75e:	94 e0       	ldi	r25, 0x04	; 4
+     720:	8a ee       	ldi	r24, 0xEA	; 234
+     722:	94 e0       	ldi	r25, 0x04	; 4
 		USART0_str(name);
-     760:	5e d4       	rcall	.+2236   	; 0x101e <USART0_str>
-     762:	c8 01       	movw	r24, r16
+     724:	7c d4       	rcall	.+2296   	; 0x101e <USART0_str>
+     726:	c8 01       	movw	r24, r16
 		USART0_str(" is not existed\r\n");
-     764:	5c d4       	rcall	.+2232   	; 0x101e <USART0_str>
-     766:	84 ee       	ldi	r24, 0xE4	; 228
-     768:	91 e0       	ldi	r25, 0x01	; 1
+     728:	7a d4       	rcall	.+2292   	; 0x101e <USART0_str>
+     72a:	84 ed       	ldi	r24, 0xD4	; 212
+     72c:	91 e0       	ldi	r25, 0x01	; 1
 		return;
-     76a:	59 d4       	rcall	.+2226   	; 0x101e <USART0_str>
+     72e:	77 d4       	rcall	.+2286   	; 0x101e <USART0_str>
 	}
 	
 	if(strcmp(curr->name, name)==0)
-     76c:	17 c0       	rjmp	.+46     	; 0x79c <Toggle+0x74>
-     76e:	b8 01       	movw	r22, r16
-     770:	ce 01       	movw	r24, r28
-     772:	fa d5       	rcall	.+3060   	; 0x1368 <strcmp>
-     774:	89 2b       	or	r24, r25
-     776:	79 f4       	brne	.+30     	; 0x796 <Toggle+0x6e>
+     730:	17 c0       	rjmp	.+46     	; 0x760 <Toggle+0x74>
+     732:	b8 01       	movw	r22, r16
+     734:	ce 01       	movw	r24, r28
+     736:	18 d6       	rcall	.+3120   	; 0x1368 <strcmp>
+     738:	89 2b       	or	r24, r25
+     73a:	79 f4       	brne	.+30     	; 0x75a <Toggle+0x6e>
 	{
 		if (curr->state ==0) {curr->state = 1;}
-     778:	8c 89       	ldd	r24, Y+20	; 0x14
-     77a:	9d 89       	ldd	r25, Y+21	; 0x15
-     77c:	89 2b       	or	r24, r25
-     77e:	29 f4       	brne	.+10     	; 0x78a <Toggle+0x62>
-     780:	81 e0       	ldi	r24, 0x01	; 1
-     782:	90 e0       	ldi	r25, 0x00	; 0
-     784:	9d 8b       	std	Y+21, r25	; 0x15
-     786:	8c 8b       	std	Y+20, r24	; 0x14
+     73c:	8c 89       	ldd	r24, Y+20	; 0x14
+     73e:	9d 89       	ldd	r25, Y+21	; 0x15
+     740:	89 2b       	or	r24, r25
+     742:	29 f4       	brne	.+10     	; 0x74e <Toggle+0x62>
+     744:	81 e0       	ldi	r24, 0x01	; 1
+     746:	90 e0       	ldi	r25, 0x00	; 0
+     748:	9d 8b       	std	Y+21, r25	; 0x15
+     74a:	8c 8b       	std	Y+20, r24	; 0x14
 		else curr->state = 0;
-     788:	02 c0       	rjmp	.+4      	; 0x78e <Toggle+0x66>
-     78a:	1d 8a       	std	Y+21, r1	; 0x15
+     74c:	02 c0       	rjmp	.+4      	; 0x752 <Toggle+0x66>
+     74e:	1d 8a       	std	Y+21, r1	; 0x15
 		
 		USART0_str("State changed \r\n");
-     78c:	1c 8a       	std	Y+20, r1	; 0x14
-     78e:	8e ef       	ldi	r24, 0xFE	; 254
-     790:	91 e0       	ldi	r25, 0x01	; 1
+     750:	1c 8a       	std	Y+20, r1	; 0x14
+     752:	8e ee       	ldi	r24, 0xEE	; 238
+     754:	91 e0       	ldi	r25, 0x01	; 1
 		return;
-     792:	45 d4       	rcall	.+2186   	; 0x101e <USART0_str>
+     756:	63 d4       	rcall	.+2246   	; 0x101e <USART0_str>
 	}
 	
 	USART0_str("Error\r\n");
-     794:	03 c0       	rjmp	.+6      	; 0x79c <Toggle+0x74>
-     796:	86 ef       	ldi	r24, 0xF6	; 246
-     798:	91 e0       	ldi	r25, 0x01	; 1
-     79a:	41 d4       	rcall	.+2178   	; 0x101e <USART0_str>
+     758:	03 c0       	rjmp	.+6      	; 0x760 <Toggle+0x74>
+     75a:	86 ee       	ldi	r24, 0xE6	; 230
+     75c:	91 e0       	ldi	r25, 0x01	; 1
+     75e:	5f d4       	rcall	.+2238   	; 0x101e <USART0_str>
 	return;
 }
-     79c:	df 91       	pop	r29
-     79e:	cf 91       	pop	r28
-     7a0:	1f 91       	pop	r17
-     7a2:	0f 91       	pop	r16
-     7a4:	08 95       	ret
+     760:	df 91       	pop	r29
+     762:	cf 91       	pop	r28
+     764:	1f 91       	pop	r17
+     766:	0f 91       	pop	r16
+     768:	08 95       	ret
 
-000007a6 <print_list>:
+0000076a <print_list>:
 
 void print_list(person* head)
 {
-     7a6:	cf 93       	push	r28
-     7a8:	df 93       	push	r29
+     76a:	cf 93       	push	r28
+     76c:	df 93       	push	r29
 	if (head->next == NULL)
-     7aa:	fc 01       	movw	r30, r24
-     7ac:	c6 89       	ldd	r28, Z+22	; 0x16
-     7ae:	d7 89       	ldd	r29, Z+23	; 0x17
-     7b0:	20 97       	sbiw	r28, 0x00	; 0
-     7b2:	09 f5       	brne	.+66     	; 0x7f6 <print_list+0x50>
+     76e:	fc 01       	movw	r30, r24
+     770:	c6 89       	ldd	r28, Z+22	; 0x16
+     772:	d7 89       	ldd	r29, Z+23	; 0x17
+     774:	20 97       	sbiw	r28, 0x00	; 0
+     776:	09 f5       	brne	.+66     	; 0x7ba <print_list+0x50>
 	{
 		USART0_str("List Not existed\r\n");
-     7b4:	8f e0       	ldi	r24, 0x0F	; 15
-     7b6:	92 e0       	ldi	r25, 0x02	; 2
-     7b8:	32 d4       	rcall	.+2148   	; 0x101e <USART0_str>
+     778:	8f ef       	ldi	r24, 0xFF	; 255
+     77a:	91 e0       	ldi	r25, 0x01	; 1
+     77c:	50 d4       	rcall	.+2208   	; 0x101e <USART0_str>
 		return;
-     7ba:	1f c0       	rjmp	.+62     	; 0x7fa <print_list+0x54>
+     77e:	1f c0       	rjmp	.+62     	; 0x7be <print_list+0x54>
 	}
 	person* curr = head;
 	curr = curr->next;
 	while(curr !=NULL)
 	{
 		USART0_str("\r\n Name :");
-     7bc:	82 e2       	ldi	r24, 0x22	; 34
-     7be:	92 e0       	ldi	r25, 0x02	; 2
-     7c0:	2e d4       	rcall	.+2140   	; 0x101e <USART0_str>
+     780:	82 e1       	ldi	r24, 0x12	; 18
+     782:	92 e0       	ldi	r25, 0x02	; 2
+     784:	4c d4       	rcall	.+2200   	; 0x101e <USART0_str>
 		USART0_str(curr->name);
-     7c2:	ce 01       	movw	r24, r28
-     7c4:	2c d4       	rcall	.+2136   	; 0x101e <USART0_str>
-     7c6:	8c 89       	ldd	r24, Y+20	; 0x14
+     786:	ce 01       	movw	r24, r28
+     788:	4a d4       	rcall	.+2196   	; 0x101e <USART0_str>
+     78a:	8c 89       	ldd	r24, Y+20	; 0x14
 		
 		if (curr->state == 1)
-     7c8:	9d 89       	ldd	r25, Y+21	; 0x15
-     7ca:	81 30       	cpi	r24, 0x01	; 1
-     7cc:	91 05       	cpc	r25, r1
-     7ce:	21 f4       	brne	.+8      	; 0x7d8 <print_list+0x32>
-		USART0_str(" is existed");
-     7d0:	8c e2       	ldi	r24, 0x2C	; 44
-     7d2:	92 e0       	ldi	r25, 0x02	; 2
-     7d4:	24 d4       	rcall	.+2120   	; 0x101e <USART0_str>
-     7d6:	09 c0       	rjmp	.+18     	; 0x7ea <print_list+0x44>
-     7d8:	89 2b       	or	r24, r25
+     78c:	9d 89       	ldd	r25, Y+21	; 0x15
+     78e:	81 30       	cpi	r24, 0x01	; 1
+     790:	91 05       	cpc	r25, r1
+     792:	21 f4       	brne	.+8      	; 0x79c <print_list+0x32>
+		USART0_str(" is existed\r\n");
+     794:	8c e1       	ldi	r24, 0x1C	; 28
+     796:	92 e0       	ldi	r25, 0x02	; 2
+     798:	42 d4       	rcall	.+2180   	; 0x101e <USART0_str>
+     79a:	09 c0       	rjmp	.+18     	; 0x7ae <print_list+0x44>
+     79c:	89 2b       	or	r24, r25
 		else if (curr->state == 0)
-     7da:	21 f4       	brne	.+8      	; 0x7e4 <print_list+0x3e>
-		USART0_str(" is not existed");
-     7dc:	88 e3       	ldi	r24, 0x38	; 56
-     7de:	92 e0       	ldi	r25, 0x02	; 2
-     7e0:	1e d4       	rcall	.+2108   	; 0x101e <USART0_str>
-     7e2:	03 c0       	rjmp	.+6      	; 0x7ea <print_list+0x44>
+     79e:	21 f4       	brne	.+8      	; 0x7a8 <print_list+0x3e>
+		USART0_str(" is not existed\r\n");
+     7a0:	84 ed       	ldi	r24, 0xD4	; 212
+     7a2:	91 e0       	ldi	r25, 0x01	; 1
+     7a4:	3c d4       	rcall	.+2168   	; 0x101e <USART0_str>
+     7a6:	03 c0       	rjmp	.+6      	; 0x7ae <print_list+0x44>
 		
 		else
 		USART0_str("Unknown");
-     7e4:	88 e4       	ldi	r24, 0x48	; 72
-     7e6:	92 e0       	ldi	r25, 0x02	; 2
-     7e8:	1a d4       	rcall	.+2100   	; 0x101e <USART0_str>
+     7a8:	8a e2       	ldi	r24, 0x2A	; 42
+     7aa:	92 e0       	ldi	r25, 0x02	; 2
+     7ac:	38 d4       	rcall	.+2160   	; 0x101e <USART0_str>
 		USART0_str("\r\n");
-     7ea:	8e e8       	ldi	r24, 0x8E	; 142
-     7ec:	93 e0       	ldi	r25, 0x03	; 3
-     7ee:	17 d4       	rcall	.+2094   	; 0x101e <USART0_str>
-     7f0:	0e 88       	ldd	r0, Y+22	; 0x16
+     7ae:	82 e7       	ldi	r24, 0x72	; 114
+     7b0:	93 e0       	ldi	r25, 0x03	; 3
+     7b2:	35 d4       	rcall	.+2154   	; 0x101e <USART0_str>
+     7b4:	0e 88       	ldd	r0, Y+22	; 0x16
 		curr = curr->next;
-     7f2:	df 89       	ldd	r29, Y+23	; 0x17
-     7f4:	c0 2d       	mov	r28, r0
-     7f6:	20 97       	sbiw	r28, 0x00	; 0
+     7b6:	df 89       	ldd	r29, Y+23	; 0x17
+     7b8:	c0 2d       	mov	r28, r0
+     7ba:	20 97       	sbiw	r28, 0x00	; 0
 		USART0_str("List Not existed\r\n");
 		return;
 	}
 	person* curr = head;
 	curr = curr->next;
 	while(curr !=NULL)
-     7f8:	09 f7       	brne	.-62     	; 0x7bc <print_list+0x16>
-     7fa:	df 91       	pop	r29
+     7bc:	09 f7       	brne	.-62     	; 0x780 <print_list+0x16>
+     7be:	df 91       	pop	r29
 		else
 		USART0_str("Unknown");
 		USART0_str("\r\n");
 		curr = curr->next;
 	}
 }
-     7fc:	cf 91       	pop	r28
-     7fe:	08 95       	ret
+     7c0:	cf 91       	pop	r28
+     7c2:	08 95       	ret
 
-00000800 <person_LCD>:
-     800:	0f 93       	push	r16
+000007c4 <person_LCD>:
+     7c4:	0f 93       	push	r16
 
 int person_LCD(int index, person* head)
 {
-     802:	1f 93       	push	r17
-     804:	cf 93       	push	r28
-     806:	df 93       	push	r29
-     808:	8b 01       	movw	r16, r22
+     7c6:	1f 93       	push	r17
+     7c8:	cf 93       	push	r28
+     7ca:	df 93       	push	r29
+     7cc:	8b 01       	movw	r16, r22
 	person* curr = head->next;
-     80a:	fb 01       	movw	r30, r22
-     80c:	c6 89       	ldd	r28, Z+22	; 0x16
-     80e:	d7 89       	ldd	r29, Z+23	; 0x17
+     7ce:	fb 01       	movw	r30, r22
+     7d0:	c6 89       	ldd	r28, Z+22	; 0x16
+     7d2:	d7 89       	ldd	r29, Z+23	; 0x17
 
 	if (curr == NULL) {
-     810:	20 97       	sbiw	r28, 0x00	; 0
-     812:	81 f4       	brne	.+32     	; 0x834 <person_LCD+0x34>
+     7d4:	20 97       	sbiw	r28, 0x00	; 0
+     7d6:	81 f4       	brne	.+32     	; 0x7f8 <person_LCD+0x34>
 		LCD_strout(0, 0, "No Members!");
-     814:	40 e5       	ldi	r20, 0x50	; 80
-     816:	52 e0       	ldi	r21, 0x02	; 2
-     818:	60 e0       	ldi	r22, 0x00	; 0
-     81a:	70 e0       	ldi	r23, 0x00	; 0
-     81c:	80 e0       	ldi	r24, 0x00	; 0
-     81e:	90 e0       	ldi	r25, 0x00	; 0
-     820:	dc d0       	rcall	.+440    	; 0x9da <LCD_strout>
+     7d8:	42 e3       	ldi	r20, 0x32	; 50
+     7da:	52 e0       	ldi	r21, 0x02	; 2
+     7dc:	60 e0       	ldi	r22, 0x00	; 0
+     7de:	70 e0       	ldi	r23, 0x00	; 0
+     7e0:	80 e0       	ldi	r24, 0x00	; 0
+     7e2:	90 e0       	ldi	r25, 0x00	; 0
+     7e4:	dc d0       	rcall	.+440    	; 0x99e <LCD_strout>
 		return 1;
-     822:	81 e0       	ldi	r24, 0x01	; 1
-     824:	90 e0       	ldi	r25, 0x00	; 0
-     826:	5a c0       	rjmp	.+180    	; 0x8dc <person_LCD+0xdc>
+     7e6:	81 e0       	ldi	r24, 0x01	; 1
+     7e8:	90 e0       	ldi	r25, 0x00	; 0
+     7ea:	5a c0       	rjmp	.+180    	; 0x8a0 <person_LCD+0xdc>
 	}
 
 	int i;
 	for (i = 0; i < index && curr != NULL; i++)
 	curr = curr->next;
-     828:	0e 88       	ldd	r0, Y+22	; 0x16
-     82a:	df 89       	ldd	r29, Y+23	; 0x17
-     82c:	c0 2d       	mov	r28, r0
+     7ec:	0e 88       	ldd	r0, Y+22	; 0x16
+     7ee:	df 89       	ldd	r29, Y+23	; 0x17
+     7f0:	c0 2d       	mov	r28, r0
 		LCD_strout(0, 0, "No Members!");
 		return 1;
 	}
 
 	int i;
 	for (i = 0; i < index && curr != NULL; i++)
-     82e:	2f 5f       	subi	r18, 0xFF	; 255
-     830:	3f 4f       	sbci	r19, 0xFF	; 255
-     832:	02 c0       	rjmp	.+4      	; 0x838 <person_LCD+0x38>
-     834:	20 e0       	ldi	r18, 0x00	; 0
-     836:	30 e0       	ldi	r19, 0x00	; 0
-     838:	28 17       	cp	r18, r24
-     83a:	39 07       	cpc	r19, r25
-     83c:	14 f4       	brge	.+4      	; 0x842 <person_LCD+0x42>
-     83e:	20 97       	sbiw	r28, 0x00	; 0
-     840:	99 f7       	brne	.-26     	; 0x828 <person_LCD+0x28>
+     7f2:	2f 5f       	subi	r18, 0xFF	; 255
+     7f4:	3f 4f       	sbci	r19, 0xFF	; 255
+     7f6:	02 c0       	rjmp	.+4      	; 0x7fc <person_LCD+0x38>
+     7f8:	20 e0       	ldi	r18, 0x00	; 0
+     7fa:	30 e0       	ldi	r19, 0x00	; 0
+     7fc:	28 17       	cp	r18, r24
+     7fe:	39 07       	cpc	r19, r25
+     800:	14 f4       	brge	.+4      	; 0x806 <person_LCD+0x42>
+     802:	20 97       	sbiw	r28, 0x00	; 0
+     804:	99 f7       	brne	.-26     	; 0x7ec <person_LCD+0x28>
 	curr = curr->next;
 
 	if (curr == NULL) {
-     842:	20 97       	sbiw	r28, 0x00	; 0
-     844:	51 f4       	brne	.+20     	; 0x85a <person_LCD+0x5a>
+     806:	20 97       	sbiw	r28, 0x00	; 0
+     808:	51 f4       	brne	.+20     	; 0x81e <person_LCD+0x5a>
 		LCD_strout(0, 0, "Final list");
-     846:	4c e5       	ldi	r20, 0x5C	; 92
-     848:	52 e0       	ldi	r21, 0x02	; 2
-     84a:	60 e0       	ldi	r22, 0x00	; 0
-     84c:	70 e0       	ldi	r23, 0x00	; 0
-     84e:	80 e0       	ldi	r24, 0x00	; 0
-     850:	90 e0       	ldi	r25, 0x00	; 0
-     852:	c3 d0       	rcall	.+390    	; 0x9da <LCD_strout>
+     80a:	4e e3       	ldi	r20, 0x3E	; 62
+     80c:	52 e0       	ldi	r21, 0x02	; 2
+     80e:	60 e0       	ldi	r22, 0x00	; 0
+     810:	70 e0       	ldi	r23, 0x00	; 0
+     812:	80 e0       	ldi	r24, 0x00	; 0
+     814:	90 e0       	ldi	r25, 0x00	; 0
+     816:	c3 d0       	rcall	.+390    	; 0x99e <LCD_strout>
 		return 1;
-     854:	81 e0       	ldi	r24, 0x01	; 1
-     856:	90 e0       	ldi	r25, 0x00	; 0
-     858:	41 c0       	rjmp	.+130    	; 0x8dc <person_LCD+0xdc>
+     818:	81 e0       	ldi	r24, 0x01	; 1
+     81a:	90 e0       	ldi	r25, 0x00	; 0
+     81c:	41 c0       	rjmp	.+130    	; 0x8a0 <person_LCD+0xdc>
 	}
 
 	LCD_strout(0, 0, curr->name);
-     85a:	ae 01       	movw	r20, r28
-     85c:	60 e0       	ldi	r22, 0x00	; 0
-     85e:	70 e0       	ldi	r23, 0x00	; 0
-     860:	80 e0       	ldi	r24, 0x00	; 0
-     862:	90 e0       	ldi	r25, 0x00	; 0
-     864:	ba d0       	rcall	.+372    	; 0x9da <LCD_strout>
+     81e:	ae 01       	movw	r20, r28
+     820:	60 e0       	ldi	r22, 0x00	; 0
+     822:	70 e0       	ldi	r23, 0x00	; 0
+     824:	80 e0       	ldi	r24, 0x00	; 0
+     826:	90 e0       	ldi	r25, 0x00	; 0
+     828:	ba d0       	rcall	.+372    	; 0x99e <LCD_strout>
 	if(!(curr->state))
-     866:	8c 89       	ldd	r24, Y+20	; 0x14
-     868:	9d 89       	ldd	r25, Y+21	; 0x15
-     86a:	00 97       	sbiw	r24, 0x00	; 0
-     86c:	41 f4       	brne	.+16     	; 0x87e <person_LCD+0x7e>
+     82a:	8c 89       	ldd	r24, Y+20	; 0x14
+     82c:	9d 89       	ldd	r25, Y+21	; 0x15
+     82e:	00 97       	sbiw	r24, 0x00	; 0
+     830:	41 f4       	brne	.+16     	; 0x842 <person_LCD+0x7e>
 	{
 		LCD_strout(0, 13, "OUT");
-     86e:	47 e6       	ldi	r20, 0x67	; 103
-     870:	52 e0       	ldi	r21, 0x02	; 2
-     872:	6d e0       	ldi	r22, 0x0D	; 13
-     874:	70 e0       	ldi	r23, 0x00	; 0
-     876:	80 e0       	ldi	r24, 0x00	; 0
-     878:	90 e0       	ldi	r25, 0x00	; 0
-     87a:	af d0       	rcall	.+350    	; 0x9da <LCD_strout>
-     87c:	09 c0       	rjmp	.+18     	; 0x890 <person_LCD+0x90>
+     832:	49 e4       	ldi	r20, 0x49	; 73
+     834:	52 e0       	ldi	r21, 0x02	; 2
+     836:	6d e0       	ldi	r22, 0x0D	; 13
+     838:	70 e0       	ldi	r23, 0x00	; 0
+     83a:	80 e0       	ldi	r24, 0x00	; 0
+     83c:	90 e0       	ldi	r25, 0x00	; 0
+     83e:	af d0       	rcall	.+350    	; 0x99e <LCD_strout>
+     840:	09 c0       	rjmp	.+18     	; 0x854 <person_LCD+0x90>
 	}
 	else if(curr->state)
-     87e:	89 2b       	or	r24, r25
-     880:	39 f0       	breq	.+14     	; 0x890 <person_LCD+0x90>
+     842:	89 2b       	or	r24, r25
+     844:	39 f0       	breq	.+14     	; 0x854 <person_LCD+0x90>
 	{
 		LCD_strout(0, 13, "IN");
-     882:	4b e6       	ldi	r20, 0x6B	; 107
-     884:	52 e0       	ldi	r21, 0x02	; 2
-     886:	6d e0       	ldi	r22, 0x0D	; 13
-     888:	70 e0       	ldi	r23, 0x00	; 0
-     88a:	80 e0       	ldi	r24, 0x00	; 0
-     88c:	90 e0       	ldi	r25, 0x00	; 0
-     88e:	a5 d0       	rcall	.+330    	; 0x9da <LCD_strout>
+     846:	4d e4       	ldi	r20, 0x4D	; 77
+     848:	52 e0       	ldi	r21, 0x02	; 2
+     84a:	6d e0       	ldi	r22, 0x0D	; 13
+     84c:	70 e0       	ldi	r23, 0x00	; 0
+     84e:	80 e0       	ldi	r24, 0x00	; 0
+     850:	90 e0       	ldi	r25, 0x00	; 0
+     852:	a5 d0       	rcall	.+330    	; 0x99e <LCD_strout>
 	}
 
 	if (curr->next == NULL)
-     890:	8e 89       	ldd	r24, Y+22	; 0x16
-     892:	9f 89       	ldd	r25, Y+23	; 0x17
-     894:	89 2b       	or	r24, r25
-     896:	51 f4       	brne	.+20     	; 0x8ac <person_LCD+0xac>
+     854:	8e 89       	ldd	r24, Y+22	; 0x16
+     856:	9f 89       	ldd	r25, Y+23	; 0x17
+     858:	89 2b       	or	r24, r25
+     85a:	51 f4       	brne	.+20     	; 0x870 <person_LCD+0xac>
 	LCD_strout(1, 0, "Final list");
-     898:	4c e5       	ldi	r20, 0x5C	; 92
-     89a:	52 e0       	ldi	r21, 0x02	; 2
-     89c:	60 e0       	ldi	r22, 0x00	; 0
-     89e:	70 e0       	ldi	r23, 0x00	; 0
-     8a0:	81 e0       	ldi	r24, 0x01	; 1
-     8a2:	90 e0       	ldi	r25, 0x00	; 0
-     8a4:	9a d0       	rcall	.+308    	; 0x9da <LCD_strout>
+     85c:	4e e3       	ldi	r20, 0x3E	; 62
+     85e:	52 e0       	ldi	r21, 0x02	; 2
+     860:	60 e0       	ldi	r22, 0x00	; 0
+     862:	70 e0       	ldi	r23, 0x00	; 0
+     864:	81 e0       	ldi	r24, 0x01	; 1
+     866:	90 e0       	ldi	r25, 0x00	; 0
+     868:	9a d0       	rcall	.+308    	; 0x99e <LCD_strout>
 	else if (curr->prev == head)
 	LCD_strout(1, 0, "First list");
 	else
 	LCD_strout(1, 0, "             ");
 
 	return 0;
-     8a6:	80 e0       	ldi	r24, 0x00	; 0
-     8a8:	90 e0       	ldi	r25, 0x00	; 0
-     8aa:	18 c0       	rjmp	.+48     	; 0x8dc <person_LCD+0xdc>
+     86a:	80 e0       	ldi	r24, 0x00	; 0
+     86c:	90 e0       	ldi	r25, 0x00	; 0
+     86e:	18 c0       	rjmp	.+48     	; 0x8a0 <person_LCD+0xdc>
 		LCD_strout(0, 13, "IN");
 	}
 
 	if (curr->next == NULL)
 	LCD_strout(1, 0, "Final list");
 	else if (curr->prev == head)
-     8ac:	88 8d       	ldd	r24, Y+24	; 0x18
-     8ae:	99 8d       	ldd	r25, Y+25	; 0x19
-     8b0:	08 17       	cp	r16, r24
-     8b2:	19 07       	cpc	r17, r25
-     8b4:	51 f4       	brne	.+20     	; 0x8ca <person_LCD+0xca>
+     870:	88 8d       	ldd	r24, Y+24	; 0x18
+     872:	99 8d       	ldd	r25, Y+25	; 0x19
+     874:	08 17       	cp	r16, r24
+     876:	19 07       	cpc	r17, r25
+     878:	51 f4       	brne	.+20     	; 0x88e <person_LCD+0xca>
 	LCD_strout(1, 0, "First list");
-     8b6:	4e e6       	ldi	r20, 0x6E	; 110
-     8b8:	52 e0       	ldi	r21, 0x02	; 2
-     8ba:	60 e0       	ldi	r22, 0x00	; 0
-     8bc:	70 e0       	ldi	r23, 0x00	; 0
-     8be:	81 e0       	ldi	r24, 0x01	; 1
-     8c0:	90 e0       	ldi	r25, 0x00	; 0
-     8c2:	8b d0       	rcall	.+278    	; 0x9da <LCD_strout>
+     87a:	40 e5       	ldi	r20, 0x50	; 80
+     87c:	52 e0       	ldi	r21, 0x02	; 2
+     87e:	60 e0       	ldi	r22, 0x00	; 0
+     880:	70 e0       	ldi	r23, 0x00	; 0
+     882:	81 e0       	ldi	r24, 0x01	; 1
+     884:	90 e0       	ldi	r25, 0x00	; 0
+     886:	8b d0       	rcall	.+278    	; 0x99e <LCD_strout>
 	else
 	LCD_strout(1, 0, "             ");
 
 	return 0;
-     8c4:	80 e0       	ldi	r24, 0x00	; 0
-     8c6:	90 e0       	ldi	r25, 0x00	; 0
+     888:	80 e0       	ldi	r24, 0x00	; 0
+     88a:	90 e0       	ldi	r25, 0x00	; 0
 	if (curr->next == NULL)
 	LCD_strout(1, 0, "Final list");
 	else if (curr->prev == head)
 	LCD_strout(1, 0, "First list");
 	else
 	LCD_strout(1, 0, "             ");
-     8c8:	09 c0       	rjmp	.+18     	; 0x8dc <person_LCD+0xdc>
-     8ca:	48 ee       	ldi	r20, 0xE8	; 232
-     8cc:	54 e0       	ldi	r21, 0x04	; 4
-     8ce:	60 e0       	ldi	r22, 0x00	; 0
-     8d0:	70 e0       	ldi	r23, 0x00	; 0
-     8d2:	81 e0       	ldi	r24, 0x01	; 1
-     8d4:	90 e0       	ldi	r25, 0x00	; 0
-     8d6:	81 d0       	rcall	.+258    	; 0x9da <LCD_strout>
+     88c:	09 c0       	rjmp	.+18     	; 0x8a0 <person_LCD+0xdc>
+     88e:	4e ed       	ldi	r20, 0xDE	; 222
+     890:	54 e0       	ldi	r21, 0x04	; 4
+     892:	60 e0       	ldi	r22, 0x00	; 0
+     894:	70 e0       	ldi	r23, 0x00	; 0
+     896:	81 e0       	ldi	r24, 0x01	; 1
+     898:	90 e0       	ldi	r25, 0x00	; 0
+     89a:	81 d0       	rcall	.+258    	; 0x99e <LCD_strout>
 
 	return 0;
-     8d8:	80 e0       	ldi	r24, 0x00	; 0
-     8da:	90 e0       	ldi	r25, 0x00	; 0
+     89c:	80 e0       	ldi	r24, 0x00	; 0
+     89e:	90 e0       	ldi	r25, 0x00	; 0
 }
-     8dc:	df 91       	pop	r29
-     8de:	cf 91       	pop	r28
-     8e0:	1f 91       	pop	r17
-     8e2:	0f 91       	pop	r16
-     8e4:	08 95       	ret
+     8a0:	df 91       	pop	r29
+     8a2:	cf 91       	pop	r28
+     8a4:	1f 91       	pop	r17
+     8a6:	0f 91       	pop	r16
+     8a8:	08 95       	ret
 
-000008e6 <PortInit>:
+000008aa <PortInit>:
 #include "LCD.h"
 #include <string.h>
 
 void PortInit(void)		//LCD용 포트 초기 세팅
 {
 	DDRC = 0xFF;	//DDRC로		화면 출력용
-     8e6:	8f ef       	ldi	r24, 0xFF	; 255
-     8e8:	84 bb       	out	0x14, r24	; 20
+     8aa:	8f ef       	ldi	r24, 0xFF	; 255
+     8ac:	84 bb       	out	0x14, r24	; 20
 	DDRB = 0x07;	//DDRB로		RS RW E 세팅
-     8ea:	87 e0       	ldi	r24, 0x07	; 7
-     8ec:	87 bb       	out	0x17, r24	; 23
-     8ee:	08 95       	ret
+     8ae:	87 e0       	ldi	r24, 0x07	; 7
+     8b0:	87 bb       	out	0x17, r24	; 23
+     8b2:	08 95       	ret
 
-000008f0 <LCD_Data>:
+000008b4 <LCD_Data>:
 
 }
 
 void LCD_Data(Byte ch)
 {
 	LCD_CTRL |= (1 << LCD_RS);
-     8f0:	98 b3       	in	r25, 0x18	; 24
-     8f2:	91 60       	ori	r25, 0x01	; 1
-     8f4:	98 bb       	out	0x18, r25	; 24
+     8b4:	98 b3       	in	r25, 0x18	; 24
+     8b6:	91 60       	ori	r25, 0x01	; 1
+     8b8:	98 bb       	out	0x18, r25	; 24
 	LCD_CTRL &= ~(1 << LCD_RW);
-     8f6:	98 b3       	in	r25, 0x18	; 24
-     8f8:	9d 7f       	andi	r25, 0xFD	; 253
-     8fa:	98 bb       	out	0x18, r25	; 24
+     8ba:	98 b3       	in	r25, 0x18	; 24
+     8bc:	9d 7f       	andi	r25, 0xFD	; 253
+     8be:	98 bb       	out	0x18, r25	; 24
 	LCD_CTRL |= (1 << LCD_EN);
-     8fc:	98 b3       	in	r25, 0x18	; 24
-     8fe:	94 60       	ori	r25, 0x04	; 4
-     900:	98 bb       	out	0x18, r25	; 24
+     8c0:	98 b3       	in	r25, 0x18	; 24
+     8c2:	94 60       	ori	r25, 0x04	; 4
+     8c4:	98 bb       	out	0x18, r25	; 24
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
-     902:	96 ef       	ldi	r25, 0xF6	; 246
-     904:	9a 95       	dec	r25
-     906:	f1 f7       	brne	.-4      	; 0x904 <LCD_Data+0x14>
+     8c6:	96 ef       	ldi	r25, 0xF6	; 246
+     8c8:	9a 95       	dec	r25
+     8ca:	f1 f7       	brne	.-4      	; 0x8c8 <LCD_Data+0x14>
 	_delay_us(50);
 	LCD_WDATA = ch;
-     908:	85 bb       	out	0x15, r24	; 21
-     90a:	86 ef       	ldi	r24, 0xF6	; 246
-     90c:	8a 95       	dec	r24
-     90e:	f1 f7       	brne	.-4      	; 0x90c <LCD_Data+0x1c>
+     8cc:	85 bb       	out	0x15, r24	; 21
+     8ce:	86 ef       	ldi	r24, 0xF6	; 246
+     8d0:	8a 95       	dec	r24
+     8d2:	f1 f7       	brne	.-4      	; 0x8d0 <LCD_Data+0x1c>
 	_delay_us(50);
 	LCD_CTRL &= ~(1 << LCD_EN);
-     910:	88 b3       	in	r24, 0x18	; 24
-     912:	8b 7f       	andi	r24, 0xFB	; 251
-     914:	88 bb       	out	0x18, r24	; 24
-     916:	08 95       	ret
+     8d4:	88 b3       	in	r24, 0x18	; 24
+     8d6:	8b 7f       	andi	r24, 0xFB	; 251
+     8d8:	88 bb       	out	0x18, r24	; 24
+     8da:	08 95       	ret
 
-00000918 <LCD_Comm>:
+000008dc <LCD_Comm>:
 }
 
 void LCD_Comm(Byte ch)
 {
 	LCD_CTRL &= ~(1 << LCD_RS);
-     918:	98 b3       	in	r25, 0x18	; 24
-     91a:	9e 7f       	andi	r25, 0xFE	; 254
-     91c:	98 bb       	out	0x18, r25	; 24
+     8dc:	98 b3       	in	r25, 0x18	; 24
+     8de:	9e 7f       	andi	r25, 0xFE	; 254
+     8e0:	98 bb       	out	0x18, r25	; 24
 	LCD_CTRL &= ~(1 << LCD_RW);
-     91e:	98 b3       	in	r25, 0x18	; 24
-     920:	9d 7f       	andi	r25, 0xFD	; 253
-     922:	98 bb       	out	0x18, r25	; 24
+     8e2:	98 b3       	in	r25, 0x18	; 24
+     8e4:	9d 7f       	andi	r25, 0xFD	; 253
+     8e6:	98 bb       	out	0x18, r25	; 24
 	LCD_CTRL |= (1 << LCD_EN);
-     924:	98 b3       	in	r25, 0x18	; 24
-     926:	94 60       	ori	r25, 0x04	; 4
-     928:	98 bb       	out	0x18, r25	; 24
-     92a:	96 ef       	ldi	r25, 0xF6	; 246
-     92c:	9a 95       	dec	r25
-     92e:	f1 f7       	brne	.-4      	; 0x92c <LCD_Comm+0x14>
+     8e8:	98 b3       	in	r25, 0x18	; 24
+     8ea:	94 60       	ori	r25, 0x04	; 4
+     8ec:	98 bb       	out	0x18, r25	; 24
+     8ee:	96 ef       	ldi	r25, 0xF6	; 246
+     8f0:	9a 95       	dec	r25
+     8f2:	f1 f7       	brne	.-4      	; 0x8f0 <LCD_Comm+0x14>
 	_delay_us(50);
 	LCD_WINST = ch;
-     930:	85 bb       	out	0x15, r24	; 21
-     932:	86 ef       	ldi	r24, 0xF6	; 246
-     934:	8a 95       	dec	r24
-     936:	f1 f7       	brne	.-4      	; 0x934 <LCD_Comm+0x1c>
+     8f4:	85 bb       	out	0x15, r24	; 21
+     8f6:	86 ef       	ldi	r24, 0xF6	; 246
+     8f8:	8a 95       	dec	r24
+     8fa:	f1 f7       	brne	.-4      	; 0x8f8 <LCD_Comm+0x1c>
 	_delay_us(50);
 	LCD_CTRL &= ~(1 << LCD_EN);
-     938:	88 b3       	in	r24, 0x18	; 24
-     93a:	8b 7f       	andi	r24, 0xFB	; 251
-     93c:	88 bb       	out	0x18, r24	; 24
-     93e:	08 95       	ret
+     8fc:	88 b3       	in	r24, 0x18	; 24
+     8fe:	8b 7f       	andi	r24, 0xFB	; 251
+     900:	88 bb       	out	0x18, r24	; 24
+     902:	08 95       	ret
 
-00000940 <LCD_CHAR>:
+00000904 <LCD_CHAR>:
 }
 
 void LCD_CHAR(Byte c)
 {
 
 	LCD_Data(c);
-     940:	d7 df       	rcall	.-82     	; 0x8f0 <LCD_Data>
+     904:	d7 df       	rcall	.-82     	; 0x8b4 <LCD_Data>
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
-     942:	86 e6       	ldi	r24, 0x66	; 102
-     944:	9e e0       	ldi	r25, 0x0E	; 14
-     946:	01 97       	sbiw	r24, 0x01	; 1
-     948:	f1 f7       	brne	.-4      	; 0x946 <LCD_CHAR+0x6>
-     94a:	00 00       	nop
-     94c:	08 95       	ret
+     906:	86 e6       	ldi	r24, 0x66	; 102
+     908:	9e e0       	ldi	r25, 0x0E	; 14
+     90a:	01 97       	sbiw	r24, 0x01	; 1
+     90c:	f1 f7       	brne	.-4      	; 0x90a <LCD_CHAR+0x6>
+     90e:	00 00       	nop
+     910:	08 95       	ret
 
-0000094e <LCD_STR>:
+00000912 <LCD_STR>:
 	_delay_ms(1);
 }
 
 void LCD_STR(Byte* str)
 {
-     94e:	cf 93       	push	r28
-     950:	df 93       	push	r29
-     952:	ec 01       	movw	r28, r24
+     912:	cf 93       	push	r28
+     914:	df 93       	push	r29
+     916:	ec 01       	movw	r28, r24
 	while (*str != 0)
-     954:	02 c0       	rjmp	.+4      	; 0x95a <LCD_STR+0xc>
+     918:	02 c0       	rjmp	.+4      	; 0x91e <LCD_STR+0xc>
 	{
 		LCD_CHAR(*str);
-     956:	f4 df       	rcall	.-24     	; 0x940 <LCD_CHAR>
+     91a:	f4 df       	rcall	.-24     	; 0x904 <LCD_CHAR>
 		str++;
-     958:	21 96       	adiw	r28, 0x01	; 1
+     91c:	21 96       	adiw	r28, 0x01	; 1
 	_delay_ms(1);
 }
 
 void LCD_STR(Byte* str)
 {
 	while (*str != 0)
-     95a:	88 81       	ld	r24, Y
-     95c:	81 11       	cpse	r24, r1
-     95e:	fb cf       	rjmp	.-10     	; 0x956 <LCD_STR+0x8>
+     91e:	88 81       	ld	r24, Y
+     920:	81 11       	cpse	r24, r1
+     922:	fb cf       	rjmp	.-10     	; 0x91a <LCD_STR+0x8>
 	{
 		LCD_CHAR(*str);
 		str++;
 	}
 }
-     960:	df 91       	pop	r29
-     962:	cf 91       	pop	r28
-     964:	08 95       	ret
+     924:	df 91       	pop	r29
+     926:	cf 91       	pop	r28
+     928:	08 95       	ret
 
-00000966 <LCD_pos>:
+0000092a <LCD_pos>:
 
 void LCD_pos(unsigned char col, unsigned char row)
 {
 
 	LCD_Comm(0x80 | (row + col * 0x40));
-     966:	90 e4       	ldi	r25, 0x40	; 64
-     968:	89 9f       	mul	r24, r25
-     96a:	60 0d       	add	r22, r0
-     96c:	11 24       	eor	r1, r1
-     96e:	86 2f       	mov	r24, r22
-     970:	80 68       	ori	r24, 0x80	; 128
-     972:	d2 cf       	rjmp	.-92     	; 0x918 <LCD_Comm>
-     974:	08 95       	ret
+     92a:	90 e4       	ldi	r25, 0x40	; 64
+     92c:	89 9f       	mul	r24, r25
+     92e:	60 0d       	add	r22, r0
+     930:	11 24       	eor	r1, r1
+     932:	86 2f       	mov	r24, r22
+     934:	80 68       	ori	r24, 0x80	; 128
+     936:	d2 cf       	rjmp	.-92     	; 0x8dc <LCD_Comm>
+     938:	08 95       	ret
 
-00000976 <LCD_Clear>:
+0000093a <LCD_Clear>:
 }
 
 void LCD_Clear(void)
 {
 	LCD_Comm(0x01);
-     976:	81 e0       	ldi	r24, 0x01	; 1
-     978:	cf df       	rcall	.-98     	; 0x918 <LCD_Comm>
-     97a:	89 e9       	ldi	r24, 0x99	; 153
-     97c:	99 e3       	ldi	r25, 0x39	; 57
-     97e:	01 97       	sbiw	r24, 0x01	; 1
-     980:	f1 f7       	brne	.-4      	; 0x97e <LCD_Clear+0x8>
-     982:	00 c0       	rjmp	.+0      	; 0x984 <LCD_Clear+0xe>
-     984:	08 95       	ret
+     93a:	81 e0       	ldi	r24, 0x01	; 1
+     93c:	cf df       	rcall	.-98     	; 0x8dc <LCD_Comm>
+     93e:	89 e9       	ldi	r24, 0x99	; 153
+     940:	99 e3       	ldi	r25, 0x39	; 57
+     942:	01 97       	sbiw	r24, 0x01	; 1
+     944:	f1 f7       	brne	.-4      	; 0x942 <LCD_Clear+0x8>
+     946:	00 c0       	rjmp	.+0      	; 0x948 <LCD_Clear+0xe>
+     948:	08 95       	ret
 
-00000986 <LCD_Init>:
+0000094a <LCD_Init>:
 	_delay_ms(4);
 }
 
 void LCD_Init(void)
 {
 	LCD_Comm(0x38);
-     986:	88 e3       	ldi	r24, 0x38	; 56
-     988:	c7 df       	rcall	.-114    	; 0x918 <LCD_Comm>
-     98a:	8c ec       	ldi	r24, 0xCC	; 204
-     98c:	9c e1       	ldi	r25, 0x1C	; 28
-     98e:	01 97       	sbiw	r24, 0x01	; 1
-     990:	f1 f7       	brne	.-4      	; 0x98e <LCD_Init+0x8>
-     992:	00 c0       	rjmp	.+0      	; 0x994 <LCD_Init+0xe>
-     994:	00 00       	nop
+     94a:	88 e3       	ldi	r24, 0x38	; 56
+     94c:	c7 df       	rcall	.-114    	; 0x8dc <LCD_Comm>
+     94e:	8c ec       	ldi	r24, 0xCC	; 204
+     950:	9c e1       	ldi	r25, 0x1C	; 28
+     952:	01 97       	sbiw	r24, 0x01	; 1
+     954:	f1 f7       	brne	.-4      	; 0x952 <LCD_Init+0x8>
+     956:	00 c0       	rjmp	.+0      	; 0x958 <LCD_Init+0xe>
+     958:	00 00       	nop
 	_delay_ms(2);
 	LCD_Comm(0x38);
-     996:	88 e3       	ldi	r24, 0x38	; 56
-     998:	bf df       	rcall	.-130    	; 0x918 <LCD_Comm>
-     99a:	8c ec       	ldi	r24, 0xCC	; 204
-     99c:	9c e1       	ldi	r25, 0x1C	; 28
-     99e:	01 97       	sbiw	r24, 0x01	; 1
-     9a0:	f1 f7       	brne	.-4      	; 0x99e <LCD_Init+0x18>
-     9a2:	00 c0       	rjmp	.+0      	; 0x9a4 <LCD_Init+0x1e>
+     95a:	88 e3       	ldi	r24, 0x38	; 56
+     95c:	bf df       	rcall	.-130    	; 0x8dc <LCD_Comm>
+     95e:	8c ec       	ldi	r24, 0xCC	; 204
+     960:	9c e1       	ldi	r25, 0x1C	; 28
+     962:	01 97       	sbiw	r24, 0x01	; 1
+     964:	f1 f7       	brne	.-4      	; 0x962 <LCD_Init+0x18>
+     966:	00 c0       	rjmp	.+0      	; 0x968 <LCD_Init+0x1e>
 	_delay_ms(2);
 	LCD_Comm(0x38);
-     9a4:	00 00       	nop
-     9a6:	88 e3       	ldi	r24, 0x38	; 56
-     9a8:	b7 df       	rcall	.-146    	; 0x918 <LCD_Comm>
-     9aa:	8c ec       	ldi	r24, 0xCC	; 204
-     9ac:	9c e1       	ldi	r25, 0x1C	; 28
-     9ae:	01 97       	sbiw	r24, 0x01	; 1
-     9b0:	f1 f7       	brne	.-4      	; 0x9ae <LCD_Init+0x28>
-     9b2:	00 c0       	rjmp	.+0      	; 0x9b4 <LCD_Init+0x2e>
+     968:	00 00       	nop
+     96a:	88 e3       	ldi	r24, 0x38	; 56
+     96c:	b7 df       	rcall	.-146    	; 0x8dc <LCD_Comm>
+     96e:	8c ec       	ldi	r24, 0xCC	; 204
+     970:	9c e1       	ldi	r25, 0x1C	; 28
+     972:	01 97       	sbiw	r24, 0x01	; 1
+     974:	f1 f7       	brne	.-4      	; 0x972 <LCD_Init+0x28>
+     976:	00 c0       	rjmp	.+0      	; 0x978 <LCD_Init+0x2e>
 	_delay_ms(2);
 	LCD_Comm(0x0e);
-     9b4:	00 00       	nop
-     9b6:	8e e0       	ldi	r24, 0x0E	; 14
-     9b8:	af df       	rcall	.-162    	; 0x918 <LCD_Comm>
-     9ba:	8c ec       	ldi	r24, 0xCC	; 204
-     9bc:	9c e1       	ldi	r25, 0x1C	; 28
-     9be:	01 97       	sbiw	r24, 0x01	; 1
-     9c0:	f1 f7       	brne	.-4      	; 0x9be <LCD_Init+0x38>
-     9c2:	00 c0       	rjmp	.+0      	; 0x9c4 <LCD_Init+0x3e>
+     978:	00 00       	nop
+     97a:	8e e0       	ldi	r24, 0x0E	; 14
+     97c:	af df       	rcall	.-162    	; 0x8dc <LCD_Comm>
+     97e:	8c ec       	ldi	r24, 0xCC	; 204
+     980:	9c e1       	ldi	r25, 0x1C	; 28
+     982:	01 97       	sbiw	r24, 0x01	; 1
+     984:	f1 f7       	brne	.-4      	; 0x982 <LCD_Init+0x38>
+     986:	00 c0       	rjmp	.+0      	; 0x988 <LCD_Init+0x3e>
 	_delay_ms(2);
 	LCD_Comm(0x06);
-     9c4:	00 00       	nop
-     9c6:	86 e0       	ldi	r24, 0x06	; 6
-     9c8:	a7 df       	rcall	.-178    	; 0x918 <LCD_Comm>
-     9ca:	8c ec       	ldi	r24, 0xCC	; 204
-     9cc:	9c e1       	ldi	r25, 0x1C	; 28
-     9ce:	01 97       	sbiw	r24, 0x01	; 1
-     9d0:	f1 f7       	brne	.-4      	; 0x9ce <LCD_Init+0x48>
-     9d2:	00 c0       	rjmp	.+0      	; 0x9d4 <LCD_Init+0x4e>
+     988:	00 00       	nop
+     98a:	86 e0       	ldi	r24, 0x06	; 6
+     98c:	a7 df       	rcall	.-178    	; 0x8dc <LCD_Comm>
+     98e:	8c ec       	ldi	r24, 0xCC	; 204
+     990:	9c e1       	ldi	r25, 0x1C	; 28
+     992:	01 97       	sbiw	r24, 0x01	; 1
+     994:	f1 f7       	brne	.-4      	; 0x992 <LCD_Init+0x48>
+     996:	00 c0       	rjmp	.+0      	; 0x998 <LCD_Init+0x4e>
 	_delay_ms(2);
 	LCD_Clear();
-     9d4:	00 00       	nop
-     9d6:	cf cf       	rjmp	.-98     	; 0x976 <LCD_Clear>
-     9d8:	08 95       	ret
+     998:	00 00       	nop
+     99a:	cf cf       	rjmp	.-98     	; 0x93a <LCD_Clear>
+     99c:	08 95       	ret
 
-000009da <LCD_strout>:
+0000099e <LCD_strout>:
 }
 
 void LCD_strout(int line, int location, char* message)
 {
-     9da:	ef 92       	push	r14
-     9dc:	ff 92       	push	r15
-     9de:	0f 93       	push	r16
-     9e0:	1f 93       	push	r17
-     9e2:	cf 93       	push	r28
-     9e4:	df 93       	push	r29
-     9e6:	cd b7       	in	r28, 0x3d	; 61
-     9e8:	de b7       	in	r29, 0x3e	; 62
-     9ea:	2c 97       	sbiw	r28, 0x0c	; 12
-     9ec:	0f b6       	in	r0, 0x3f	; 63
-     9ee:	f8 94       	cli
-     9f0:	de bf       	out	0x3e, r29	; 62
-     9f2:	0f be       	out	0x3f, r0	; 63
-     9f4:	cd bf       	out	0x3d, r28	; 61
-     9f6:	18 2f       	mov	r17, r24
-     9f8:	06 2f       	mov	r16, r22
-     9fa:	7a 01       	movw	r14, r20
+     99e:	ef 92       	push	r14
+     9a0:	ff 92       	push	r15
+     9a2:	0f 93       	push	r16
+     9a4:	1f 93       	push	r17
+     9a6:	cf 93       	push	r28
+     9a8:	df 93       	push	r29
+     9aa:	cd b7       	in	r28, 0x3d	; 61
+     9ac:	de b7       	in	r29, 0x3e	; 62
+     9ae:	2c 97       	sbiw	r28, 0x0c	; 12
+     9b0:	0f b6       	in	r0, 0x3f	; 63
+     9b2:	f8 94       	cli
+     9b4:	de bf       	out	0x3e, r29	; 62
+     9b6:	0f be       	out	0x3f, r0	; 63
+     9b8:	cd bf       	out	0x3d, r28	; 61
+     9ba:	18 2f       	mov	r17, r24
+     9bc:	06 2f       	mov	r16, r22
+     9be:	7a 01       	movw	r14, r20
 	char blank[] = "           ";
-     9fc:	8c e0       	ldi	r24, 0x0C	; 12
-     9fe:	ea ee       	ldi	r30, 0xEA	; 234
-     a00:	f4 e0       	ldi	r31, 0x04	; 4
-     a02:	de 01       	movw	r26, r28
-     a04:	11 96       	adiw	r26, 0x01	; 1
-     a06:	01 90       	ld	r0, Z+
-     a08:	0d 92       	st	X+, r0
-     a0a:	8a 95       	dec	r24
-     a0c:	e1 f7       	brne	.-8      	; 0xa06 <LCD_strout+0x2c>
+     9c0:	8c e0       	ldi	r24, 0x0C	; 12
+     9c2:	e0 ee       	ldi	r30, 0xE0	; 224
+     9c4:	f4 e0       	ldi	r31, 0x04	; 4
+     9c6:	de 01       	movw	r26, r28
+     9c8:	11 96       	adiw	r26, 0x01	; 1
+     9ca:	01 90       	ld	r0, Z+
+     9cc:	0d 92       	st	X+, r0
+     9ce:	8a 95       	dec	r24
+     9d0:	e1 f7       	brne	.-8      	; 0x9ca <LCD_strout+0x2c>
 	LCD_pos(line, location);
-     a0e:	81 2f       	mov	r24, r17
-     a10:	aa df       	rcall	.-172    	; 0x966 <LCD_pos>
+     9d2:	81 2f       	mov	r24, r17
+     9d4:	aa df       	rcall	.-172    	; 0x92a <LCD_pos>
 	LCD_STR((Byte*)blank);
-     a12:	ce 01       	movw	r24, r28
-     a14:	01 96       	adiw	r24, 0x01	; 1
-     a16:	9b df       	rcall	.-202    	; 0x94e <LCD_STR>
+     9d6:	ce 01       	movw	r24, r28
+     9d8:	01 96       	adiw	r24, 0x01	; 1
+     9da:	9b df       	rcall	.-202    	; 0x912 <LCD_STR>
 	LCD_pos(line, location);
-     a18:	60 2f       	mov	r22, r16
-     a1a:	81 2f       	mov	r24, r17
+     9dc:	60 2f       	mov	r22, r16
+     9de:	81 2f       	mov	r24, r17
 	LCD_STR((Byte*)message);
-     a1c:	a4 df       	rcall	.-184    	; 0x966 <LCD_pos>
-     a1e:	c7 01       	movw	r24, r14
-     a20:	96 df       	rcall	.-212    	; 0x94e <LCD_STR>
+     9e0:	a4 df       	rcall	.-184    	; 0x92a <LCD_pos>
+     9e2:	c7 01       	movw	r24, r14
+     9e4:	96 df       	rcall	.-212    	; 0x912 <LCD_STR>
 }
-     a22:	2c 96       	adiw	r28, 0x0c	; 12
-     a24:	0f b6       	in	r0, 0x3f	; 63
-     a26:	f8 94       	cli
-     a28:	de bf       	out	0x3e, r29	; 62
-     a2a:	0f be       	out	0x3f, r0	; 63
-     a2c:	cd bf       	out	0x3d, r28	; 61
-     a2e:	df 91       	pop	r29
-     a30:	cf 91       	pop	r28
-     a32:	1f 91       	pop	r17
-     a34:	0f 91       	pop	r16
-     a36:	ff 90       	pop	r15
-     a38:	ef 90       	pop	r14
-     a3a:	08 95       	ret
+     9e6:	2c 96       	adiw	r28, 0x0c	; 12
+     9e8:	0f b6       	in	r0, 0x3f	; 63
+     9ea:	f8 94       	cli
+     9ec:	de bf       	out	0x3e, r29	; 62
+     9ee:	0f be       	out	0x3f, r0	; 63
+     9f0:	cd bf       	out	0x3d, r28	; 61
+     9f2:	df 91       	pop	r29
+     9f4:	cf 91       	pop	r28
+     9f6:	1f 91       	pop	r17
+     9f8:	0f 91       	pop	r16
+     9fa:	ff 90       	pop	r15
+     9fc:	ef 90       	pop	r14
+     9fe:	08 95       	ret
 
-00000a3c <LCD_charout>:
+00000a00 <LCD_charout>:
 
 void LCD_charout(int line, int location, Byte message)
 {
-     a3c:	cf 93       	push	r28
-     a3e:	c4 2f       	mov	r28, r20
+     a00:	cf 93       	push	r28
+     a02:	c4 2f       	mov	r28, r20
 	LCD_pos(line, location);
-     a40:	92 df       	rcall	.-220    	; 0x966 <LCD_pos>
+     a04:	92 df       	rcall	.-220    	; 0x92a <LCD_pos>
 	LCD_CHAR(message);
-     a42:	8c 2f       	mov	r24, r28
-     a44:	7d df       	rcall	.-262    	; 0x940 <LCD_CHAR>
+     a06:	8c 2f       	mov	r24, r28
+     a08:	7d df       	rcall	.-262    	; 0x904 <LCD_CHAR>
 }
-     a46:	cf 91       	pop	r28
-     a48:	08 95       	ret
+     a0a:	cf 91       	pop	r28
+     a0c:	08 95       	ret
 
-00000a4a <main>:
+00000a0e <main>:
 
 #include "system/system.h"
 
 int main(void)
 {
 	Init_system();
-     a4a:	93 d1       	rcall	.+806    	; 0xd72 <Init_system>
+     a0e:	8a d1       	rcall	.+788    	; 0xd24 <Init_system>
 	Lock_int(); // 시스템 포맷은 했지만 처음엔 초소 버튼 입력이 필요치 않으므로 추후에 다시 초기화하기
-     a4c:	cf dd       	rcall	.-1122   	; 0x5ec <Lock_int>
-     a4e:	8a e1       	ldi	r24, 0x1A	; 26
+     a10:	ed dd       	rcall	.-1062   	; 0x5ec <Lock_int>
+     a12:	8a e1       	ldi	r24, 0x1A	; 26
 
 	
 
 	root = (person*)malloc(sizeof(person));
-     a50:	90 e0       	ldi	r25, 0x00	; 0
-     a52:	69 d3       	rcall	.+1746   	; 0x1126 <malloc>
-     a54:	fc 01       	movw	r30, r24
-     a56:	90 93 71 05 	sts	0x0571, r25	; 0x800571 <root+0x1>
-     a5a:	80 93 70 05 	sts	0x0570, r24	; 0x800570 <root>
-     a5e:	10 82       	st	Z, r1
+     a14:	90 e0       	ldi	r25, 0x00	; 0
+     a16:	87 d3       	rcall	.+1806   	; 0x1126 <malloc>
+     a18:	fc 01       	movw	r30, r24
+     a1a:	90 93 67 05 	sts	0x0567, r25	; 0x800567 <root+0x1>
+     a1e:	80 93 66 05 	sts	0x0566, r24	; 0x800566 <root>
+     a22:	10 82       	st	Z, r1
 
 	strcpy(root->name, "");
-     a60:	15 8a       	std	Z+21, r1	; 0x15
+     a24:	15 8a       	std	Z+21, r1	; 0x15
 	root->state = 0;
-     a62:	14 8a       	std	Z+20, r1	; 0x14
-     a64:	17 8a       	std	Z+23, r1	; 0x17
+     a26:	14 8a       	std	Z+20, r1	; 0x14
+     a28:	17 8a       	std	Z+23, r1	; 0x17
 	root->next = NULL;
-     a66:	16 8a       	std	Z+22, r1	; 0x16
-     a68:	11 8e       	std	Z+25, r1	; 0x19
+     a2a:	16 8a       	std	Z+22, r1	; 0x16
+     a2c:	11 8e       	std	Z+25, r1	; 0x19
 	root->prev = NULL;
-     a6a:	10 8e       	std	Z+24, r1	; 0x18
+     a2e:	10 8e       	std	Z+24, r1	; 0x18
 
 	Rflag = 0;
-     a6c:	10 92 7f 05 	sts	0x057F, r1	; 0x80057f <Rflag>
+     a30:	10 92 75 05 	sts	0x0575, r1	; 0x800575 <Rflag>
 	clear_terminal();
 	
 	system_loading();
-     a70:	11 d3       	rcall	.+1570   	; 0x1094 <clear_terminal>
-     a72:	88 d1       	rcall	.+784    	; 0xd84 <system_loading>
+     a34:	2f d3       	rcall	.+1630   	; 0x1094 <clear_terminal>
+     a36:	7f d1       	rcall	.+766    	; 0xd36 <system_loading>
 	
 	while (1) {
 		login();
-     a74:	a1 d1       	rcall	.+834    	; 0xdb8 <login>
-     a76:	b3 dd       	rcall	.-1178   	; 0x5de <Init_int>
+     a38:	98 d1       	rcall	.+816    	; 0xd6a <login>
+     a3a:	d1 dd       	rcall	.-1118   	; 0x5de <Init_int>
 		Init_int();
-     a78:	80 91 1e 01 	lds	r24, 0x011E	; 0x80011e <locked>
+     a3c:	80 91 1e 01 	lds	r24, 0x011E	; 0x80011e <locked>
 		while (1)
 		{	
 			if (locked == 1) break;
-     a7c:	90 91 1f 01 	lds	r25, 0x011F	; 0x80011f <locked+0x1>
-     a80:	01 97       	sbiw	r24, 0x01	; 1
-     a82:	c1 f3       	breq	.-16     	; 0xa74 <main+0x2a>
+     a40:	90 91 1f 01 	lds	r25, 0x011F	; 0x80011f <locked+0x1>
+     a44:	01 97       	sbiw	r24, 0x01	; 1
+     a46:	c1 f3       	breq	.-16     	; 0xa38 <main+0x2a>
 			char choiced = '0';
 			USART0_str("\b\r\n\r\nWhat you want?\r\n1. Send Text 2. Send Light 3. Clear interface\r\n4. Add/Delete Member 5. Print Members 6. Toggle In/Out 7. change pass\r\n");
-     a84:	89 e7       	ldi	r24, 0x79	; 121
-     a86:	92 e0       	ldi	r25, 0x02	; 2
-     a88:	ca d2       	rcall	.+1428   	; 0x101e <USART0_str>
-     a8a:	87 e0       	ldi	r24, 0x07	; 7
+     a48:	8b e5       	ldi	r24, 0x5B	; 91
+     a4a:	92 e0       	ldi	r25, 0x02	; 2
+     a4c:	e8 d2       	rcall	.+1488   	; 0x101e <USART0_str>
+     a4e:	87 e0       	ldi	r24, 0x07	; 7
 			choiced = select(7);	//1~7의 선택지중 하나를 '1'같은 문자형태로 반환
-     a8c:	90 e0       	ldi	r25, 0x00	; 0
-     a8e:	b1 dd       	rcall	.-1182   	; 0x5f2 <select>
-     a90:	90 e0       	ldi	r25, 0x00	; 0
+     a50:	90 e0       	ldi	r25, 0x00	; 0
+     a52:	c4 d1       	rcall	.+904    	; 0xddc <select>
+     a54:	90 e0       	ldi	r25, 0x00	; 0
 			switch (choiced)
-     a92:	fc 01       	movw	r30, r24
-     a94:	f1 97       	sbiw	r30, 0x31	; 49
-     a96:	e7 30       	cpi	r30, 0x07	; 7
-     a98:	f1 05       	cpc	r31, r1
-     a9a:	10 f5       	brcc	.+68     	; 0xae0 <main+0x96>
-     a9c:	ea 5b       	subi	r30, 0xBA	; 186
+     a56:	fc 01       	movw	r30, r24
+     a58:	f1 97       	sbiw	r30, 0x31	; 49
+     a5a:	e7 30       	cpi	r30, 0x07	; 7
+     a5c:	f1 05       	cpc	r31, r1
+     a5e:	10 f5       	brcc	.+68     	; 0xaa4 <main+0x96>
+     a60:	ea 5b       	subi	r30, 0xBA	; 186
 			{
 			case '1':
 				sendMessage();		//메시지 보내기
-     a9e:	ff 4f       	sbci	r31, 0xFF	; 255
-     aa0:	39 c3       	rjmp	.+1650   	; 0x1114 <__tablejump2__>
+     a62:	ff 4f       	sbci	r31, 0xFF	; 255
+     a64:	57 c3       	rjmp	.+1710   	; 0x1114 <__tablejump2__>
 				break;
 
 			case '2':
 				remote_color();		// 초소 장비 color LED 색 제어
-     aa2:	21 d1       	rcall	.+578    	; 0xce6 <sendMessage>
+     a66:	21 d1       	rcall	.+578    	; 0xcaa <sendMessage>
 				break;
-     aa4:	e9 cf       	rjmp	.-46     	; 0xa78 <main+0x2e>
+     a68:	e9 cf       	rjmp	.-46     	; 0xa3c <main+0x2e>
 
 			case '3':
 				clear_terminal();	// 터미널 콘솔창 화면 비우기
-     aa6:	5c d1       	rcall	.+696    	; 0xd60 <remote_color>
-     aa8:	e7 cf       	rjmp	.-50     	; 0xa78 <main+0x2e>
+     a6a:	d6 d1       	rcall	.+940    	; 0xe18 <remote_color>
+     a6c:	e7 cf       	rjmp	.-50     	; 0xa3c <main+0x2e>
 				break;
 
 			case '4':
 				Manage_Member();	//멤버관리(추가, 삭제)
-     aaa:	f4 d2       	rcall	.+1512   	; 0x1094 <clear_terminal>
-     aac:	e5 cf       	rjmp	.-54     	; 0xa78 <main+0x2e>
+     a6e:	12 d3       	rcall	.+1572   	; 0x1094 <clear_terminal>
+     a70:	e5 cf       	rjmp	.-54     	; 0xa3c <main+0x2e>
 				break;
 				
 
 			case '5':
 				print_list(root);	//root에 등록되있는 모든 인원 출력
-     aae:	aa d1       	rcall	.+852    	; 0xe04 <Manage_Member>
-     ab0:	e3 cf       	rjmp	.-58     	; 0xa78 <main+0x2e>
-     ab2:	80 91 70 05 	lds	r24, 0x0570	; 0x800570 <root>
-     ab6:	90 91 71 05 	lds	r25, 0x0571	; 0x800571 <root+0x1>
+     a72:	db d1       	rcall	.+950    	; 0xe2a <Manage_Member>
+     a74:	e3 cf       	rjmp	.-58     	; 0xa3c <main+0x2e>
+     a76:	80 91 66 05 	lds	r24, 0x0566	; 0x800566 <root>
+     a7a:	90 91 67 05 	lds	r25, 0x0567	; 0x800567 <root+0x1>
 				break;
-     aba:	75 de       	rcall	.-790    	; 0x7a6 <print_list>
+     a7e:	75 de       	rcall	.-790    	; 0x76a <print_list>
 
 			case '6':
 				system_toggle();	//멤버의 state 변경
-     abc:	dd cf       	rjmp	.-70     	; 0xa78 <main+0x2e>
-     abe:	da d1       	rcall	.+948    	; 0xe74 <system_toggle>
+     a80:	dd cf       	rjmp	.-70     	; 0xa3c <main+0x2e>
+     a82:	99 d1       	rcall	.+818    	; 0xdb6 <system_toggle>
 				break;
-     ac0:	db cf       	rjmp	.-74     	; 0xa78 <main+0x2e>
+     a84:	db cf       	rjmp	.-74     	; 0xa3c <main+0x2e>
 				
 			case '7':
 				USART0_str("\bchange pass? 1.yes, 2.no\r\n");
-     ac2:	85 e0       	ldi	r24, 0x05	; 5
-     ac4:	93 e0       	ldi	r25, 0x03	; 3
-     ac6:	ab d2       	rcall	.+1366   	; 0x101e <USART0_str>
+     a86:	87 ee       	ldi	r24, 0xE7	; 231
+     a88:	92 e0       	ldi	r25, 0x02	; 2
+     a8a:	c9 d2       	rcall	.+1426   	; 0x101e <USART0_str>
 				choiced = select(2);
-     ac8:	82 e0       	ldi	r24, 0x02	; 2
-     aca:	90 e0       	ldi	r25, 0x00	; 0
-     acc:	92 dd       	rcall	.-1244   	; 0x5f2 <select>
-     ace:	82 33       	cpi	r24, 0x32	; 50
+     a8c:	82 e0       	ldi	r24, 0x02	; 2
+     a8e:	90 e0       	ldi	r25, 0x00	; 0
+     a90:	a5 d1       	rcall	.+842    	; 0xddc <select>
+     a92:	82 33       	cpi	r24, 0x32	; 50
 				if(choiced == '2'){}
-     ad0:	99 f2       	breq	.-90     	; 0xa78 <main+0x2e>
-     ad2:	81 e0       	ldi	r24, 0x01	; 1
+     a94:	99 f2       	breq	.-90     	; 0xa3c <main+0x2e>
+     a96:	81 e0       	ldi	r24, 0x01	; 1
 				else{locked = 1;}
-     ad4:	90 e0       	ldi	r25, 0x00	; 0
-     ad6:	90 93 1f 01 	sts	0x011F, r25	; 0x80011f <locked+0x1>
-     ada:	80 93 1e 01 	sts	0x011E, r24	; 0x80011e <locked>
-     ade:	cc cf       	rjmp	.-104    	; 0xa78 <main+0x2e>
-     ae0:	81 e2       	ldi	r24, 0x21	; 33
+     a98:	90 e0       	ldi	r25, 0x00	; 0
+     a9a:	90 93 1f 01 	sts	0x011F, r25	; 0x80011f <locked+0x1>
+     a9e:	80 93 1e 01 	sts	0x011E, r24	; 0x80011e <locked>
+     aa2:	cc cf       	rjmp	.-104    	; 0xa3c <main+0x2e>
+     aa4:	83 e0       	ldi	r24, 0x03	; 3
 				break;
 
 			default:
-				USART0_str("Wrong choice! Enter only numbers in menu!");
-     ae2:	93 e0       	ldi	r25, 0x03	; 3
-     ae4:	9c d2       	rcall	.+1336   	; 0x101e <USART0_str>
-     ae6:	c8 cf       	rjmp	.-112    	; 0xa78 <main+0x2e>
+				USART0_str("Wrong choice! Enter only numbers in menu!\r\n");
+     aa6:	93 e0       	ldi	r25, 0x03	; 3
+     aa8:	ba d2       	rcall	.+1396   	; 0x101e <USART0_str>
+     aaa:	c8 cf       	rjmp	.-112    	; 0xa3c <main+0x2e>
 
-00000ae8 <keypad_Init>:
+00000aac <keypad_Init>:
 int rows = -1;
 int cols = -1;
 
 void keypad_Init()
 {
 	DDRA = 0xF0;		//상위 니블은 출력, 하위 니블은 입력
-     ae8:	80 ef       	ldi	r24, 0xF0	; 240
-     aea:	8a bb       	out	0x1a, r24	; 26
-     aec:	08 95       	ret
+     aac:	80 ef       	ldi	r24, 0xF0	; 240
+     aae:	8a bb       	out	0x1a, r24	; 26
+     ab0:	08 95       	ret
 
-00000aee <find_ROWS>:
+00000ab2 <find_ROWS>:
 }
 
 int find_ROWS(int temp)
 {
 	if ((temp & 0x01) == 1) return 0;
-     aee:	80 fd       	sbrc	r24, 0
-     af0:	09 c0       	rjmp	.+18     	; 0xb04 <find_ROWS+0x16>
+     ab2:	80 fd       	sbrc	r24, 0
+     ab4:	09 c0       	rjmp	.+18     	; 0xac8 <find_ROWS+0x16>
 	else if ((temp & 0x02) == 2) return 1;
-     af2:	81 fd       	sbrc	r24, 1
-     af4:	0a c0       	rjmp	.+20     	; 0xb0a <find_ROWS+0x1c>
+     ab6:	81 fd       	sbrc	r24, 1
+     ab8:	0a c0       	rjmp	.+20     	; 0xace <find_ROWS+0x1c>
 	else if ((temp & 0x04) == 4) return 2;
-     af6:	82 fd       	sbrc	r24, 2
-     af8:	0b c0       	rjmp	.+22     	; 0xb10 <find_ROWS+0x22>
+     aba:	82 fd       	sbrc	r24, 2
+     abc:	0b c0       	rjmp	.+22     	; 0xad4 <find_ROWS+0x22>
 	else if ((temp & 0x08) == 8) return 3;
-     afa:	83 ff       	sbrs	r24, 3
-     afc:	0c c0       	rjmp	.+24     	; 0xb16 <find_ROWS+0x28>
-     afe:	83 e0       	ldi	r24, 0x03	; 3
-     b00:	90 e0       	ldi	r25, 0x00	; 0
-     b02:	08 95       	ret
+     abe:	83 ff       	sbrs	r24, 3
+     ac0:	0c c0       	rjmp	.+24     	; 0xada <find_ROWS+0x28>
+     ac2:	83 e0       	ldi	r24, 0x03	; 3
+     ac4:	90 e0       	ldi	r25, 0x00	; 0
+     ac6:	08 95       	ret
 	DDRA = 0xF0;		//상위 니블은 출력, 하위 니블은 입력
 }
 
 int find_ROWS(int temp)
 {
 	if ((temp & 0x01) == 1) return 0;
-     b04:	80 e0       	ldi	r24, 0x00	; 0
-     b06:	90 e0       	ldi	r25, 0x00	; 0
-     b08:	08 95       	ret
+     ac8:	80 e0       	ldi	r24, 0x00	; 0
+     aca:	90 e0       	ldi	r25, 0x00	; 0
+     acc:	08 95       	ret
 	else if ((temp & 0x02) == 2) return 1;
-     b0a:	81 e0       	ldi	r24, 0x01	; 1
-     b0c:	90 e0       	ldi	r25, 0x00	; 0
-     b0e:	08 95       	ret
+     ace:	81 e0       	ldi	r24, 0x01	; 1
+     ad0:	90 e0       	ldi	r25, 0x00	; 0
+     ad2:	08 95       	ret
 	else if ((temp & 0x04) == 4) return 2;
-     b10:	82 e0       	ldi	r24, 0x02	; 2
-     b12:	90 e0       	ldi	r25, 0x00	; 0
-     b14:	08 95       	ret
+     ad4:	82 e0       	ldi	r24, 0x02	; 2
+     ad6:	90 e0       	ldi	r25, 0x00	; 0
+     ad8:	08 95       	ret
 	else if ((temp & 0x08) == 8) return 3;
 	else return -1;
-     b16:	8f ef       	ldi	r24, 0xFF	; 255
-     b18:	9f ef       	ldi	r25, 0xFF	; 255
+     ada:	8f ef       	ldi	r24, 0xFF	; 255
+     adc:	9f ef       	ldi	r25, 0xFF	; 255
 }
-     b1a:	08 95       	ret
+     ade:	08 95       	ret
 
-00000b1c <reset>:
+00000ae0 <reset>:
 
 void reset()
 {
 	rows = -1;
-     b1c:	8f ef       	ldi	r24, 0xFF	; 255
-     b1e:	9f ef       	ldi	r25, 0xFF	; 255
-     b20:	90 93 1d 01 	sts	0x011D, r25	; 0x80011d <rows+0x1>
-     b24:	80 93 1c 01 	sts	0x011C, r24	; 0x80011c <rows>
+     ae0:	8f ef       	ldi	r24, 0xFF	; 255
+     ae2:	9f ef       	ldi	r25, 0xFF	; 255
+     ae4:	90 93 1d 01 	sts	0x011D, r25	; 0x80011d <rows+0x1>
+     ae8:	80 93 1c 01 	sts	0x011C, r24	; 0x80011c <rows>
 	cols = -1;
-     b28:	90 93 1b 01 	sts	0x011B, r25	; 0x80011b <cols+0x1>
-     b2c:	80 93 1a 01 	sts	0x011A, r24	; 0x80011a <cols>
-     b30:	08 95       	ret
+     aec:	90 93 1b 01 	sts	0x011B, r25	; 0x80011b <cols+0x1>
+     af0:	80 93 1a 01 	sts	0x011A, r24	; 0x80011a <cols>
+     af4:	08 95       	ret
 
-00000b32 <findnumber>:
+00000af6 <findnumber>:
 }
 
 char findnumber()		// 입력된 문자의 행/렬 찾기용
 {
-     b32:	0f 93       	push	r16
-     b34:	1f 93       	push	r17
-     b36:	cf 93       	push	r28
-     b38:	df 93       	push	r29
+     af6:	0f 93       	push	r16
+     af8:	1f 93       	push	r17
+     afa:	cf 93       	push	r28
+     afc:	df 93       	push	r29
 	for (int i = 0; i < 3; i++)
-     b3a:	00 e0       	ldi	r16, 0x00	; 0
-     b3c:	10 e0       	ldi	r17, 0x00	; 0
-     b3e:	38 c0       	rjmp	.+112    	; 0xbb0 <findnumber+0x7e>
+     afe:	00 e0       	ldi	r16, 0x00	; 0
+     b00:	10 e0       	ldi	r17, 0x00	; 0
+     b02:	38 c0       	rjmp	.+112    	; 0xb74 <findnumber+0x7e>
 	{
 		PORTA |= (1 << (i + 4));
-     b40:	8b b3       	in	r24, 0x1b	; 27
-     b42:	98 01       	movw	r18, r16
-     b44:	2c 5f       	subi	r18, 0xFC	; 252
-     b46:	3f 4f       	sbci	r19, 0xFF	; 255
-     b48:	c1 e0       	ldi	r28, 0x01	; 1
-     b4a:	d0 e0       	ldi	r29, 0x00	; 0
-     b4c:	02 c0       	rjmp	.+4      	; 0xb52 <findnumber+0x20>
-     b4e:	cc 0f       	add	r28, r28
-     b50:	dd 1f       	adc	r29, r29
-     b52:	2a 95       	dec	r18
-     b54:	e2 f7       	brpl	.-8      	; 0xb4e <findnumber+0x1c>
-     b56:	8c 2b       	or	r24, r28
-     b58:	8b bb       	out	0x1b, r24	; 27
+     b04:	8b b3       	in	r24, 0x1b	; 27
+     b06:	98 01       	movw	r18, r16
+     b08:	2c 5f       	subi	r18, 0xFC	; 252
+     b0a:	3f 4f       	sbci	r19, 0xFF	; 255
+     b0c:	c1 e0       	ldi	r28, 0x01	; 1
+     b0e:	d0 e0       	ldi	r29, 0x00	; 0
+     b10:	02 c0       	rjmp	.+4      	; 0xb16 <findnumber+0x20>
+     b12:	cc 0f       	add	r28, r28
+     b14:	dd 1f       	adc	r29, r29
+     b16:	2a 95       	dec	r18
+     b18:	e2 f7       	brpl	.-8      	; 0xb12 <findnumber+0x1c>
+     b1a:	8c 2b       	or	r24, r28
+     b1c:	8b bb       	out	0x1b, r24	; 27
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
-     b5a:	48 e1       	ldi	r20, 0x18	; 24
-     b5c:	4a 95       	dec	r20
-     b5e:	f1 f7       	brne	.-4      	; 0xb5c <findnumber+0x2a>
-     b60:	00 c0       	rjmp	.+0      	; 0xb62 <findnumber+0x30>
+     b1e:	48 e1       	ldi	r20, 0x18	; 24
+     b20:	4a 95       	dec	r20
+     b22:	f1 f7       	brne	.-4      	; 0xb20 <findnumber+0x2a>
+     b24:	00 c0       	rjmp	.+0      	; 0xb26 <findnumber+0x30>
 		_delay_us(5);
 		temp = PINA;
-     b62:	89 b3       	in	r24, 0x19	; 25
-     b64:	90 e0       	ldi	r25, 0x00	; 0
-     b66:	90 93 73 05 	sts	0x0573, r25	; 0x800573 <temp+0x1>
-     b6a:	80 93 72 05 	sts	0x0572, r24	; 0x800572 <temp>
+     b26:	89 b3       	in	r24, 0x19	; 25
+     b28:	90 e0       	ldi	r25, 0x00	; 0
+     b2a:	90 93 69 05 	sts	0x0569, r25	; 0x800569 <temp+0x1>
+     b2e:	80 93 68 05 	sts	0x0568, r24	; 0x800568 <temp>
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
-     b6e:	8f ef       	ldi	r24, 0xFF	; 255
-     b70:	9f e8       	ldi	r25, 0x8F	; 143
-     b72:	01 97       	sbiw	r24, 0x01	; 1
-     b74:	f1 f7       	brne	.-4      	; 0xb72 <findnumber+0x40>
-     b76:	00 c0       	rjmp	.+0      	; 0xb78 <findnumber+0x46>
-     b78:	00 00       	nop
+     b32:	8f ef       	ldi	r24, 0xFF	; 255
+     b34:	9f e8       	ldi	r25, 0x8F	; 143
+     b36:	01 97       	sbiw	r24, 0x01	; 1
+     b38:	f1 f7       	brne	.-4      	; 0xb36 <findnumber+0x40>
+     b3a:	00 c0       	rjmp	.+0      	; 0xb3c <findnumber+0x46>
+     b3c:	00 00       	nop
 		_delay_ms(10);
 
 		if (((temp & 0x01) == 0x01) || ((temp & 0x02) == 0x02) || ((temp & 0x04) == 0x04) || ((temp & 0x08) == 0x08))
-     b7a:	80 91 72 05 	lds	r24, 0x0572	; 0x800572 <temp>
-     b7e:	90 91 73 05 	lds	r25, 0x0573	; 0x800573 <temp+0x1>
-     b82:	80 fd       	sbrc	r24, 0
-     b84:	06 c0       	rjmp	.+12     	; 0xb92 <findnumber+0x60>
-     b86:	81 fd       	sbrc	r24, 1
-     b88:	04 c0       	rjmp	.+8      	; 0xb92 <findnumber+0x60>
-     b8a:	82 fd       	sbrc	r24, 2
-     b8c:	02 c0       	rjmp	.+4      	; 0xb92 <findnumber+0x60>
-     b8e:	83 ff       	sbrs	r24, 3
-     b90:	09 c0       	rjmp	.+18     	; 0xba4 <findnumber+0x72>
+     b3e:	80 91 68 05 	lds	r24, 0x0568	; 0x800568 <temp>
+     b42:	90 91 69 05 	lds	r25, 0x0569	; 0x800569 <temp+0x1>
+     b46:	80 fd       	sbrc	r24, 0
+     b48:	06 c0       	rjmp	.+12     	; 0xb56 <findnumber+0x60>
+     b4a:	81 fd       	sbrc	r24, 1
+     b4c:	04 c0       	rjmp	.+8      	; 0xb56 <findnumber+0x60>
+     b4e:	82 fd       	sbrc	r24, 2
+     b50:	02 c0       	rjmp	.+4      	; 0xb56 <findnumber+0x60>
+     b52:	83 ff       	sbrs	r24, 3
+     b54:	09 c0       	rjmp	.+18     	; 0xb68 <findnumber+0x72>
 		{
 			rows = find_ROWS(temp);
-     b92:	ad df       	rcall	.-166    	; 0xaee <find_ROWS>
-     b94:	90 93 1d 01 	sts	0x011D, r25	; 0x80011d <rows+0x1>
-     b98:	80 93 1c 01 	sts	0x011C, r24	; 0x80011c <rows>
+     b56:	ad df       	rcall	.-166    	; 0xab2 <find_ROWS>
+     b58:	90 93 1d 01 	sts	0x011D, r25	; 0x80011d <rows+0x1>
+     b5c:	80 93 1c 01 	sts	0x011C, r24	; 0x80011c <rows>
 			cols = i;
-     b9c:	10 93 1b 01 	sts	0x011B, r17	; 0x80011b <cols+0x1>
-     ba0:	00 93 1a 01 	sts	0x011A, r16	; 0x80011a <cols>
+     b60:	10 93 1b 01 	sts	0x011B, r17	; 0x80011b <cols+0x1>
+     b64:	00 93 1a 01 	sts	0x011A, r16	; 0x80011a <cols>
 		}
 		PORTA &= ~(1 << (i + 4));
-     ba4:	8b b3       	in	r24, 0x1b	; 27
-     ba6:	c0 95       	com	r28
-     ba8:	c8 23       	and	r28, r24
-     baa:	cb bb       	out	0x1b, r28	; 27
+     b68:	8b b3       	in	r24, 0x1b	; 27
+     b6a:	c0 95       	com	r28
+     b6c:	c8 23       	and	r28, r24
+     b6e:	cb bb       	out	0x1b, r28	; 27
 	cols = -1;
 }
 
 char findnumber()		// 입력된 문자의 행/렬 찾기용
 {
 	for (int i = 0; i < 3; i++)
-     bac:	0f 5f       	subi	r16, 0xFF	; 255
-     bae:	1f 4f       	sbci	r17, 0xFF	; 255
-     bb0:	03 30       	cpi	r16, 0x03	; 3
-     bb2:	11 05       	cpc	r17, r1
-     bb4:	2c f2       	brlt	.-118    	; 0xb40 <findnumber+0xe>
+     b70:	0f 5f       	subi	r16, 0xFF	; 255
+     b72:	1f 4f       	sbci	r17, 0xFF	; 255
+     b74:	03 30       	cpi	r16, 0x03	; 3
+     b76:	11 05       	cpc	r17, r1
+     b78:	2c f2       	brlt	.-118    	; 0xb04 <findnumber+0xe>
 			cols = i;
 		}
 		PORTA &= ~(1 << (i + 4));
 	}
 
 	if ((rows == -1) || (cols == -1)) return '\0';
-     bb6:	80 91 1c 01 	lds	r24, 0x011C	; 0x80011c <rows>
-     bba:	90 91 1d 01 	lds	r25, 0x011D	; 0x80011d <rows+0x1>
-     bbe:	8f 3f       	cpi	r24, 0xFF	; 255
-     bc0:	2f ef       	ldi	r18, 0xFF	; 255
-     bc2:	92 07       	cpc	r25, r18
-     bc4:	a1 f0       	breq	.+40     	; 0xbee <findnumber+0xbc>
-     bc6:	20 91 1a 01 	lds	r18, 0x011A	; 0x80011a <cols>
-     bca:	30 91 1b 01 	lds	r19, 0x011B	; 0x80011b <cols+0x1>
-     bce:	2f 3f       	cpi	r18, 0xFF	; 255
-     bd0:	4f ef       	ldi	r20, 0xFF	; 255
-     bd2:	34 07       	cpc	r19, r20
-     bd4:	71 f0       	breq	.+28     	; 0xbf2 <findnumber+0xc0>
+     b7a:	80 91 1c 01 	lds	r24, 0x011C	; 0x80011c <rows>
+     b7e:	90 91 1d 01 	lds	r25, 0x011D	; 0x80011d <rows+0x1>
+     b82:	8f 3f       	cpi	r24, 0xFF	; 255
+     b84:	2f ef       	ldi	r18, 0xFF	; 255
+     b86:	92 07       	cpc	r25, r18
+     b88:	a1 f0       	breq	.+40     	; 0xbb2 <findnumber+0xbc>
+     b8a:	20 91 1a 01 	lds	r18, 0x011A	; 0x80011a <cols>
+     b8e:	30 91 1b 01 	lds	r19, 0x011B	; 0x80011b <cols+0x1>
+     b92:	2f 3f       	cpi	r18, 0xFF	; 255
+     b94:	4f ef       	ldi	r20, 0xFF	; 255
+     b96:	34 07       	cpc	r19, r20
+     b98:	71 f0       	breq	.+28     	; 0xbb6 <findnumber+0xc0>
 
 	return pads[rows][cols];
-     bd6:	ac 01       	movw	r20, r24
-     bd8:	44 0f       	add	r20, r20
-     bda:	55 1f       	adc	r21, r21
-     bdc:	84 0f       	add	r24, r20
-     bde:	95 1f       	adc	r25, r21
-     be0:	88 5a       	subi	r24, 0xA8	; 168
-     be2:	9c 4f       	sbci	r25, 0xFC	; 252
-     be4:	fc 01       	movw	r30, r24
-     be6:	e2 0f       	add	r30, r18
-     be8:	f3 1f       	adc	r31, r19
-     bea:	80 81       	ld	r24, Z
-     bec:	03 c0       	rjmp	.+6      	; 0xbf4 <findnumber+0xc2>
+     b9a:	ac 01       	movw	r20, r24
+     b9c:	44 0f       	add	r20, r20
+     b9e:	55 1f       	adc	r21, r21
+     ba0:	84 0f       	add	r24, r20
+     ba2:	95 1f       	adc	r25, r21
+     ba4:	84 5c       	subi	r24, 0xC4	; 196
+     ba6:	9c 4f       	sbci	r25, 0xFC	; 252
+     ba8:	fc 01       	movw	r30, r24
+     baa:	e2 0f       	add	r30, r18
+     bac:	f3 1f       	adc	r31, r19
+     bae:	80 81       	ld	r24, Z
+     bb0:	03 c0       	rjmp	.+6      	; 0xbb8 <findnumber+0xc2>
 			cols = i;
 		}
 		PORTA &= ~(1 << (i + 4));
 	}
 
 	if ((rows == -1) || (cols == -1)) return '\0';
-     bee:	80 e0       	ldi	r24, 0x00	; 0
-     bf0:	01 c0       	rjmp	.+2      	; 0xbf4 <findnumber+0xc2>
-     bf2:	80 e0       	ldi	r24, 0x00	; 0
+     bb2:	80 e0       	ldi	r24, 0x00	; 0
+     bb4:	01 c0       	rjmp	.+2      	; 0xbb8 <findnumber+0xc2>
+     bb6:	80 e0       	ldi	r24, 0x00	; 0
 
 	return pads[rows][cols];
 
 }
-     bf4:	df 91       	pop	r29
-     bf6:	cf 91       	pop	r28
-     bf8:	1f 91       	pop	r17
-     bfa:	0f 91       	pop	r16
-     bfc:	08 95       	ret
+     bb8:	df 91       	pop	r29
+     bba:	cf 91       	pop	r28
+     bbc:	1f 91       	pop	r17
+     bbe:	0f 91       	pop	r16
+     bc0:	08 95       	ret
 
-00000bfe <cp_pass>:
+00000bc2 <cp_pass>:
 
 
 
 int cp_pass(char str[])		//UART의 check_pass()로 인해 생성된 pass배열을 이 함수를 통해 비교
 {
-     bfe:	ef 92       	push	r14
-     c00:	ff 92       	push	r15
-     c02:	0f 93       	push	r16
-     c04:	1f 93       	push	r17
-     c06:	cf 93       	push	r28
-     c08:	df 93       	push	r29
-     c0a:	00 d0       	rcall	.+0      	; 0xc0c <cp_pass+0xe>
-     c0c:	00 d0       	rcall	.+0      	; 0xc0e <cp_pass+0x10>
-     c0e:	cd b7       	in	r28, 0x3d	; 61
-     c10:	de b7       	in	r29, 0x3e	; 62
-     c12:	7c 01       	movw	r14, r24
+     bc2:	ef 92       	push	r14
+     bc4:	ff 92       	push	r15
+     bc6:	0f 93       	push	r16
+     bc8:	1f 93       	push	r17
+     bca:	cf 93       	push	r28
+     bcc:	df 93       	push	r29
+     bce:	00 d0       	rcall	.+0      	; 0xbd0 <cp_pass+0xe>
+     bd0:	00 d0       	rcall	.+0      	; 0xbd2 <cp_pass+0x10>
+     bd2:	cd b7       	in	r28, 0x3d	; 61
+     bd4:	de b7       	in	r29, 0x3e	; 62
+     bd6:	7c 01       	movw	r14, r24
 	char arr[4];
 	for (int k = 0; k < 4; k++)
-     c14:	00 e0       	ldi	r16, 0x00	; 0
-     c16:	10 e0       	ldi	r17, 0x00	; 0
-     c18:	1d c0       	rjmp	.+58     	; 0xc54 <cp_pass+0x56>
+     bd8:	00 e0       	ldi	r16, 0x00	; 0
+     bda:	10 e0       	ldi	r17, 0x00	; 0
+     bdc:	1d c0       	rjmp	.+58     	; 0xc18 <cp_pass+0x56>
 		char key = '\0';
 
 		// 키 입력 대기 루프
 		while (key == '\0')
 		{
 			key = findnumber();
-     c1a:	8b df       	rcall	.-234    	; 0xb32 <findnumber>
-     c1c:	01 c0       	rjmp	.+2      	; 0xc20 <cp_pass+0x22>
-     c1e:	80 e0       	ldi	r24, 0x00	; 0
+     bde:	8b df       	rcall	.-234    	; 0xaf6 <findnumber>
+     be0:	01 c0       	rjmp	.+2      	; 0xbe4 <cp_pass+0x22>
+     be2:	80 e0       	ldi	r24, 0x00	; 0
 	for (int k = 0; k < 4; k++)
 	{
 		char key = '\0';
 
 		// 키 입력 대기 루프
 		while (key == '\0')
-     c20:	88 23       	and	r24, r24
-     c22:	d9 f3       	breq	.-10     	; 0xc1a <cp_pass+0x1c>
+     be4:	88 23       	and	r24, r24
+     be6:	d9 f3       	breq	.-10     	; 0xbde <cp_pass+0x1c>
 		{
 			key = findnumber();
 		}
 
 		arr[k] = key;
-     c24:	e1 e0       	ldi	r30, 0x01	; 1
-     c26:	f0 e0       	ldi	r31, 0x00	; 0
-     c28:	ec 0f       	add	r30, r28
-     c2a:	fd 1f       	adc	r31, r29
-     c2c:	e0 0f       	add	r30, r16
-     c2e:	f1 1f       	adc	r31, r17
-     c30:	80 83       	st	Z, r24
+     be8:	e1 e0       	ldi	r30, 0x01	; 1
+     bea:	f0 e0       	ldi	r31, 0x00	; 0
+     bec:	ec 0f       	add	r30, r28
+     bee:	fd 1f       	adc	r31, r29
+     bf0:	e0 0f       	add	r30, r16
+     bf2:	f1 1f       	adc	r31, r17
+     bf4:	80 83       	st	Z, r24
 		LCD_charout(0,k,arr[k]);
-     c32:	48 2f       	mov	r20, r24
-     c34:	b8 01       	movw	r22, r16
-     c36:	80 e0       	ldi	r24, 0x00	; 0
-     c38:	90 e0       	ldi	r25, 0x00	; 0
+     bf6:	48 2f       	mov	r20, r24
+     bf8:	b8 01       	movw	r22, r16
+     bfa:	80 e0       	ldi	r24, 0x00	; 0
+     bfc:	90 e0       	ldi	r25, 0x00	; 0
 		reset();
-     c3a:	00 df       	rcall	.-512    	; 0xa3c <LCD_charout>
-     c3c:	6f df       	rcall	.-290    	; 0xb1c <reset>
-     c3e:	2f ef       	ldi	r18, 0xFF	; 255
-     c40:	8f e7       	ldi	r24, 0x7F	; 127
-     c42:	94 e0       	ldi	r25, 0x04	; 4
-     c44:	21 50       	subi	r18, 0x01	; 1
-     c46:	80 40       	sbci	r24, 0x00	; 0
-     c48:	90 40       	sbci	r25, 0x00	; 0
-     c4a:	e1 f7       	brne	.-8      	; 0xc44 <cp_pass+0x46>
-     c4c:	00 c0       	rjmp	.+0      	; 0xc4e <cp_pass+0x50>
-     c4e:	00 00       	nop
+     bfe:	00 df       	rcall	.-512    	; 0xa00 <LCD_charout>
+     c00:	6f df       	rcall	.-290    	; 0xae0 <reset>
+     c02:	2f ef       	ldi	r18, 0xFF	; 255
+     c04:	8f e7       	ldi	r24, 0x7F	; 127
+     c06:	94 e0       	ldi	r25, 0x04	; 4
+     c08:	21 50       	subi	r18, 0x01	; 1
+     c0a:	80 40       	sbci	r24, 0x00	; 0
+     c0c:	90 40       	sbci	r25, 0x00	; 0
+     c0e:	e1 f7       	brne	.-8      	; 0xc08 <cp_pass+0x46>
+     c10:	00 c0       	rjmp	.+0      	; 0xc12 <cp_pass+0x50>
+     c12:	00 00       	nop
 
 
 int cp_pass(char str[])		//UART의 check_pass()로 인해 생성된 pass배열을 이 함수를 통해 비교
 {
 	char arr[4];
 	for (int k = 0; k < 4; k++)
-     c50:	0f 5f       	subi	r16, 0xFF	; 255
-     c52:	1f 4f       	sbci	r17, 0xFF	; 255
-     c54:	04 30       	cpi	r16, 0x04	; 4
-     c56:	11 05       	cpc	r17, r1
-     c58:	14 f3       	brlt	.-60     	; 0xc1e <cp_pass+0x20>
-     c5a:	80 e0       	ldi	r24, 0x00	; 0
-     c5c:	90 e0       	ldi	r25, 0x00	; 0
-     c5e:	2c c0       	rjmp	.+88     	; 0xcb8 <cp_pass+0xba>
+     c14:	0f 5f       	subi	r16, 0xFF	; 255
+     c16:	1f 4f       	sbci	r17, 0xFF	; 255
+     c18:	04 30       	cpi	r16, 0x04	; 4
+     c1a:	11 05       	cpc	r17, r1
+     c1c:	14 f3       	brlt	.-60     	; 0xbe2 <cp_pass+0x20>
+     c1e:	80 e0       	ldi	r24, 0x00	; 0
+     c20:	90 e0       	ldi	r25, 0x00	; 0
+     c22:	2c c0       	rjmp	.+88     	; 0xc7c <cp_pass+0xba>
 		_delay_ms(100);
 	}
 
 	for (int t = 0; t < 4; t++)
 	{
 		if (arr[t] != str[t]) {
-     c60:	e1 e0       	ldi	r30, 0x01	; 1
-     c62:	f0 e0       	ldi	r31, 0x00	; 0
-     c64:	ec 0f       	add	r30, r28
-     c66:	fd 1f       	adc	r31, r29
-     c68:	e8 0f       	add	r30, r24
-     c6a:	f9 1f       	adc	r31, r25
-     c6c:	30 81       	ld	r19, Z
-     c6e:	f7 01       	movw	r30, r14
-     c70:	e8 0f       	add	r30, r24
-     c72:	f9 1f       	adc	r31, r25
-     c74:	20 81       	ld	r18, Z
-     c76:	32 17       	cp	r19, r18
+     c24:	e1 e0       	ldi	r30, 0x01	; 1
+     c26:	f0 e0       	ldi	r31, 0x00	; 0
+     c28:	ec 0f       	add	r30, r28
+     c2a:	fd 1f       	adc	r31, r29
+     c2c:	e8 0f       	add	r30, r24
+     c2e:	f9 1f       	adc	r31, r25
+     c30:	30 81       	ld	r19, Z
+     c32:	f7 01       	movw	r30, r14
+     c34:	e8 0f       	add	r30, r24
+     c36:	f9 1f       	adc	r31, r25
+     c38:	20 81       	ld	r18, Z
+     c3a:	32 17       	cp	r19, r18
 
 			USART0_str(arr);
-     c78:	f1 f0       	breq	.+60     	; 0xcb6 <cp_pass+0xb8>
-     c7a:	ce 01       	movw	r24, r28
-     c7c:	01 96       	adiw	r24, 0x01	; 1
+     c3c:	f1 f0       	breq	.+60     	; 0xc7a <cp_pass+0xb8>
+     c3e:	ce 01       	movw	r24, r28
+     c40:	01 96       	adiw	r24, 0x01	; 1
 			USART0_str("is wrong! \r\n");
-     c7e:	cf d1       	rcall	.+926    	; 0x101e <USART0_str>
-     c80:	8b e4       	ldi	r24, 0x4B	; 75
-     c82:	93 e0       	ldi	r25, 0x03	; 3
-     c84:	cc d1       	rcall	.+920    	; 0x101e <USART0_str>
+     c42:	ed d1       	rcall	.+986    	; 0x101e <USART0_str>
+     c44:	8f e2       	ldi	r24, 0x2F	; 47
+     c46:	93 e0       	ldi	r25, 0x03	; 3
+     c48:	ea d1       	rcall	.+980    	; 0x101e <USART0_str>
 			for (int i = 0; i < 4; i++)
-     c86:	80 e0       	ldi	r24, 0x00	; 0
-     c88:	90 e0       	ldi	r25, 0x00	; 0
-     c8a:	08 c0       	rjmp	.+16     	; 0xc9c <cp_pass+0x9e>
+     c4a:	80 e0       	ldi	r24, 0x00	; 0
+     c4c:	90 e0       	ldi	r25, 0x00	; 0
+     c4e:	08 c0       	rjmp	.+16     	; 0xc60 <cp_pass+0x9e>
 			{
 				arr[i] = '\0';
-     c8c:	e1 e0       	ldi	r30, 0x01	; 1
-     c8e:	f0 e0       	ldi	r31, 0x00	; 0
-     c90:	ec 0f       	add	r30, r28
-     c92:	fd 1f       	adc	r31, r29
-     c94:	e8 0f       	add	r30, r24
-     c96:	f9 1f       	adc	r31, r25
-     c98:	10 82       	st	Z, r1
+     c50:	e1 e0       	ldi	r30, 0x01	; 1
+     c52:	f0 e0       	ldi	r31, 0x00	; 0
+     c54:	ec 0f       	add	r30, r28
+     c56:	fd 1f       	adc	r31, r29
+     c58:	e8 0f       	add	r30, r24
+     c5a:	f9 1f       	adc	r31, r25
+     c5c:	10 82       	st	Z, r1
 	{
 		if (arr[t] != str[t]) {
 
 			USART0_str(arr);
 			USART0_str("is wrong! \r\n");
 			for (int i = 0; i < 4; i++)
-     c9a:	01 96       	adiw	r24, 0x01	; 1
-     c9c:	84 30       	cpi	r24, 0x04	; 4
-     c9e:	91 05       	cpc	r25, r1
-     ca0:	ac f3       	brlt	.-22     	; 0xc8c <cp_pass+0x8e>
+     c5e:	01 96       	adiw	r24, 0x01	; 1
+     c60:	84 30       	cpi	r24, 0x04	; 4
+     c62:	91 05       	cpc	r25, r1
+     c64:	ac f3       	brlt	.-22     	; 0xc50 <cp_pass+0x8e>
 			{
 				arr[i] = '\0';
 			}
 			LCD_strout(0,0,"     ");
-     ca2:	40 ef       	ldi	r20, 0xF0	; 240
-     ca4:	54 e0       	ldi	r21, 0x04	; 4
-     ca6:	60 e0       	ldi	r22, 0x00	; 0
-     ca8:	70 e0       	ldi	r23, 0x00	; 0
-     caa:	80 e0       	ldi	r24, 0x00	; 0
-     cac:	90 e0       	ldi	r25, 0x00	; 0
-     cae:	95 de       	rcall	.-726    	; 0x9da <LCD_strout>
+     c66:	46 ee       	ldi	r20, 0xE6	; 230
+     c68:	54 e0       	ldi	r21, 0x04	; 4
+     c6a:	60 e0       	ldi	r22, 0x00	; 0
+     c6c:	70 e0       	ldi	r23, 0x00	; 0
+     c6e:	80 e0       	ldi	r24, 0x00	; 0
+     c70:	90 e0       	ldi	r25, 0x00	; 0
+     c72:	95 de       	rcall	.-726    	; 0x99e <LCD_strout>
 			return 0;
-     cb0:	80 e0       	ldi	r24, 0x00	; 0
-     cb2:	90 e0       	ldi	r25, 0x00	; 0
-     cb4:	0d c0       	rjmp	.+26     	; 0xcd0 <cp_pass+0xd2>
+     c74:	80 e0       	ldi	r24, 0x00	; 0
+     c76:	90 e0       	ldi	r25, 0x00	; 0
+     c78:	0d c0       	rjmp	.+26     	; 0xc94 <cp_pass+0xd2>
 		LCD_charout(0,k,arr[k]);
 		reset();
 		_delay_ms(100);
 	}
 
 	for (int t = 0; t < 4; t++)
-     cb6:	01 96       	adiw	r24, 0x01	; 1
-     cb8:	84 30       	cpi	r24, 0x04	; 4
-     cba:	91 05       	cpc	r25, r1
-     cbc:	8c f2       	brlt	.-94     	; 0xc60 <cp_pass+0x62>
+     c7a:	01 96       	adiw	r24, 0x01	; 1
+     c7c:	84 30       	cpi	r24, 0x04	; 4
+     c7e:	91 05       	cpc	r25, r1
+     c80:	8c f2       	brlt	.-94     	; 0xc24 <cp_pass+0x62>
 			LCD_strout(0,0,"     ");
 			return 0;
 		}
 	}
 	
 	LCD_strout(0,0,"     ");
-     cbe:	40 ef       	ldi	r20, 0xF0	; 240
-     cc0:	54 e0       	ldi	r21, 0x04	; 4
-     cc2:	60 e0       	ldi	r22, 0x00	; 0
-     cc4:	70 e0       	ldi	r23, 0x00	; 0
-     cc6:	80 e0       	ldi	r24, 0x00	; 0
-     cc8:	90 e0       	ldi	r25, 0x00	; 0
-     cca:	87 de       	rcall	.-754    	; 0x9da <LCD_strout>
+     c82:	46 ee       	ldi	r20, 0xE6	; 230
+     c84:	54 e0       	ldi	r21, 0x04	; 4
+     c86:	60 e0       	ldi	r22, 0x00	; 0
+     c88:	70 e0       	ldi	r23, 0x00	; 0
+     c8a:	80 e0       	ldi	r24, 0x00	; 0
+     c8c:	90 e0       	ldi	r25, 0x00	; 0
+     c8e:	87 de       	rcall	.-754    	; 0x99e <LCD_strout>
 	
 	return 1;
-     ccc:	81 e0       	ldi	r24, 0x01	; 1
-     cce:	90 e0       	ldi	r25, 0x00	; 0
+     c90:	81 e0       	ldi	r24, 0x01	; 1
+     c92:	90 e0       	ldi	r25, 0x00	; 0
 }
-     cd0:	0f 90       	pop	r0
-     cd2:	0f 90       	pop	r0
-     cd4:	0f 90       	pop	r0
-     cd6:	0f 90       	pop	r0
-     cd8:	df 91       	pop	r29
-     cda:	cf 91       	pop	r28
-     cdc:	1f 91       	pop	r17
-     cde:	0f 91       	pop	r16
-     ce0:	ff 90       	pop	r15
-     ce2:	ef 90       	pop	r14
-     ce4:	08 95       	ret
+     c94:	0f 90       	pop	r0
+     c96:	0f 90       	pop	r0
+     c98:	0f 90       	pop	r0
+     c9a:	0f 90       	pop	r0
+     c9c:	df 91       	pop	r29
+     c9e:	cf 91       	pop	r28
+     ca0:	1f 91       	pop	r17
+     ca2:	0f 91       	pop	r16
+     ca4:	ff 90       	pop	r15
+     ca6:	ef 90       	pop	r14
+     ca8:	08 95       	ret
 
-00000ce6 <sendMessage>:
+00000caa <sendMessage>:
 
 #include "system.h"
 
 
 void sendMessage()		//메뉴에서 1번 선택시 실행되는 함수
 {
-     ce6:	1f 93       	push	r17
-     ce8:	cf 93       	push	r28
-     cea:	df 93       	push	r29
+     caa:	1f 93       	push	r17
+     cac:	cf 93       	push	r28
+     cae:	df 93       	push	r29
 	Lock_int();			// 1번 사용동안 인터럽트 잠그기
-     cec:	7f dc       	rcall	.-1794   	; 0x5ec <Lock_int>
+     cb0:	9d dc       	rcall	.-1734   	; 0x5ec <Lock_int>
 	USART0_str("\r\nType your Message\r\n");
-     cee:	84 e6       	ldi	r24, 0x64	; 100
-     cf0:	93 e0       	ldi	r25, 0x03	; 3
+     cb2:	88 e4       	ldi	r24, 0x48	; 72
+     cb4:	93 e0       	ldi	r25, 0x03	; 3
 	LCD_Init();			// 아래 코드까지 합쳐서 MCU장비의 Text LED에 메시지 쿨력
-     cf2:	95 d1       	rcall	.+810    	; 0x101e <USART0_str>
-     cf4:	48 de       	rcall	.-880    	; 0x986 <LCD_Init>
+     cb6:	b3 d1       	rcall	.+870    	; 0x101e <USART0_str>
+     cb8:	48 de       	rcall	.-880    	; 0x94a <LCD_Init>
 	LCD_strout(1, 0, "Press 0 to Init");
-     cf6:	4b e5       	ldi	r20, 0x5B	; 91
-     cf8:	51 e0       	ldi	r21, 0x01	; 1
-     cfa:	60 e0       	ldi	r22, 0x00	; 0
-     cfc:	70 e0       	ldi	r23, 0x00	; 0
-     cfe:	81 e0       	ldi	r24, 0x01	; 1
-     d00:	90 e0       	ldi	r25, 0x00	; 0
-     d02:	6b de       	rcall	.-810    	; 0x9da <LCD_strout>
+     cba:	4b e5       	ldi	r20, 0x5B	; 91
+     cbc:	51 e0       	ldi	r21, 0x01	; 1
+     cbe:	60 e0       	ldi	r22, 0x00	; 0
+     cc0:	70 e0       	ldi	r23, 0x00	; 0
+     cc2:	81 e0       	ldi	r24, 0x01	; 1
+     cc4:	90 e0       	ldi	r25, 0x00	; 0
+     cc6:	6b de       	rcall	.-810    	; 0x99e <LCD_strout>
 
 	int index = 0;
-     d04:	c0 e0       	ldi	r28, 0x00	; 0
-     d06:	d0 e0       	ldi	r29, 0x00	; 0
+     cc8:	c0 e0       	ldi	r28, 0x00	; 0
+     cca:	d0 e0       	ldi	r29, 0x00	; 0
 	while (1)
 	{
 		while (Rflag == 0);
-     d08:	80 91 7f 05 	lds	r24, 0x057F	; 0x80057f <Rflag>
-     d0c:	88 23       	and	r24, r24
-     d0e:	e1 f3       	breq	.-8      	; 0xd08 <sendMessage+0x22>
+     ccc:	80 91 75 05 	lds	r24, 0x0575	; 0x800575 <Rflag>
+     cd0:	88 23       	and	r24, r24
+     cd2:	e1 f3       	breq	.-8      	; 0xccc <sendMessage+0x22>
 		char command = data;
-     d10:	10 91 80 05 	lds	r17, 0x0580	; 0x800580 <data>
+     cd4:	10 91 76 05 	lds	r17, 0x0576	; 0x800576 <data>
 		Rflag = 0;
-     d14:	10 92 7f 05 	sts	0x057F, r1	; 0x80057f <Rflag>
+     cd8:	10 92 75 05 	sts	0x0575, r1	; 0x800575 <Rflag>
 		LCD_pos(0, index);
-     d18:	6c 2f       	mov	r22, r28
-     d1a:	80 e0       	ldi	r24, 0x00	; 0
-     d1c:	24 de       	rcall	.-952    	; 0x966 <LCD_pos>
+     cdc:	6c 2f       	mov	r22, r28
+     cde:	80 e0       	ldi	r24, 0x00	; 0
+     ce0:	24 de       	rcall	.-952    	; 0x92a <LCD_pos>
 		if (command == '\r')  break;		// Enter 클릭시 '\r'을 읽게되고 이경우 break;
-     d1e:	1d 30       	cpi	r17, 0x0D	; 13
-     d20:	b9 f0       	breq	.+46     	; 0xd50 <sendMessage+0x6a>
+     ce2:	1d 30       	cpi	r17, 0x0D	; 13
+     ce4:	b9 f0       	breq	.+46     	; 0xd14 <sendMessage+0x6a>
 		// 백스페이스 사용시 터미널과 LCD에서 한칸씩 지우고 커서를 뒤로 한칸 되돌림
 		if (command == 8) { if (index > 0) { index--; LCD_charout(0, index, ' '); LCD_pos(0, index);  Serial_Send(' '); Serial_Send('\b'); }  continue; }
-     d22:	18 30       	cpi	r17, 0x08	; 8
-     d24:	89 f4       	brne	.+34     	; 0xd48 <sendMessage+0x62>
-     d26:	1c 16       	cp	r1, r28
-     d28:	1d 06       	cpc	r1, r29
-     d2a:	74 f7       	brge	.-36     	; 0xd08 <sendMessage+0x22>
-     d2c:	21 97       	sbiw	r28, 0x01	; 1
-     d2e:	40 e2       	ldi	r20, 0x20	; 32
-     d30:	be 01       	movw	r22, r28
-     d32:	80 e0       	ldi	r24, 0x00	; 0
-     d34:	90 e0       	ldi	r25, 0x00	; 0
-     d36:	82 de       	rcall	.-764    	; 0xa3c <LCD_charout>
-     d38:	6c 2f       	mov	r22, r28
-     d3a:	80 e0       	ldi	r24, 0x00	; 0
-     d3c:	14 de       	rcall	.-984    	; 0x966 <LCD_pos>
-     d3e:	80 e2       	ldi	r24, 0x20	; 32
-     d40:	4a d1       	rcall	.+660    	; 0xfd6 <Serial_Send>
-     d42:	88 e0       	ldi	r24, 0x08	; 8
-     d44:	48 d1       	rcall	.+656    	; 0xfd6 <Serial_Send>
+     ce6:	18 30       	cpi	r17, 0x08	; 8
+     ce8:	89 f4       	brne	.+34     	; 0xd0c <sendMessage+0x62>
+     cea:	1c 16       	cp	r1, r28
+     cec:	1d 06       	cpc	r1, r29
+     cee:	74 f7       	brge	.-36     	; 0xccc <sendMessage+0x22>
+     cf0:	21 97       	sbiw	r28, 0x01	; 1
+     cf2:	40 e2       	ldi	r20, 0x20	; 32
+     cf4:	be 01       	movw	r22, r28
+     cf6:	80 e0       	ldi	r24, 0x00	; 0
+     cf8:	90 e0       	ldi	r25, 0x00	; 0
+     cfa:	82 de       	rcall	.-764    	; 0xa00 <LCD_charout>
+     cfc:	6c 2f       	mov	r22, r28
+     cfe:	80 e0       	ldi	r24, 0x00	; 0
+     d00:	14 de       	rcall	.-984    	; 0x92a <LCD_pos>
+     d02:	80 e2       	ldi	r24, 0x20	; 32
+     d04:	68 d1       	rcall	.+720    	; 0xfd6 <Serial_Send>
+     d06:	88 e0       	ldi	r24, 0x08	; 8
+     d08:	66 d1       	rcall	.+716    	; 0xfd6 <Serial_Send>
 		LCD_CHAR(command);
-     d46:	e0 cf       	rjmp	.-64     	; 0xd08 <sendMessage+0x22>
-     d48:	81 2f       	mov	r24, r17
-     d4a:	fa dd       	rcall	.-1036   	; 0x940 <LCD_CHAR>
+     d0a:	e0 cf       	rjmp	.-64     	; 0xccc <sendMessage+0x22>
+     d0c:	81 2f       	mov	r24, r17
+     d0e:	fa dd       	rcall	.-1036   	; 0x904 <LCD_CHAR>
 		index++;
-     d4c:	21 96       	adiw	r28, 0x01	; 1
-     d4e:	dc cf       	rjmp	.-72     	; 0xd08 <sendMessage+0x22>
+     d10:	21 96       	adiw	r28, 0x01	; 1
+     d12:	dc cf       	rjmp	.-72     	; 0xccc <sendMessage+0x22>
 
 	}
 
 	//Lock_int()로 잠근 인터럽트 다시 활성화
 	Init_int();
-     d50:	46 dc       	rcall	.-1908   	; 0x5de <Init_int>
-     d52:	8a e7       	ldi	r24, 0x7A	; 122
+     d14:	64 dc       	rcall	.-1848   	; 0x5de <Init_int>
+     d16:	8e e5       	ldi	r24, 0x5E	; 94
 
 	USART0_str("\r\n\r\nReturn to Menu\r\n\r\n");
-     d54:	93 e0       	ldi	r25, 0x03	; 3
-     d56:	63 d1       	rcall	.+710    	; 0x101e <USART0_str>
-     d58:	df 91       	pop	r29
-     d5a:	cf 91       	pop	r28
+     d18:	93 e0       	ldi	r25, 0x03	; 3
+     d1a:	81 d1       	rcall	.+770    	; 0x101e <USART0_str>
+     d1c:	df 91       	pop	r29
+     d1e:	cf 91       	pop	r28
 }
-     d5c:	1f 91       	pop	r17
-     d5e:	08 95       	ret
+     d20:	1f 91       	pop	r17
+     d22:	08 95       	ret
 
-00000d60 <remote_color>:
-     d60:	21 da       	rcall	.-3006   	; 0x1a4 <Init_color>
-     d62:	81 e9       	ldi	r24, 0x91	; 145
+00000d24 <Init_system>:
+     d24:	11 ba       	out	0x11, r1	; 17
+     d26:	c1 dd       	rcall	.-1150   	; 0x8aa <PortInit>
+
+void Init_system()
+{
+	DDRD = 0x00;
+	PortInit();		// LCD용 초기 세팅
+	LCD_Init();		// LCD 화면 클리어
+     d28:	10 de       	rcall	.-992    	; 0x94a <LCD_Init>
+	keypad_Init();	// keypad용 초기 세팅
+     d2a:	c0 de       	rcall	.-640    	; 0xaac <keypad_Init>
+	Init_timer();	// 타이머용 초기세팅
+     d2c:	32 d1       	rcall	.+612    	; 0xf92 <Init_timer>
+	Init_cds();		// cds(광센서)용 초기세팅
+     d2e:	2b da       	rcall	.-2986   	; 0x186 <Init_cds>
+     d30:	56 dc       	rcall	.-1876   	; 0x5de <Init_int>
+	Init_int();		// 인터럽트용 초기세팅
+     d32:	45 c1       	rjmp	.+650    	; 0xfbe <Init_USART>
+     d34:	08 95       	ret
+
+00000d36 <system_loading>:
+	Init_USART();	// UART(하이퍼 터미널과 소통)용 초기 세팅함수
+     d36:	cf 93       	push	r28
+     d38:	df 93       	push	r29
+     d3a:	c0 e0       	ldi	r28, 0x00	; 0
+}
+
+void system_loading()
+{
+	for (int i = 0; i < 5; i++) {
+     d3c:	d0 e0       	ldi	r29, 0x00	; 0
+     d3e:	0c c0       	rjmp	.+24     	; 0xd58 <system_loading+0x22>
+		Serial_Send('=');
+     d40:	8d e3       	ldi	r24, 0x3D	; 61
+     d42:	49 d1       	rcall	.+658    	; 0xfd6 <Serial_Send>
+     d44:	2f ef       	ldi	r18, 0xFF	; 255
+     d46:	8f ef       	ldi	r24, 0xFF	; 255
+     d48:	98 e0       	ldi	r25, 0x08	; 8
+     d4a:	21 50       	subi	r18, 0x01	; 1
+     d4c:	80 40       	sbci	r24, 0x00	; 0
+     d4e:	90 40       	sbci	r25, 0x00	; 0
+     d50:	e1 f7       	brne	.-8      	; 0xd4a <system_loading+0x14>
+     d52:	00 c0       	rjmp	.+0      	; 0xd54 <system_loading+0x1e>
+     d54:	00 00       	nop
+	Init_USART();	// UART(하이퍼 터미널과 소통)용 초기 세팅함수
+}
+
+void system_loading()
+{
+	for (int i = 0; i < 5; i++) {
+     d56:	21 96       	adiw	r28, 0x01	; 1
+     d58:	c5 30       	cpi	r28, 0x05	; 5
+     d5a:	d1 05       	cpc	r29, r1
+     d5c:	8c f3       	brlt	.-30     	; 0xd40 <system_loading+0xa>
+		Serial_Send('=');
+		_delay_ms(200);
+	}
+	USART0_str("\r\n");
+     d5e:	82 e7       	ldi	r24, 0x72	; 114
+     d60:	93 e0       	ldi	r25, 0x03	; 3
+     d62:	5d d1       	rcall	.+698    	; 0x101e <USART0_str>
+}
+     d64:	df 91       	pop	r29
+     d66:	cf 91       	pop	r28
+     d68:	08 95       	ret
+
+00000d6a <login>:
+
+void login()
+{
+	check_pass();		// pass등록 함수. 4자리 숫자 제한
+     d6a:	a2 d1       	rcall	.+836    	; 0x10b0 <check_pass>
+	USART0_str("Enter password in repeater\r\n");
+     d6c:	85 e7       	ldi	r24, 0x75	; 117
+     d6e:	93 e0       	ldi	r25, 0x03	; 3
+     d70:	56 d1       	rcall	.+684    	; 0x101e <USART0_str>
+	while (1) {
+		cli();//pass를 인증하기 전까지 인터럽트 비활성화
+     d72:	f8 94       	cli
+		if (cp_pass(pass) == 1) { USART0_str("Correct pass!\r\n"); LCD_strout(1, 0, "ACCESS"); locked = 0; Init_buff(); break; } // 인증을 맞을 경우, 잠금 해제 + 쌓인 인터럽트 제거
+     d74:	80 e7       	ldi	r24, 0x70	; 112
+     d76:	95 e0       	ldi	r25, 0x05	; 5
+     d78:	24 df       	rcall	.-440    	; 0xbc2 <cp_pass>
+     d7a:	01 97       	sbiw	r24, 0x01	; 1
+     d7c:	89 f4       	brne	.+34     	; 0xda0 <login+0x36>
+     d7e:	82 e9       	ldi	r24, 0x92	; 146
+     d80:	93 e0       	ldi	r25, 0x03	; 3
+     d82:	4d d1       	rcall	.+666    	; 0x101e <USART0_str>
+     d84:	42 ea       	ldi	r20, 0xA2	; 162
+     d86:	53 e0       	ldi	r21, 0x03	; 3
+     d88:	60 e0       	ldi	r22, 0x00	; 0
+     d8a:	70 e0       	ldi	r23, 0x00	; 0
+     d8c:	81 e0       	ldi	r24, 0x01	; 1
+     d8e:	90 e0       	ldi	r25, 0x00	; 0
+     d90:	06 de       	rcall	.-1012   	; 0x99e <LCD_strout>
+     d92:	10 92 1f 01 	sts	0x011F, r1	; 0x80011f <locked+0x1>
+     d96:	10 92 1e 01 	sts	0x011E, r1	; 0x80011e <locked>
+     d9a:	4d d1       	rcall	.+666    	; 0x1036 <Init_buff>
+     d9c:	78 94       	sei
+		else { USART0_str("Wrong pass! retry\r\n"); LCD_strout(1, 0, "RETRY"); }
+			
+	}
+	sei();
+     d9e:	08 95       	ret
+}
+     da0:	89 ea       	ldi	r24, 0xA9	; 169
+	check_pass();		// pass등록 함수. 4자리 숫자 제한
+	USART0_str("Enter password in repeater\r\n");
+	while (1) {
+		cli();//pass를 인증하기 전까지 인터럽트 비활성화
+		if (cp_pass(pass) == 1) { USART0_str("Correct pass!\r\n"); LCD_strout(1, 0, "ACCESS"); locked = 0; Init_buff(); break; } // 인증을 맞을 경우, 잠금 해제 + 쌓인 인터럽트 제거
+		else { USART0_str("Wrong pass! retry\r\n"); LCD_strout(1, 0, "RETRY"); }
+     da2:	93 e0       	ldi	r25, 0x03	; 3
+     da4:	3c d1       	rcall	.+632    	; 0x101e <USART0_str>
+     da6:	4d eb       	ldi	r20, 0xBD	; 189
+     da8:	53 e0       	ldi	r21, 0x03	; 3
+     daa:	60 e0       	ldi	r22, 0x00	; 0
+     dac:	70 e0       	ldi	r23, 0x00	; 0
+     dae:	81 e0       	ldi	r24, 0x01	; 1
+     db0:	90 e0       	ldi	r25, 0x00	; 0
+     db2:	f5 dd       	rcall	.-1046   	; 0x99e <LCD_strout>
+     db4:	de cf       	rjmp	.-68     	; 0xd72 <login+0x8>
+
+00000db6 <system_toggle>:
+     db6:	83 ec       	ldi	r24, 0xC3	; 195
+			
+	}
+     db8:	93 e0       	ldi	r25, 0x03	; 3
+	}
+}
+
+void system_toggle()
+{
+	USART0_str("\b\r\n\r\n Who do you want to toggle?\r\n");
+     dba:	31 d1       	rcall	.+610    	; 0x101e <USART0_str>
+	USART0_str("\bEnter name : \r\n");
+     dbc:	86 ee       	ldi	r24, 0xE6	; 230
+     dbe:	93 e0       	ldi	r25, 0x03	; 3
+	receive_text();
+     dc0:	2e d1       	rcall	.+604    	; 0x101e <USART0_str>
+     dc2:	3e d1       	rcall	.+636    	; 0x1040 <receive_text>
+	Toggle(temp_name, root);	//root에서 temp_name(UART 전역 배열)의 state를 반전시킨다.
+     dc4:	60 91 66 05 	lds	r22, 0x0566	; 0x800566 <root>
+     dc8:	70 91 67 05 	lds	r23, 0x0567	; 0x800567 <root+0x1>
+     dcc:	87 e7       	ldi	r24, 0x77	; 119
+     dce:	95 e0       	ldi	r25, 0x05	; 5
+	reset_text();				//receive_text()로 받아온 temp_name배열을 '\0'으로 초기화시킴
+     dd0:	8d dc       	rcall	.-1766   	; 0x6ec <Toggle>
+     dd2:	54 d1       	rcall	.+680    	; 0x107c <reset_text>
+	USART0_str("\r\n secceed!\r\n");
+     dd4:	87 ef       	ldi	r24, 0xF7	; 247
+     dd6:	93 e0       	ldi	r25, 0x03	; 3
+     dd8:	22 c1       	rjmp	.+580    	; 0x101e <USART0_str>
+     dda:	08 95       	ret
+
+00000ddc <select>:
+     ddc:	cf 93       	push	r28
+	choiced = select(2);
+	return choiced;
+}
+
+char select(int max_sel)	// max_sel만큼의 선택지중 하나를 반환
+{
+     dde:	df 93       	push	r29
+     de0:	ec 01       	movw	r28, r24
+	char input;
+	
+	while (1)
+	{
+		while (Rflag == 0);
+     de2:	80 91 75 05 	lds	r24, 0x0575	; 0x800575 <Rflag>
+     de6:	88 23       	and	r24, r24
+     de8:	e1 f3       	breq	.-8      	; 0xde2 <select+0x6>
+		input = data;
+     dea:	80 91 76 05 	lds	r24, 0x0576	; 0x800576 <data>
+		
+		if (input < '1' || input > '0'+max_sel)
+     dee:	81 33       	cpi	r24, 0x31	; 49
+     df0:	40 f0       	brcs	.+16     	; 0xe02 <select+0x26>
+     df2:	28 2f       	mov	r18, r24
+     df4:	30 e0       	ldi	r19, 0x00	; 0
+     df6:	ae 01       	movw	r20, r28
+     df8:	40 5d       	subi	r20, 0xD0	; 208
+     dfa:	5f 4f       	sbci	r21, 0xFF	; 255
+     dfc:	42 17       	cp	r20, r18
+     dfe:	53 07       	cpc	r21, r19
+     e00:	34 f4       	brge	.+12     	; 0xe0e <select+0x32>
+		{
+			USART0_str("Wrong choice!\r\n");
+     e02:	85 e0       	ldi	r24, 0x05	; 5
+     e04:	94 e0       	ldi	r25, 0x04	; 4
+     e06:	0b d1       	rcall	.+534    	; 0x101e <USART0_str>
+			Rflag = 0;
+     e08:	10 92 75 05 	sts	0x0575, r1	; 0x800575 <Rflag>
+{
+	char input;
+	
+	while (1)
+	{
+		while (Rflag == 0);
+     e0c:	ea cf       	rjmp	.-44     	; 0xde2 <select+0x6>
+			
+			continue;
+		}
+		else
+		{
+			Rflag = 0;
+     e0e:	10 92 75 05 	sts	0x0575, r1	; 0x800575 <Rflag>
+			return input;
+		}
+	}
+
+}
+     e12:	df 91       	pop	r29
+     e14:	cf 91       	pop	r28
+     e16:	08 95       	ret
+
+00000e18 <remote_color>:
+
 // 메뉴에서 2번 누를 경우 실행되는 함수
 void remote_color()
 {
 	while (1) {
 		Init_color();
+     e18:	c5 d9       	rcall	.-3190   	; 0x1a4 <Init_color>
 		USART0_str("\r\nSelect color 1.Green 2.Yellow 3.RED\r\n");
-     d64:	93 e0       	ldi	r25, 0x03	; 3
-     d66:	5b d1       	rcall	.+694    	; 0x101e <USART0_str>
+     e1a:	85 e1       	ldi	r24, 0x15	; 21
+     e1c:	94 e0       	ldi	r25, 0x04	; 4
+     e1e:	ff d0       	rcall	.+510    	; 0x101e <USART0_str>
 		char command = select(3);
-     d68:	83 e0       	ldi	r24, 0x03	; 3
-     d6a:	90 e0       	ldi	r25, 0x00	; 0
+     e20:	83 e0       	ldi	r24, 0x03	; 3
+     e22:	90 e0       	ldi	r25, 0x00	; 0
 		change_color(command);
-     d6c:	42 dc       	rcall	.-1916   	; 0x5f2 <select>
-     d6e:	25 ca       	rjmp	.-2998   	; 0x1ba <change_color>
-     d70:	08 95       	ret
+     e24:	db df       	rcall	.-74     	; 0xddc <select>
+     e26:	c9 c9       	rjmp	.-3182   	; 0x1ba <change_color>
+     e28:	08 95       	ret
 
-00000d72 <Init_system>:
-	}
-}
-
-void Init_system()
-{
-	DDRD = 0x00;
-     d72:	11 ba       	out	0x11, r1	; 17
-	PortInit();		// LCD용 초기 세팅
-     d74:	b8 dd       	rcall	.-1168   	; 0x8e6 <PortInit>
-	LCD_Init();		// LCD 화면 클리어
-     d76:	07 de       	rcall	.-1010   	; 0x986 <LCD_Init>
-	keypad_Init();	// keypad용 초기 세팅
-     d78:	b7 de       	rcall	.-658    	; 0xae8 <keypad_Init>
-	Init_timer();	// 타이머용 초기세팅
-     d7a:	0b d1       	rcall	.+534    	; 0xf92 <Init_timer>
-	Init_cds();		// cds(광센서)용 초기세팅
-     d7c:	04 da       	rcall	.-3064   	; 0x186 <Init_cds>
-     d7e:	2f dc       	rcall	.-1954   	; 0x5de <Init_int>
-	Init_int();		// 인터럽트용 초기세팅
-     d80:	1e c1       	rjmp	.+572    	; 0xfbe <Init_USART>
-     d82:	08 95       	ret
-
-00000d84 <system_loading>:
-	Init_USART();	// UART(하이퍼 터미널과 소통)용 초기 세팅함수
-     d84:	cf 93       	push	r28
-     d86:	df 93       	push	r29
-     d88:	c0 e0       	ldi	r28, 0x00	; 0
-}
-
-void system_loading()
-{
-	for (int i = 0; i < 5; i++) {
-     d8a:	d0 e0       	ldi	r29, 0x00	; 0
-     d8c:	0c c0       	rjmp	.+24     	; 0xda6 <system_loading+0x22>
-		Serial_Send('=');
-     d8e:	8d e3       	ldi	r24, 0x3D	; 61
-     d90:	22 d1       	rcall	.+580    	; 0xfd6 <Serial_Send>
-     d92:	2f ef       	ldi	r18, 0xFF	; 255
-     d94:	8f ef       	ldi	r24, 0xFF	; 255
-     d96:	98 e0       	ldi	r25, 0x08	; 8
-     d98:	21 50       	subi	r18, 0x01	; 1
-     d9a:	80 40       	sbci	r24, 0x00	; 0
-     d9c:	90 40       	sbci	r25, 0x00	; 0
-     d9e:	e1 f7       	brne	.-8      	; 0xd98 <system_loading+0x14>
-     da0:	00 c0       	rjmp	.+0      	; 0xda2 <system_loading+0x1e>
-     da2:	00 00       	nop
-	Init_USART();	// UART(하이퍼 터미널과 소통)용 초기 세팅함수
-}
-
-void system_loading()
-{
-	for (int i = 0; i < 5; i++) {
-     da4:	21 96       	adiw	r28, 0x01	; 1
-     da6:	c5 30       	cpi	r28, 0x05	; 5
-     da8:	d1 05       	cpc	r29, r1
-     daa:	8c f3       	brlt	.-30     	; 0xd8e <system_loading+0xa>
-		Serial_Send('=');
-		_delay_ms(200);
-	}
-	USART0_str("\r\n");
-     dac:	8e e8       	ldi	r24, 0x8E	; 142
-     dae:	93 e0       	ldi	r25, 0x03	; 3
-     db0:	36 d1       	rcall	.+620    	; 0x101e <USART0_str>
-}
-     db2:	df 91       	pop	r29
-     db4:	cf 91       	pop	r28
-     db6:	08 95       	ret
-
-00000db8 <login>:
-
-void login()
-{
-	check_pass();		// pass등록 함수. 4자리 숫자 제한
-     db8:	7b d1       	rcall	.+758    	; 0x10b0 <check_pass>
-	USART0_str("Enter password in repeater\r\n");
-     dba:	89 eb       	ldi	r24, 0xB9	; 185
-     dbc:	93 e0       	ldi	r25, 0x03	; 3
-     dbe:	2f d1       	rcall	.+606    	; 0x101e <USART0_str>
-	while (1) {
-		cli();//pass를 인증하기 전까지 인터럽트 비활성화
-     dc0:	f8 94       	cli
-		if (cp_pass(pass) == 1) { USART0_str("Correct pass!"); LCD_strout(1, 0, "ACCESS"); locked = 0; Init_buff(); break; } // 인증을 맞을 경우, 잠금 해제 + 쌓인 인터럽트 제거
-     dc2:	8a e7       	ldi	r24, 0x7A	; 122
-     dc4:	95 e0       	ldi	r25, 0x05	; 5
-     dc6:	1b df       	rcall	.-458    	; 0xbfe <cp_pass>
-     dc8:	01 97       	sbiw	r24, 0x01	; 1
-     dca:	89 f4       	brne	.+34     	; 0xdee <login+0x36>
-     dcc:	86 ed       	ldi	r24, 0xD6	; 214
-     dce:	93 e0       	ldi	r25, 0x03	; 3
-     dd0:	26 d1       	rcall	.+588    	; 0x101e <USART0_str>
-     dd2:	44 ee       	ldi	r20, 0xE4	; 228
-     dd4:	53 e0       	ldi	r21, 0x03	; 3
-     dd6:	60 e0       	ldi	r22, 0x00	; 0
-     dd8:	70 e0       	ldi	r23, 0x00	; 0
-     dda:	81 e0       	ldi	r24, 0x01	; 1
-     ddc:	90 e0       	ldi	r25, 0x00	; 0
-     dde:	fd dd       	rcall	.-1030   	; 0x9da <LCD_strout>
-     de0:	10 92 1f 01 	sts	0x011F, r1	; 0x80011f <locked+0x1>
-     de4:	10 92 1e 01 	sts	0x011E, r1	; 0x80011e <locked>
-     de8:	26 d1       	rcall	.+588    	; 0x1036 <Init_buff>
-     dea:	78 94       	sei
-		else { USART0_str("Wrong pass! retry\r\n"); LCD_strout(1, 0, "RETRY"); }
-			
+00000e2a <Manage_Member>:
 	}
 	sei();
-     dec:	08 95       	ret
-}
-     dee:	8b ee       	ldi	r24, 0xEB	; 235
-	check_pass();		// pass등록 함수. 4자리 숫자 제한
-	USART0_str("Enter password in repeater\r\n");
-	while (1) {
-		cli();//pass를 인증하기 전까지 인터럽트 비활성화
-		if (cp_pass(pass) == 1) { USART0_str("Correct pass!"); LCD_strout(1, 0, "ACCESS"); locked = 0; Init_buff(); break; } // 인증을 맞을 경우, 잠금 해제 + 쌓인 인터럽트 제거
-		else { USART0_str("Wrong pass! retry\r\n"); LCD_strout(1, 0, "RETRY"); }
-     df0:	93 e0       	ldi	r25, 0x03	; 3
-     df2:	15 d1       	rcall	.+554    	; 0x101e <USART0_str>
-     df4:	4f ef       	ldi	r20, 0xFF	; 255
-     df6:	53 e0       	ldi	r21, 0x03	; 3
-     df8:	60 e0       	ldi	r22, 0x00	; 0
-     dfa:	70 e0       	ldi	r23, 0x00	; 0
-     dfc:	81 e0       	ldi	r24, 0x01	; 1
-     dfe:	90 e0       	ldi	r25, 0x00	; 0
-     e00:	ec dd       	rcall	.-1064   	; 0x9da <LCD_strout>
-     e02:	de cf       	rjmp	.-68     	; 0xdc0 <login+0x8>
-
-00000e04 <Manage_Member>:
-     e04:	cf 93       	push	r28
-			
-	}
-     e06:	85 e0       	ldi	r24, 0x05	; 5
 }
 
 void Manage_Member()
 {
+     e2a:	cf 93       	push	r28
 	char choiced = '0';
 	USART0_str("\b\r\n\r\nWhat do you want? 1. Add member, 2. Delete member\r\n");
-     e08:	94 e0       	ldi	r25, 0x04	; 4
-     e0a:	09 d1       	rcall	.+530    	; 0x101e <USART0_str>
+     e2c:	8d e3       	ldi	r24, 0x3D	; 61
+     e2e:	94 e0       	ldi	r25, 0x04	; 4
+     e30:	f6 d0       	rcall	.+492    	; 0x101e <USART0_str>
 	choiced = select(2);
-     e0c:	82 e0       	ldi	r24, 0x02	; 2
-     e0e:	90 e0       	ldi	r25, 0x00	; 0
-     e10:	f0 db       	rcall	.-2080   	; 0x5f2 <select>
-     e12:	c8 2f       	mov	r28, r24
+     e32:	82 e0       	ldi	r24, 0x02	; 2
+     e34:	90 e0       	ldi	r25, 0x00	; 0
+     e36:	d2 df       	rcall	.-92     	; 0xddc <select>
+     e38:	c8 2f       	mov	r28, r24
 	USART0_str("\b\r\nEnter name : \r\n");
-     e14:	8e e3       	ldi	r24, 0x3E	; 62
-     e16:	94 e0       	ldi	r25, 0x04	; 4
+     e3a:	86 e7       	ldi	r24, 0x76	; 118
+     e3c:	94 e0       	ldi	r25, 0x04	; 4
 	receive_text();	//UART.c에 만들어둔 전역변수 temp_name[20]에 텍스트 받기
-     e18:	02 d1       	rcall	.+516    	; 0x101e <USART0_str>
-     e1a:	12 d1       	rcall	.+548    	; 0x1040 <receive_text>
+     e3e:	ef d0       	rcall	.+478    	; 0x101e <USART0_str>
+     e40:	ff d0       	rcall	.+510    	; 0x1040 <receive_text>
 	if (choiced == '1')
-     e1c:	c1 33       	cpi	r28, 0x31	; 49
+     e42:	c1 33       	cpi	r28, 0x31	; 49
 	{
 		USART0_str("\b\r\nWhere is it? 1. in , 2. out \r\n");
-     e1e:	f9 f4       	brne	.+62     	; 0xe5e <Manage_Member+0x5a>
-     e20:	81 e5       	ldi	r24, 0x51	; 81
-     e22:	94 e0       	ldi	r25, 0x04	; 4
+     e44:	f9 f4       	brne	.+62     	; 0xe84 <Manage_Member+0x5a>
+     e46:	89 e8       	ldi	r24, 0x89	; 137
+     e48:	94 e0       	ldi	r25, 0x04	; 4
 		choiced = select(2);
-     e24:	fc d0       	rcall	.+504    	; 0x101e <USART0_str>
-     e26:	82 e0       	ldi	r24, 0x02	; 2
-     e28:	90 e0       	ldi	r25, 0x00	; 0
-     e2a:	e3 db       	rcall	.-2106   	; 0x5f2 <select>
+     e4a:	e9 d0       	rcall	.+466    	; 0x101e <USART0_str>
+     e4c:	82 e0       	ldi	r24, 0x02	; 2
+     e4e:	90 e0       	ldi	r25, 0x00	; 0
+     e50:	c5 df       	rcall	.-118    	; 0xddc <select>
 		if (choiced == '1') Enroll(temp_name, 1, root);			//In_out에 선언해둔 전역 객체 root를 통해 멤버 등록
-     e2c:	81 33       	cpi	r24, 0x31	; 49
-     e2e:	51 f4       	brne	.+20     	; 0xe44 <Manage_Member+0x40>
-     e30:	40 91 70 05 	lds	r20, 0x0570	; 0x800570 <root>
-     e34:	50 91 71 05 	lds	r21, 0x0571	; 0x800571 <root+0x1>
-     e38:	61 e0       	ldi	r22, 0x01	; 1
-     e3a:	70 e0       	ldi	r23, 0x00	; 0
-     e3c:	81 e8       	ldi	r24, 0x81	; 129
-     e3e:	95 e0       	ldi	r25, 0x05	; 5
-     e40:	10 dc       	rcall	.-2016   	; 0x662 <Enroll>
-     e42:	0b c0       	rjmp	.+22     	; 0xe5a <Manage_Member+0x56>
+     e52:	81 33       	cpi	r24, 0x31	; 49
+     e54:	51 f4       	brne	.+20     	; 0xe6a <Manage_Member+0x40>
+     e56:	40 91 66 05 	lds	r20, 0x0566	; 0x800566 <root>
+     e5a:	50 91 67 05 	lds	r21, 0x0567	; 0x800567 <root+0x1>
+     e5e:	61 e0       	ldi	r22, 0x01	; 1
+     e60:	70 e0       	ldi	r23, 0x00	; 0
+     e62:	87 e7       	ldi	r24, 0x77	; 119
+     e64:	95 e0       	ldi	r25, 0x05	; 5
+     e66:	df db       	rcall	.-2114   	; 0x626 <Enroll>
+     e68:	0b c0       	rjmp	.+22     	; 0xe80 <Manage_Member+0x56>
 		else if (choiced == '2') Enroll(temp_name, 0, root);
-     e44:	82 33       	cpi	r24, 0x32	; 50
-     e46:	49 f4       	brne	.+18     	; 0xe5a <Manage_Member+0x56>
-     e48:	40 91 70 05 	lds	r20, 0x0570	; 0x800570 <root>
-     e4c:	50 91 71 05 	lds	r21, 0x0571	; 0x800571 <root+0x1>
-     e50:	60 e0       	ldi	r22, 0x00	; 0
-     e52:	70 e0       	ldi	r23, 0x00	; 0
-     e54:	81 e8       	ldi	r24, 0x81	; 129
-     e56:	95 e0       	ldi	r25, 0x05	; 5
+     e6a:	82 33       	cpi	r24, 0x32	; 50
+     e6c:	49 f4       	brne	.+18     	; 0xe80 <Manage_Member+0x56>
+     e6e:	40 91 66 05 	lds	r20, 0x0566	; 0x800566 <root>
+     e72:	50 91 67 05 	lds	r21, 0x0567	; 0x800567 <root+0x1>
+     e76:	60 e0       	ldi	r22, 0x00	; 0
+     e78:	70 e0       	ldi	r23, 0x00	; 0
+     e7a:	87 e7       	ldi	r24, 0x77	; 119
+     e7c:	95 e0       	ldi	r25, 0x05	; 5
 
 		reset_text();
-     e58:	04 dc       	rcall	.-2040   	; 0x662 <Enroll>
-     e5a:	10 d1       	rcall	.+544    	; 0x107c <reset_text>
+     e7e:	d3 db       	rcall	.-2138   	; 0x626 <Enroll>
+     e80:	fd d0       	rcall	.+506    	; 0x107c <reset_text>
 	}
 	else if (choiced == '2')
-     e5c:	09 c0       	rjmp	.+18     	; 0xe70 <Manage_Member+0x6c>
-     e5e:	c2 33       	cpi	r28, 0x32	; 50
+     e82:	09 c0       	rjmp	.+18     	; 0xe96 <Manage_Member+0x6c>
+     e84:	c2 33       	cpi	r28, 0x32	; 50
 	{
 		Delete(temp_name, root);
-     e60:	39 f4       	brne	.+14     	; 0xe70 <Manage_Member+0x6c>
-     e62:	60 91 70 05 	lds	r22, 0x0570	; 0x800570 <root>
-     e66:	70 91 71 05 	lds	r23, 0x0571	; 0x800571 <root+0x1>
-     e6a:	81 e8       	ldi	r24, 0x81	; 129
-     e6c:	95 e0       	ldi	r25, 0x05	; 5
-     e6e:	27 dc       	rcall	.-1970   	; 0x6be <Delete>
+     e86:	39 f4       	brne	.+14     	; 0xe96 <Manage_Member+0x6c>
+     e88:	60 91 66 05 	lds	r22, 0x0566	; 0x800566 <root>
+     e8c:	70 91 67 05 	lds	r23, 0x0567	; 0x800567 <root+0x1>
+     e90:	87 e7       	ldi	r24, 0x77	; 119
+     e92:	95 e0       	ldi	r25, 0x05	; 5
+     e94:	f6 db       	rcall	.-2068   	; 0x682 <Delete>
 	}
 }
-     e70:	cf 91       	pop	r28
-     e72:	08 95       	ret
-
-00000e74 <system_toggle>:
-
-void system_toggle()
-{
-	USART0_str("\b\r\n\r\n Who do you want to toggle?\r\n");
-     e74:	83 e7       	ldi	r24, 0x73	; 115
-     e76:	94 e0       	ldi	r25, 0x04	; 4
-     e78:	d2 d0       	rcall	.+420    	; 0x101e <USART0_str>
-	USART0_str("\bEnter name : \r\n");
-     e7a:	86 e9       	ldi	r24, 0x96	; 150
-     e7c:	94 e0       	ldi	r25, 0x04	; 4
-	receive_text();
-     e7e:	cf d0       	rcall	.+414    	; 0x101e <USART0_str>
-     e80:	df d0       	rcall	.+446    	; 0x1040 <receive_text>
-	Toggle(temp_name, root);	//root에서 temp_name(UART 전역 배열)의 state를 반전시킨다.
-     e82:	60 91 70 05 	lds	r22, 0x0570	; 0x800570 <root>
-     e86:	70 91 71 05 	lds	r23, 0x0571	; 0x800571 <root+0x1>
-     e8a:	81 e8       	ldi	r24, 0x81	; 129
-     e8c:	95 e0       	ldi	r25, 0x05	; 5
-	reset_text();				//receive_text()로 받아온 temp_name배열을 '\0'으로 초기화시킴
-     e8e:	4c dc       	rcall	.-1896   	; 0x728 <Toggle>
-     e90:	f5 d0       	rcall	.+490    	; 0x107c <reset_text>
-	USART0_str("\r\n secceed!\r\n");
-     e92:	87 ea       	ldi	r24, 0xA7	; 167
-     e94:	94 e0       	ldi	r25, 0x04	; 4
-     e96:	c3 c0       	rjmp	.+390    	; 0x101e <USART0_str>
+     e96:	cf 91       	pop	r28
      e98:	08 95       	ret
 
 00000e9a <__vector_26>:
-     e9a:	1f 92       	push	r1
 int second = 0;
 int timer = 0;
 int wait_cnt = 0;
 
 ISR(TIMER3_COMPA_vect)			//3번 타이머 CTC모드 인터럽트 발생시 실행
 {
+     e9a:	1f 92       	push	r1
      e9c:	0f 92       	push	r0
      e9e:	0f b6       	in	r0, 0x3f	; 63
      ea0:	0f 92       	push	r0
@@ -2799,68 +2804,68 @@ ISR(TIMER3_COMPA_vect)			//3번 타이머 CTC모드 인터럽트 발생시 실�
      eca:	09 f4       	brne	.+2      	; 0xece <__vector_26+0x34>
      ecc:	42 c0       	rjmp	.+132    	; 0xf52 <__vector_26+0xb8>
 	timer_cnt++;
-     ece:	80 91 78 05 	lds	r24, 0x0578	; 0x800578 <timer_cnt>
-     ed2:	90 91 79 05 	lds	r25, 0x0579	; 0x800579 <timer_cnt+0x1>
+     ece:	80 91 6e 05 	lds	r24, 0x056E	; 0x80056e <timer_cnt>
+     ed2:	90 91 6f 05 	lds	r25, 0x056F	; 0x80056f <timer_cnt+0x1>
      ed6:	01 96       	adiw	r24, 0x01	; 1
-     ed8:	90 93 79 05 	sts	0x0579, r25	; 0x800579 <timer_cnt+0x1>
-     edc:	80 93 78 05 	sts	0x0578, r24	; 0x800578 <timer_cnt>
+     ed8:	90 93 6f 05 	sts	0x056F, r25	; 0x80056f <timer_cnt+0x1>
+     edc:	80 93 6e 05 	sts	0x056E, r24	; 0x80056e <timer_cnt>
 	
 	if (timer_cnt == 2)
      ee0:	02 97       	sbiw	r24, 0x02	; 2
      ee2:	b1 f4       	brne	.+44     	; 0xf10 <__vector_26+0x76>
 	{
 		timer_cnt = 0;
-     ee4:	10 92 79 05 	sts	0x0579, r1	; 0x800579 <timer_cnt+0x1>
-     ee8:	10 92 78 05 	sts	0x0578, r1	; 0x800578 <timer_cnt>
+     ee4:	10 92 6f 05 	sts	0x056F, r1	; 0x80056f <timer_cnt+0x1>
+     ee8:	10 92 6e 05 	sts	0x056E, r1	; 0x80056e <timer_cnt>
 		second++;
-     eec:	80 91 76 05 	lds	r24, 0x0576	; 0x800576 <second>
-     ef0:	90 91 77 05 	lds	r25, 0x0577	; 0x800577 <second+0x1>
+     eec:	80 91 6c 05 	lds	r24, 0x056C	; 0x80056c <second>
+     ef0:	90 91 6d 05 	lds	r25, 0x056D	; 0x80056d <second+0x1>
      ef4:	01 96       	adiw	r24, 0x01	; 1
-     ef6:	90 93 77 05 	sts	0x0577, r25	; 0x800577 <second+0x1>
-     efa:	80 93 76 05 	sts	0x0576, r24	; 0x800576 <second>
+     ef6:	90 93 6d 05 	sts	0x056D, r25	; 0x80056d <second+0x1>
+     efa:	80 93 6c 05 	sts	0x056C, r24	; 0x80056c <second>
 		wait_cnt++;
-     efe:	80 91 74 05 	lds	r24, 0x0574	; 0x800574 <wait_cnt>
-     f02:	90 91 75 05 	lds	r25, 0x0575	; 0x800575 <wait_cnt+0x1>
+     efe:	80 91 6a 05 	lds	r24, 0x056A	; 0x80056a <wait_cnt>
+     f02:	90 91 6b 05 	lds	r25, 0x056B	; 0x80056b <wait_cnt+0x1>
      f06:	01 96       	adiw	r24, 0x01	; 1
-     f08:	90 93 75 05 	sts	0x0575, r25	; 0x800575 <wait_cnt+0x1>
-     f0c:	80 93 74 05 	sts	0x0574, r24	; 0x800574 <wait_cnt>
+     f08:	90 93 6b 05 	sts	0x056B, r25	; 0x80056b <wait_cnt+0x1>
+     f0c:	80 93 6a 05 	sts	0x056A, r24	; 0x80056a <wait_cnt>
 	}
 	if(second == 35)
-     f10:	80 91 76 05 	lds	r24, 0x0576	; 0x800576 <second>
-     f14:	90 91 77 05 	lds	r25, 0x0577	; 0x800577 <second+0x1>
+     f10:	80 91 6c 05 	lds	r24, 0x056C	; 0x80056c <second>
+     f14:	90 91 6d 05 	lds	r25, 0x056D	; 0x80056d <second+0x1>
      f18:	83 97       	sbiw	r24, 0x23	; 35
      f1a:	71 f4       	brne	.+28     	; 0xf38 <__vector_26+0x9e>
 	{
 		LCD_strout(1,0, "                   ");
-     f1c:	42 ee       	ldi	r20, 0xE2	; 226
+     f1c:	48 ed       	ldi	r20, 0xD8	; 216
      f1e:	54 e0       	ldi	r21, 0x04	; 4
      f20:	60 e0       	ldi	r22, 0x00	; 0
      f22:	70 e0       	ldi	r23, 0x00	; 0
      f24:	81 e0       	ldi	r24, 0x01	; 1
      f26:	90 e0       	ldi	r25, 0x00	; 0
-     f28:	58 dd       	rcall	.-1360   	; 0x9da <LCD_strout>
+     f28:	3a dd       	rcall	.-1420   	; 0x99e <LCD_strout>
 		LCD_strout(1,0,"Check Please");
-     f2a:	46 ef       	ldi	r20, 0xF6	; 246
+     f2a:	4c ee       	ldi	r20, 0xEC	; 236
      f2c:	54 e0       	ldi	r21, 0x04	; 4
      f2e:	60 e0       	ldi	r22, 0x00	; 0
      f30:	70 e0       	ldi	r23, 0x00	; 0
      f32:	81 e0       	ldi	r24, 0x01	; 1
      f34:	90 e0       	ldi	r25, 0x00	; 0
-     f36:	51 dd       	rcall	.-1374   	; 0x9da <LCD_strout>
+     f36:	33 dd       	rcall	.-1434   	; 0x99e <LCD_strout>
 	}
 	if(second == 60)
-     f38:	80 91 76 05 	lds	r24, 0x0576	; 0x800576 <second>
-     f3c:	90 91 77 05 	lds	r25, 0x0577	; 0x800577 <second+0x1>
+     f38:	80 91 6c 05 	lds	r24, 0x056C	; 0x80056c <second>
+     f3c:	90 91 6d 05 	lds	r25, 0x056D	; 0x80056d <second+0x1>
      f40:	cc 97       	sbiw	r24, 0x3c	; 60
      f42:	39 f4       	brne	.+14     	; 0xf52 <__vector_26+0xb8>
 	{
 		USART0_str("\r\nrepeater no response\r\n");
-     f44:	83 e0       	ldi	r24, 0x03	; 3
-     f46:	95 e0       	ldi	r25, 0x05	; 5
+     f44:	89 ef       	ldi	r24, 0xF9	; 249
+     f46:	94 e0       	ldi	r25, 0x04	; 4
      f48:	6a d0       	rcall	.+212    	; 0x101e <USART0_str>
 		second = 0;
-     f4a:	10 92 77 05 	sts	0x0577, r1	; 0x800577 <second+0x1>
-     f4e:	10 92 76 05 	sts	0x0576, r1	; 0x800576 <second>
+     f4a:	10 92 6d 05 	sts	0x056D, r1	; 0x80056d <second+0x1>
+     f4e:	10 92 6c 05 	sts	0x056C, r1	; 0x80056c <second>
 	}
 
 	
@@ -2895,11 +2900,11 @@ void Init_time()		//타이머의 값들을 처음으로 되돌리는 함수
 	TCNT3L = 0x00;
      f7c:	10 92 88 00 	sts	0x0088, r1	; 0x800088 <__TEXT_REGION_LENGTH__+0x7e0088>
 	timer_cnt = 0;
-     f80:	10 92 79 05 	sts	0x0579, r1	; 0x800579 <timer_cnt+0x1>
-     f84:	10 92 78 05 	sts	0x0578, r1	; 0x800578 <timer_cnt>
+     f80:	10 92 6f 05 	sts	0x056F, r1	; 0x80056f <timer_cnt+0x1>
+     f84:	10 92 6e 05 	sts	0x056E, r1	; 0x80056e <timer_cnt>
 	second = 0;
-     f88:	10 92 77 05 	sts	0x0577, r1	; 0x800577 <second+0x1>
-     f8c:	10 92 76 05 	sts	0x0576, r1	; 0x800576 <second>
+     f88:	10 92 6d 05 	sts	0x056D, r1	; 0x80056d <second+0x1>
+     f8c:	10 92 6c 05 	sts	0x056C, r1	; 0x80056c <second>
      f90:	08 95       	ret
 
 00000f92 <Init_timer>:
@@ -2970,12 +2975,12 @@ void Init_timer()		// 타이머 초기 세팅 함수
      fee:	8f 93       	push	r24
      ff0:	9f 93       	push	r25
      ff2:	8c b1       	in	r24, 0x0c	; 12
-     ff4:	80 93 80 05 	sts	0x0580, r24	; 0x800580 <data>
+     ff4:	80 93 76 05 	sts	0x0576, r24	; 0x800576 <data>
      ff8:	8b b1       	in	r24, 0x0b	; 11
      ffa:	80 68       	ori	r24, 0x80	; 128
      ffc:	8b b9       	out	0x0b, r24	; 11
      ffe:	81 e0       	ldi	r24, 0x01	; 1
-    1000:	80 93 7f 05 	sts	0x057F, r24	; 0x80057f <Rflag>
+    1000:	80 93 75 05 	sts	0x0575, r24	; 0x800575 <Rflag>
     1004:	8f ef       	ldi	r24, 0xFF	; 255
     1006:	97 e4       	ldi	r25, 0x47	; 71
     1008:	01 97       	sbiw	r24, 0x01	; 1
@@ -3041,31 +3046,31 @@ void receive_text()
     1044:	83 31       	cpi	r24, 0x13	; 19
     1046:	91 05       	cpc	r25, r1
     1048:	24 f0       	brlt	.+8      	; 0x1052 <receive_text+0x12>
-    104a:	8c e1       	ldi	r24, 0x1C	; 28
+    104a:	82 e1       	ldi	r24, 0x12	; 18
     104c:	95 e0       	ldi	r25, 0x05	; 5
     104e:	e7 cf       	rjmp	.-50     	; 0x101e <USART0_str>
     1050:	08 95       	ret
 		
 		if (Rflag == 0) continue;
-    1052:	20 91 7f 05 	lds	r18, 0x057F	; 0x80057f <Rflag>
+    1052:	20 91 75 05 	lds	r18, 0x0575	; 0x800575 <Rflag>
     1056:	22 23       	and	r18, r18
     1058:	a9 f3       	breq	.-22     	; 0x1044 <receive_text+0x4>
 		char command = data;
-    105a:	20 91 80 05 	lds	r18, 0x0580	; 0x800580 <data>
+    105a:	20 91 76 05 	lds	r18, 0x0576	; 0x800576 <data>
 		Rflag = 0;
-    105e:	10 92 7f 05 	sts	0x057F, r1	; 0x80057f <Rflag>
+    105e:	10 92 75 05 	sts	0x0575, r1	; 0x800575 <Rflag>
 		if (command == '\r') {temp_name[i] = '\0'; break;}
     1062:	2d 30       	cpi	r18, 0x0D	; 13
     1064:	29 f4       	brne	.+10     	; 0x1070 <receive_text+0x30>
     1066:	fc 01       	movw	r30, r24
-    1068:	ef 57       	subi	r30, 0x7F	; 127
+    1068:	e9 58       	subi	r30, 0x89	; 137
     106a:	fa 4f       	sbci	r31, 0xFA	; 250
     106c:	10 82       	st	Z, r1
     106e:	08 95       	ret
 		
 		temp_name[i]=command;
     1070:	fc 01       	movw	r30, r24
-    1072:	ef 57       	subi	r30, 0x7F	; 127
+    1072:	e9 58       	subi	r30, 0x89	; 137
     1074:	fa 4f       	sbci	r31, 0xFA	; 250
     1076:	20 83       	st	Z, r18
 		i++;
@@ -3085,7 +3090,7 @@ void reset_text()
 	{
 		temp_name[i] = '\0';
     1082:	fc 01       	movw	r30, r24
-    1084:	ef 57       	subi	r30, 0x7F	; 127
+    1084:	e9 58       	subi	r30, 0x89	; 137
     1086:	fa 4f       	sbci	r31, 0xFA	; 250
     1088:	10 82       	st	Z, r1
 	}
@@ -3111,18 +3116,18 @@ void clear_terminal() {
     1094:	8b e1       	ldi	r24, 0x1B	; 27
     1096:	9f df       	rcall	.-194    	; 0xfd6 <Serial_Send>
 	USART0_str("[2J");    // 화면 클리어
-    1098:	8f e2       	ldi	r24, 0x2F	; 47
+    1098:	85 e2       	ldi	r24, 0x25	; 37
     109a:	95 e0       	ldi	r25, 0x05	; 5
     109c:	c0 df       	rcall	.-128    	; 0x101e <USART0_str>
 	Serial_Send(0x1B);    // ESC 문자 전송
     109e:	8b e1       	ldi	r24, 0x1B	; 27
     10a0:	9a df       	rcall	.-204    	; 0xfd6 <Serial_Send>
 	USART0_str("[H");     // 커서를 0,0으로
-    10a2:	83 e3       	ldi	r24, 0x33	; 51
+    10a2:	89 e2       	ldi	r24, 0x29	; 41
     10a4:	95 e0       	ldi	r25, 0x05	; 5
     10a6:	bb df       	rcall	.-138    	; 0x101e <USART0_str>
 	USART0_str("\r\n");
-    10a8:	8e e8       	ldi	r24, 0x8E	; 142
+    10a8:	82 e7       	ldi	r24, 0x72	; 114
     10aa:	93 e0       	ldi	r25, 0x03	; 3
     10ac:	b8 cf       	rjmp	.-144    	; 0x101e <USART0_str>
     10ae:	08 95       	ret
@@ -3139,7 +3144,7 @@ void check_pass()		//비밀번호 세팅용 함수.
 	clear_terminal();
     10b4:	ef df       	rcall	.-34     	; 0x1094 <clear_terminal>
 	USART0_str("\r\n\r\nEnter your pass\r\n");
-    10b6:	86 e3       	ldi	r24, 0x36	; 54
+    10b6:	8c e2       	ldi	r24, 0x2C	; 44
     10b8:	95 e0       	ldi	r25, 0x05	; 5
     10ba:	b1 df       	rcall	.-158    	; 0x101e <USART0_str>
 	for (int i = 0; i < 4; i++)
@@ -3149,20 +3154,20 @@ void check_pass()		//비밀번호 세팅용 함수.
 	{
 		while (1) {
 			if (Rflag == 0) continue;
-    10c2:	80 91 7f 05 	lds	r24, 0x057F	; 0x80057f <Rflag>
+    10c2:	80 91 75 05 	lds	r24, 0x0575	; 0x800575 <Rflag>
     10c6:	88 23       	and	r24, r24
     10c8:	e1 f3       	breq	.-8      	; 0x10c2 <check_pass+0x12>
 			if (data >= '0' && data <= '9') { pass[i] = data; Rflag = 0; break; }
-    10ca:	80 91 80 05 	lds	r24, 0x0580	; 0x800580 <data>
+    10ca:	80 91 76 05 	lds	r24, 0x0576	; 0x800576 <data>
     10ce:	90 ed       	ldi	r25, 0xD0	; 208
     10d0:	98 0f       	add	r25, r24
     10d2:	9a 30       	cpi	r25, 0x0A	; 10
     10d4:	40 f4       	brcc	.+16     	; 0x10e6 <check_pass+0x36>
     10d6:	fe 01       	movw	r30, r28
-    10d8:	e6 58       	subi	r30, 0x86	; 134
+    10d8:	e0 59       	subi	r30, 0x90	; 144
     10da:	fa 4f       	sbci	r31, 0xFA	; 250
     10dc:	80 83       	st	Z, r24
-    10de:	10 92 7f 05 	sts	0x057F, r1	; 0x80057f <Rflag>
+    10de:	10 92 75 05 	sts	0x0575, r1	; 0x800575 <Rflag>
 
 void check_pass()		//비밀번호 세팅용 함수.
 {
@@ -3176,8 +3181,8 @@ void check_pass()		//비밀번호 세팅용 함수.
 			if (Rflag == 0) continue;
 			if (data >= '0' && data <= '9') { pass[i] = data; Rflag = 0; break; }
 			else { Rflag = 0; USART0_str("\t input only number \r\n"); }
-    10e6:	10 92 7f 05 	sts	0x057F, r1	; 0x80057f <Rflag>
-    10ea:	8c e4       	ldi	r24, 0x4C	; 76
+    10e6:	10 92 75 05 	sts	0x0575, r1	; 0x800575 <Rflag>
+    10ea:	82 e4       	ldi	r24, 0x42	; 66
     10ec:	95 e0       	ldi	r25, 0x05	; 5
     10ee:	97 df       	rcall	.-210    	; 0x101e <USART0_str>
     10f0:	e8 cf       	rjmp	.-48     	; 0x10c2 <check_pass+0x12>
@@ -3196,17 +3201,17 @@ void check_pass()		//비밀번호 세팅용 함수.
 		}
 	}
 	pass[4] = '\0';
-    10f8:	10 92 7e 05 	sts	0x057E, r1	; 0x80057e <pass+0x4>
+    10f8:	10 92 74 05 	sts	0x0574, r1	; 0x800574 <pass+0x4>
 	USART0_str("\r\nset\t");
-    10fc:	83 e6       	ldi	r24, 0x63	; 99
+    10fc:	89 e5       	ldi	r24, 0x59	; 89
     10fe:	95 e0       	ldi	r25, 0x05	; 5
 	USART0_str(pass);
     1100:	8e df       	rcall	.-228    	; 0x101e <USART0_str>
-    1102:	8a e7       	ldi	r24, 0x7A	; 122
+    1102:	80 e7       	ldi	r24, 0x70	; 112
     1104:	95 e0       	ldi	r25, 0x05	; 5
 	USART0_str("\r\n");
     1106:	8b df       	rcall	.-234    	; 0x101e <USART0_str>
-    1108:	8e e8       	ldi	r24, 0x8E	; 142
+    1108:	82 e7       	ldi	r24, 0x72	; 114
     110a:	93 e0       	ldi	r25, 0x03	; 3
     110c:	88 df       	rcall	.-240    	; 0x101e <USART0_str>
 
@@ -3236,8 +3241,8 @@ void check_pass()		//비밀번호 세팅용 함수.
     1132:	10 f4       	brcc	.+4      	; 0x1138 <malloc+0x12>
     1134:	82 e0       	ldi	r24, 0x02	; 2
     1136:	90 e0       	ldi	r25, 0x00	; 0
-    1138:	e0 91 97 05 	lds	r30, 0x0597	; 0x800597 <__flp>
-    113c:	f0 91 98 05 	lds	r31, 0x0598	; 0x800598 <__flp+0x1>
+    1138:	e0 91 8d 05 	lds	r30, 0x058D	; 0x80058d <__flp>
+    113c:	f0 91 8e 05 	lds	r31, 0x058E	; 0x80058e <__flp+0x1>
     1140:	20 e0       	ldi	r18, 0x00	; 0
     1142:	30 e0       	ldi	r19, 0x00	; 0
     1144:	a0 e0       	ldi	r26, 0x00	; 0
@@ -3262,8 +3267,8 @@ void check_pass()		//비밀번호 세팅용 함수.
     116a:	13 96       	adiw	r26, 0x03	; 3
     116c:	1c 93       	st	X, r17
     116e:	27 c0       	rjmp	.+78     	; 0x11be <malloc+0x98>
-    1170:	00 93 97 05 	sts	0x0597, r16	; 0x800597 <__flp>
-    1174:	10 93 98 05 	sts	0x0598, r17	; 0x800598 <__flp+0x1>
+    1170:	00 93 8d 05 	sts	0x058D, r16	; 0x80058d <__flp>
+    1174:	10 93 8e 05 	sts	0x058E, r17	; 0x80058e <__flp+0x1>
     1178:	22 c0       	rjmp	.+68     	; 0x11be <malloc+0x98>
     117a:	21 15       	cp	r18, r1
     117c:	31 05       	cpc	r19, r1
@@ -3294,8 +3299,8 @@ void check_pass()		//비밀번호 세팅용 함수.
     11ae:	93 83       	std	Z+3, r25	; 0x03
     11b0:	82 83       	std	Z+2, r24	; 0x02
     11b2:	04 c0       	rjmp	.+8      	; 0x11bc <malloc+0x96>
-    11b4:	90 93 98 05 	sts	0x0598, r25	; 0x800598 <__flp+0x1>
-    11b8:	80 93 97 05 	sts	0x0597, r24	; 0x800597 <__flp>
+    11b4:	90 93 8e 05 	sts	0x058E, r25	; 0x80058e <__flp+0x1>
+    11b8:	80 93 8d 05 	sts	0x058D, r24	; 0x80058d <__flp>
     11bc:	fe 01       	movw	r30, r28
     11be:	32 96       	adiw	r30, 0x02	; 2
     11c0:	44 c0       	rjmp	.+136    	; 0x124a <malloc+0x124>
@@ -3309,14 +3314,14 @@ void check_pass()		//비밀번호 세팅용 함수.
     11d0:	39 83       	std	Y+1, r19	; 0x01
     11d2:	28 83       	st	Y, r18
     11d4:	3a c0       	rjmp	.+116    	; 0x124a <malloc+0x124>
-    11d6:	20 91 95 05 	lds	r18, 0x0595	; 0x800595 <__brkval>
-    11da:	30 91 96 05 	lds	r19, 0x0596	; 0x800596 <__brkval+0x1>
+    11d6:	20 91 8b 05 	lds	r18, 0x058B	; 0x80058b <__brkval>
+    11da:	30 91 8c 05 	lds	r19, 0x058C	; 0x80058c <__brkval+0x1>
     11de:	23 2b       	or	r18, r19
     11e0:	41 f4       	brne	.+16     	; 0x11f2 <malloc+0xcc>
     11e2:	20 91 02 01 	lds	r18, 0x0102	; 0x800102 <__malloc_heap_start>
     11e6:	30 91 03 01 	lds	r19, 0x0103	; 0x800103 <__malloc_heap_start+0x1>
-    11ea:	30 93 96 05 	sts	0x0596, r19	; 0x800596 <__brkval+0x1>
-    11ee:	20 93 95 05 	sts	0x0595, r18	; 0x800595 <__brkval>
+    11ea:	30 93 8c 05 	sts	0x058C, r19	; 0x80058c <__brkval+0x1>
+    11ee:	20 93 8b 05 	sts	0x058B, r18	; 0x80058b <__brkval>
     11f2:	20 91 00 01 	lds	r18, 0x0100	; 0x800100 <__DATA_REGION_ORIGIN__>
     11f6:	30 91 01 01 	lds	r19, 0x0101	; 0x800101 <__DATA_REGION_ORIGIN__+0x1>
     11fa:	21 15       	cp	r18, r1
@@ -3328,8 +3333,8 @@ void check_pass()		//비밀번호 세팅용 함수.
     1208:	50 91 05 01 	lds	r21, 0x0105	; 0x800105 <__malloc_margin+0x1>
     120c:	24 1b       	sub	r18, r20
     120e:	35 0b       	sbc	r19, r21
-    1210:	e0 91 95 05 	lds	r30, 0x0595	; 0x800595 <__brkval>
-    1214:	f0 91 96 05 	lds	r31, 0x0596	; 0x800596 <__brkval+0x1>
+    1210:	e0 91 8b 05 	lds	r30, 0x058B	; 0x80058b <__brkval>
+    1214:	f0 91 8c 05 	lds	r31, 0x058C	; 0x80058c <__brkval+0x1>
     1218:	e2 17       	cp	r30, r18
     121a:	f3 07       	cpc	r31, r19
     121c:	a0 f4       	brcc	.+40     	; 0x1246 <malloc+0x120>
@@ -3346,8 +3351,8 @@ void check_pass()		//비밀번호 세팅용 함수.
     1232:	48 f0       	brcs	.+18     	; 0x1246 <malloc+0x120>
     1234:	4e 0f       	add	r20, r30
     1236:	5f 1f       	adc	r21, r31
-    1238:	50 93 96 05 	sts	0x0596, r21	; 0x800596 <__brkval+0x1>
-    123c:	40 93 95 05 	sts	0x0595, r20	; 0x800595 <__brkval>
+    1238:	50 93 8c 05 	sts	0x058C, r21	; 0x80058c <__brkval+0x1>
+    123c:	40 93 8b 05 	sts	0x058B, r20	; 0x80058b <__brkval>
     1240:	81 93       	st	Z+, r24
     1242:	91 93       	st	Z+, r25
     1244:	02 c0       	rjmp	.+4      	; 0x124a <malloc+0x124>
@@ -3370,21 +3375,21 @@ void check_pass()		//비밀번호 세팅용 함수.
     1262:	32 97       	sbiw	r30, 0x02	; 2
     1264:	13 82       	std	Z+3, r1	; 0x03
     1266:	12 82       	std	Z+2, r1	; 0x02
-    1268:	a0 91 97 05 	lds	r26, 0x0597	; 0x800597 <__flp>
-    126c:	b0 91 98 05 	lds	r27, 0x0598	; 0x800598 <__flp+0x1>
+    1268:	a0 91 8d 05 	lds	r26, 0x058D	; 0x80058d <__flp>
+    126c:	b0 91 8e 05 	lds	r27, 0x058E	; 0x80058e <__flp+0x1>
     1270:	10 97       	sbiw	r26, 0x00	; 0
     1272:	81 f4       	brne	.+32     	; 0x1294 <free+0x3e>
     1274:	20 81       	ld	r18, Z
     1276:	31 81       	ldd	r19, Z+1	; 0x01
     1278:	82 0f       	add	r24, r18
     127a:	93 1f       	adc	r25, r19
-    127c:	20 91 95 05 	lds	r18, 0x0595	; 0x800595 <__brkval>
-    1280:	30 91 96 05 	lds	r19, 0x0596	; 0x800596 <__brkval+0x1>
+    127c:	20 91 8b 05 	lds	r18, 0x058B	; 0x80058b <__brkval>
+    1280:	30 91 8c 05 	lds	r19, 0x058C	; 0x80058c <__brkval+0x1>
     1284:	28 17       	cp	r18, r24
     1286:	39 07       	cpc	r19, r25
     1288:	51 f5       	brne	.+84     	; 0x12de <free+0x88>
-    128a:	f0 93 96 05 	sts	0x0596, r31	; 0x800596 <__brkval+0x1>
-    128e:	e0 93 95 05 	sts	0x0595, r30	; 0x800595 <__brkval>
+    128a:	f0 93 8c 05 	sts	0x058C, r31	; 0x80058c <__brkval+0x1>
+    128e:	e0 93 8b 05 	sts	0x058B, r30	; 0x80058b <__brkval>
     1292:	67 c0       	rjmp	.+206    	; 0x1362 <free+0x10c>
     1294:	ed 01       	movw	r28, r26
     1296:	20 e0       	ldi	r18, 0x00	; 0
@@ -3423,8 +3428,8 @@ void check_pass()		//비밀번호 세팅용 함수.
     12d8:	21 15       	cp	r18, r1
     12da:	31 05       	cpc	r19, r1
     12dc:	29 f4       	brne	.+10     	; 0x12e8 <free+0x92>
-    12de:	f0 93 98 05 	sts	0x0598, r31	; 0x800598 <__flp+0x1>
-    12e2:	e0 93 97 05 	sts	0x0597, r30	; 0x800597 <__flp>
+    12de:	f0 93 8e 05 	sts	0x058E, r31	; 0x80058e <__flp+0x1>
+    12e2:	e0 93 8d 05 	sts	0x058D, r30	; 0x80058d <__flp>
     12e6:	3d c0       	rjmp	.+122    	; 0x1362 <free+0x10c>
     12e8:	e9 01       	movw	r28, r18
     12ea:	fb 83       	std	Y+3, r31	; 0x03
@@ -3467,20 +3472,20 @@ void check_pass()		//비밀번호 세팅용 함수.
     1334:	3f 4f       	sbci	r19, 0xFF	; 255
     1336:	82 0f       	add	r24, r18
     1338:	93 1f       	adc	r25, r19
-    133a:	20 91 95 05 	lds	r18, 0x0595	; 0x800595 <__brkval>
-    133e:	30 91 96 05 	lds	r19, 0x0596	; 0x800596 <__brkval+0x1>
+    133a:	20 91 8b 05 	lds	r18, 0x058B	; 0x80058b <__brkval>
+    133e:	30 91 8c 05 	lds	r19, 0x058C	; 0x80058c <__brkval+0x1>
     1342:	28 17       	cp	r18, r24
     1344:	39 07       	cpc	r19, r25
     1346:	69 f4       	brne	.+26     	; 0x1362 <free+0x10c>
     1348:	30 97       	sbiw	r30, 0x00	; 0
     134a:	29 f4       	brne	.+10     	; 0x1356 <free+0x100>
-    134c:	10 92 98 05 	sts	0x0598, r1	; 0x800598 <__flp+0x1>
-    1350:	10 92 97 05 	sts	0x0597, r1	; 0x800597 <__flp>
+    134c:	10 92 8e 05 	sts	0x058E, r1	; 0x80058e <__flp+0x1>
+    1350:	10 92 8d 05 	sts	0x058D, r1	; 0x80058d <__flp>
     1354:	02 c0       	rjmp	.+4      	; 0x135a <free+0x104>
     1356:	13 82       	std	Z+3, r1	; 0x03
     1358:	12 82       	std	Z+2, r1	; 0x02
-    135a:	b0 93 96 05 	sts	0x0596, r27	; 0x800596 <__brkval+0x1>
-    135e:	a0 93 95 05 	sts	0x0595, r26	; 0x800595 <__brkval>
+    135a:	b0 93 8c 05 	sts	0x058C, r27	; 0x80058c <__brkval+0x1>
+    135e:	a0 93 8b 05 	sts	0x058B, r26	; 0x80058b <__brkval>
     1362:	df 91       	pop	r29
     1364:	cf 91       	pop	r28
     1366:	08 95       	ret

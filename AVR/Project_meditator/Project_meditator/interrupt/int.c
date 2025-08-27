@@ -95,28 +95,4 @@ void Lock_int()		//push button 비활성화
 	EIMSK &= ~(1 << INT0 | 1 << INT1 | 1 << INT2 | 1 << INT3 | 1 << INT4 | 1 << INT5 | 1 << INT6 | 1 << INT7);
 }
 
-char select(int max_sel)	// max_sel만큼의 선택지중 하나를 반환
-{
-	char input;
-	
-	while (1)
-	{
-		while (Rflag == 0);
-		input = data;
-		
-		if (input < '1' || input > '0'+max_sel)
-		{
-			USART0_str("Wrong choice!\r\n");
-			Rflag = 0;
-			
-			continue;
-		}
-		else
-		{
-			Rflag = 0;
-			return input;
-		}
-	}
-
-}
 

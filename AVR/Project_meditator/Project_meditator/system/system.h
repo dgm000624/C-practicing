@@ -32,6 +32,7 @@ void login();
 void Manage_Member();
 void system_toggle();
 char back();
+char select(int max_sel);	//버튼 인터럽트는 아니고 선택지 구분용 인터럽트
 
 
 
