@@ -82,6 +82,7 @@ void LCD_Init(void)
 	LCD_Clear();
 }
 
+#LCD에 문자를 출력함. 단, 기존 문자를 지우기 위해 공백을 먼저 출력
 void LCD_strout(int line, int location, char* message)
 {
 	char blank[] = "           ";
@@ -91,6 +92,7 @@ void LCD_strout(int line, int location, char* message)
 	LCD_STR((Byte*)message);
 }
 
+# LCD 원하는 위치에 한 문자만 출력함
 void LCD_charout(int line, int location, Byte message)
 {
 	LCD_pos(line, location);
