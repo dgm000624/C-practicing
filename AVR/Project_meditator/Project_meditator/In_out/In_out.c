@@ -15,6 +15,7 @@
 
 person* root = NULL;
 
+#특정 멤버 삭제시 포인터 정리용 함수
 void Clear_curr(person* curr)
 {
 	
@@ -25,6 +26,7 @@ void Clear_curr(person* curr)
 	curr->prev = NULL;
 }
 
+# name : 출입자명, state : 출입자의 안/밖 상태, head : 현재 출입자 목록의 첫번째 목록
 void Enroll(char name[], int state, person* head)
 {
 	person* enroll = (person*)malloc(sizeof(person));
@@ -48,6 +50,7 @@ void Enroll(char name[], int state, person* head)
 	enroll -> prev = curr;
 }
 
+# head 목록에서 name의 이름을 가진 인원을 찾고 삭제함함
 void Delete(char* name, person* head)
 {
 	person* curr;
@@ -79,6 +82,7 @@ void Delete(char* name, person* head)
 	return;
 }
 
+# 특정 인원의 이름을 찾아서 그사람의 상태(state)를 토글함함
 void Toggle(char* name, person* head)
 {
 	person* curr;
@@ -112,6 +116,7 @@ void Toggle(char* name, person* head)
 	return;
 }
 
+# 현재 리스트에 있는 모든 인원의 정보를 출력함함
 void print_list(person* head)
 {
 	if (head->next == NULL)
@@ -138,6 +143,7 @@ void print_list(person* head)
 	}
 }
 
+# Text LCD에 선택한 인원의 상태를 출력하는 함수
 int person_LCD(int index, person* head)
 {
 	person* curr = head->next;
